@@ -20,11 +20,6 @@ Plugin 'scrooloose/nerdtree.git'        " NERDTree
 " http://www.vim.org/scripts/script.php?script_id=2540
 Plugin 'snipMate'
 
-" vim indent guides
-" A Vim plugin for visually displaying indent levels in code
-Plugin 'nathanaelkane/vim-indent-guides'
-au VimEnter * IndentGuidesEnable
-
 " Color Schemes
 Plugin 'sjl/badwolf.git'
 Plugin 'vim-scripts/BusyBee.git'
