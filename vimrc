@@ -77,7 +77,7 @@ filetype plugin indent on    " use indentation scripts (required(?))
 " /------ MISC. BASICS --------------------------------------------------------/
 set mouse=a                 " enable mouse usage (all modes)
 set showcmd                 " show (partial) command in status line.
-set history=10    00        " extend command line history
+set history=1000            " extend command line history
 set autowrite               " automatically save before commands like :next:make
 set hidden                  " hide buffers when they are abandoned
 set nowrap                  " no linewrapping
