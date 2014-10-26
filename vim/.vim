@@ -1,0 +1,1 @@
+/home/spock/git/dotfiles/.vim
