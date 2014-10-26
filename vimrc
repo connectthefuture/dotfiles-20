@@ -22,13 +22,12 @@ Plugin 'snipMate'
 
 " vim indent guides
 " A Vim plugin for visually displaying indent levels in code
-"Plugin 'nathanaelkane/vim-indent-guides'
-"au VimEnter * IndentGuidesEnable
+Plugin 'nathanaelkane/vim-indent-guides'
+au VimEnter * IndentGuidesEnable
 
 " Color Schemes
 Plugin 'sjl/badwolf.git'
 Plugin 'vim-scripts/BusyBee.git'
-Plugin 'morhetz/gruvbox.git'
 Plugin 'w0ng/vim-hybrid.git'
 Plugin 'nanotech/jellybeans.vim.git'
 Plugin 'djjcast/mirodark.git'
