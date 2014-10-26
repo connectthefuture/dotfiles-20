@@ -2,27 +2,20 @@
 " properly set to work with the Vim-related packages available in Debian.
 runtime! debian.vim
 
-set nocompatible				" be iMproved, required
-filetype off					" required
-syntax enable					"
+set nocompatible				" be iMproved, required (?)
+filetype off					" required (?)
+syntax enable					" enable syntax highlighting
 
+" /------ VUNDLE and PLUGINS --------------------------------------------------/
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plugin 'gmarik/Vundle.vim'      " let Vundle manage Vundle, required
 
 " Keep Plugin commands between vundle#begin/end.
-
-
-" taglist för kod-navigering
-Plugin 'vim-scripts/taglist.vim.git'
-
-" NERDTree
-Plugin 'scrooloose/nerdtree.git'
+Plugin 'vim-scripts/taglist.vim.git'    " taglist för kod-navigering
+Plugin 'scrooloose/nerdtree.git'        " NERDTree
 " NERDTree ctrl+n keybind
 map <C-n> :NERDTreeToggle<CR>
 
@@ -97,42 +90,35 @@ filetype plugin indent on    " required
 "  filetype plugin indent on
 "endif
 
-" BASIC STUFF
-set showcmd			" Show (partial) command in status line.
-set showmatch		" Show matching brackets.
-set ignorecase		" Searches are case insensitive..
-set smartcase		" .. unless they contain at least one capital letter
-set hlsearch		" Highlight search
-set incsearch		" Incremental search, show results while typing.
-set cursorline      " Highlight current line
-set autowrite		" Automatically save before commands like :next and :make
-set hidden			" Hide buffers when they are abandoned
-set mouse=a			" Enable mouse usage (all modes)
-set number          " Show line numbers
-set nowrap          " No linewrapping
+" /------ MISC. BASICS --------------------------------------------------------/
+set mouse=a			" enable mouse usage (all modes)
+set showcmd			" show (partial) command in status line.
+set history=1000    " extend command line history
+set autowrite		" automatically save before commands like :next and :make
+set hidden			" hide buffers when they are abandoned
+set nowrap          " no linewrapping
+
+" /------ INDENTATION ---------------------------------------------------------/
+set autoindent
 set smartindent
-set tabstop=4
 set shiftwidth=4
-set expandtab       " Use spaces instead of tabs
-set ruler           " Show column and row in footer 
+set softtabstop=4
+set tabstop=4
+set expandtab           " use spaces instead of tabs
 
-" Source a global configuration file if available
-if filereadable("/etc/vim/vimrc.local")
-  source /etc/vim/vimrc.local
-endif
+" /------ SEARCH --------------------------------------------------------------/
+set hlsearch            " highlight search
+set ignorecase          " searches are case insensitive..
+set smartcase           " .. unless they contain at least one capital letter
+set incsearch           " incremental search, show results while typing.
 
-" easier moving of code blocks (Vim as Python IDE - Martin Brochhaus)
-vnoremap < <gv  " better indentation
-vnoremap > >gv  " better indentation
+" /------ VISUAL --------------------------------------------------------------/
+set cursorline          " highlight current line
+set number              " show line numbers
+set showmatch           " show matching brackets.
+set ruler               " show column and row in footer 
 
-" File type syntax highlighting
-au BufRead,BufNewFile *.ino set filetype=c
-au BufRead,BufNewFile *.md set filetype=markdown
-au BufRead,BufNewFile *.kicad_mod,*.kicad_pcb set filetype=lisp
-autocmd BufRead *.tab set filetype=tab
-
-" Add full file path to your existing statusline
-set laststatus=2
+set laststatus=2        " add full file path to your existing statusline
 "set statusline+=%F
 set statusline=
 set statusline+=%<\                       " cut at start
@@ -142,6 +128,14 @@ set statusline+=%=%1*%y%*%*\              " file type
 set statusline+=%10((%l,%c)%)\            " line and column
 set statusline+=%P                        " percentage of file
 
+" File type syntax highlighting
+au BufRead,BufNewFile *.ino set filetype=c                      " arduino
+au BufRead,BufNewFile *.md set filetype=markdown                " markdown
+au BufRead,BufNewFile *.kicad_mod,*.kicad_pcb set filetype=lisp " kicad
+autocmd BufRead *.tab set filetype=tab                          " guitar tabs
+
+" Display tabs and trailing spaces visually
+set list listchars=tab:\ \ ,trail:·
 
 " Highlight anthing after 80 chars with red
 match ErrorMsg '\%>80v.\+'
@@ -152,3 +146,19 @@ set t_Co=256
 " Color scheme
 syntax on
 colorscheme badwolf
+
+" Source a global configuration file if available
+"if filereadable("/etc/vim/vimrc.local")
+"  source /etc/vim/vimrc.local
+"endif
+
+" /------ KEYBINDINGS ---------------------------------------------------------/
+" easier moving of code blocks (Vim as Python IDE - Martin Brochhaus)
+vnoremap < <gv  " better indentation
+vnoremap > >gv  " better indentation
+
+" Ctrl-j/k deletes blank line below/above if it is blank, and Alt-j/k inserts.
+nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
+nnoremap <silent><C-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
+nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
+nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
