@@ -18,7 +18,7 @@ Plugin 'vim-scripts/taglist.vim.git'    " taglist för kod-navigering
 Plugin 'scrooloose/nerdtree.git'        " NERDTree
 " snipMate : TextMate-style snippets for Vim 
 " http://www.vim.org/scripts/script.php?script_id=2540
-Plugin 'snipMate'
+" Plugin 'snipMate'
 
 " Color Schemes
 Plugin 'sjl/badwolf.git'
