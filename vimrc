@@ -1,10 +1,11 @@
-" This line should not be removed as it ensures that various options are
-" properly set to work with the Vim-related packages available in Debian.
+" unmap in insert mode" This line should not be removed as it ensures that
+" various options are properly set to work with the Vim-related packages
+" available in Debian.
 runtime! debian.vim
 
-set nocompatible				" be iMproved, required (?)
-filetype off					" required (?)
-syntax enable					" enable syntax highlighting
+set nocompatible                " be iMproved, required (?)
+filetype off                    " required (?)
+syntax enable                   " enable syntax highlighting
 
 " /------ VUNDLE and PLUGINS --------------------------------------------------/
 " set the runtime path to include Vundle and initialize
@@ -81,6 +82,9 @@ set number                  " show line numbers
 set showmatch               " show matching brackets.
 set ruler                   " show column and row in footer 
 
+set list                    " show whitespace
+set listchars=tab:▸\ ,eol:¬
+
 set laststatus=2                " add full file path to your existing statusline
 "set statusline+=%F
 set statusline=
@@ -98,7 +102,6 @@ au BufRead,BufNewFile *.kicad_mod,*.kicad_pcb set filetype=lisp " kicad
 autocmd BufRead *.tab set filetype=tab                          " guitar tabs
 
 set t_Co=256                        " 256 color support
-set list listchars=tab:\ \ ,trail:· " Display tabs and trailing spaces visually
 match ErrorMsg '\%>80v.\+'          " Highlight anthing after 80 chars with red
 
 " Color scheme
@@ -117,4 +120,14 @@ nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
 nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 
 " Ctrl-n opens/closes NERDtree
-map <C-n> :NERDTreeToggle<CR>
+"map <C-n> :NERDTreeToggle<CR>
+
+" Unmap the arrow keys
+no <down> <Nop>
+no <left> <Nop>
+no <right> <Nop>
+no <up> <Nop>
+ino <down> <Nop>
+ino <left> <Nop>
+ino <right> <Nop>
+ino <up> <Nop>
