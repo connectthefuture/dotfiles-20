@@ -21,8 +21,6 @@ Plugin 'scrooloose/nerdtree.git'        " NERDTree
 " http://www.vim.org/scripts/script.php?script_id=2540
 " Plugin 'snipMate'
 
-Plugin 'atweiden/vim-vmath.git'         " Damien Conway's vmath
-
 " Color Schemes
 Plugin 'sjl/badwolf.git'
 Plugin 'vim-scripts/BusyBee.git'
