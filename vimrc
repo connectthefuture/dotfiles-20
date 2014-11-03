@@ -131,3 +131,9 @@ ino <down> <Nop>
 ino <left> <Nop>
 ino <right> <Nop>
 ino <up> <Nop>
+
+" Insert today's date
+":nnoremap <F5> "=strftime("%c")<CR>P
+":inoremap <F5> <C-R>=strftime("%c")<CR>
+:nnoremap <F5> "=strftime("%Y-%m-%d %a %H:%M")<CR>P
+:inoremap <F5> <C-R>=strftime("%Y-%m-%d %a %H:%M")<CR>
