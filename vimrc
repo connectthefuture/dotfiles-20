@@ -132,8 +132,16 @@ ino <left> <Nop>
 ino <right> <Nop>
 ino <up> <Nop>
 
-" Insert today's date
+" Insert todays date
 ":nnoremap <F5> "=strftime("%c")<CR>P
 ":inoremap <F5> <C-R>=strftime("%c")<CR>
 :nnoremap <F5> "=strftime("%Y-%m-%d %a %H:%M")<CR>P
 :inoremap <F5> <C-R>=strftime("%Y-%m-%d %a %H:%M")<CR>
+
+" Quick pairs
+" source: Shawn Biddle Vim Training Class 4 - http://youtu.be/2pqipq-UEwQ
+imap <leader>' ''<ESC>i
+imap <leader>" ""<ESC>i
+imap <leader>( ()<ESC>i
+imap <leader>[ []<ESC>i
+
