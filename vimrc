@@ -7,12 +7,6 @@ set nocompatible                " be iMproved, required (?)
 filetype off                    " required (?)
 syntax enable                   " enable syntax highlighting
 
-
-" /------ Powerline -------- --------------------------------------------------/
-set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
-"set laststatus=2
-"set t_Co=256
-
 " /------ VUNDLE and PLUGINS --------------------------------------------------/
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
