@@ -7,6 +7,12 @@ set nocompatible                " be iMproved, required (?)
 filetype off                    " required (?)
 syntax enable                   " enable syntax highlighting
 
+
+" /------ Powerline -------- --------------------------------------------------/
+set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
+"set laststatus=2
+"set t_Co=256
+
 " /------ VUNDLE and PLUGINS --------------------------------------------------/
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -87,13 +93,13 @@ set listchars=tab:▸\ ,eol:¬
 
 set laststatus=2                " add full file path to your existing statusline
 "set statusline+=%F
-set statusline=
-set statusline+=%<\                       " cut at start
-set statusline+=%2*[%n%H%M%R%W]%*\        " flags and buf no
-set statusline+=%-40f\                    " path
-set statusline+=%=%1*%y%*%*\              " file type
-set statusline+=%10((%l,%c)%)\            " line and column
-set statusline+=%P                        " percentage of file
+"set statusline=
+"set statusline+=%<\                       " cut at start
+"set statusline+=%2*[%n%H%M%R%W]%*\        " flags and buf no
+"set statusline+=%-40f\                    " path
+"set statusline+=%=%1*%y%*%*\              " file type
+"set statusline+=%10((%l,%c)%)\            " line and column
+"set statusline+=%P                        " percentage of file
 
 " File type syntax highlighting aliases
 au BufRead,BufNewFile *.ino set filetype=c                      " arduino
