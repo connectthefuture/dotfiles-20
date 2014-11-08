@@ -20,6 +20,7 @@ Plugin 'scrooloose/nerdtree.git'        " NERDTree
 " snipMate : TextMate-style snippets for Vim 
 " http://www.vim.org/scripts/script.php?script_id=2540
 " Plugin 'snipMate'
+Plugin 'bling/vim-airline'              " vim-airline
 
 " Color Schemes
 Plugin 'sjl/badwolf.git'
@@ -107,6 +108,9 @@ match ErrorMsg '\%>80v.\+'          " Highlight anthing after 80 chars with red
 " Color scheme
 syntax on
 colorscheme badwolf
+
+" Enable powerline fonts
+let g:airline_powerline_fonts = 1
 
 " /------ KEYBINDINGS ---------------------------------------------------------/
 " easier moving of code blocks (Vim as Python IDE - Martin Brochhaus)
