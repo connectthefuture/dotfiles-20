@@ -21,6 +21,7 @@ Plugin 'scrooloose/nerdtree.git'        " NERDTree
 " http://www.vim.org/scripts/script.php?script_id=2540
 " Plugin 'snipMate'
 Plugin 'bling/vim-airline'              " vim-airline
+Plugin 'kien/ctrlp.vim'                 " Full path fuzzy file/buffer/.. finder
 
 " Color Schemes
 Plugin 'sjl/badwolf.git'
@@ -125,6 +126,9 @@ nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 
 " Ctrl-n opens/closes NERDtree
 "map <C-n> :NERDTreeToggle<CR>
+
+" fuzzy search
+map <F2> :CtrlPMixed<CR>
 
 " Unmap the arrow keys
 no <down> <Nop>
