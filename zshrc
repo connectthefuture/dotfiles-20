@@ -85,3 +85,6 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias open="xdg-open"
+
+## set vi mode
+set -o vi
