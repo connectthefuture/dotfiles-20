@@ -8,9 +8,6 @@ export TERM="xterm-256color"
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="kardan"
-#ZSH_THEME="gianu"
-#ZSH_THEME="pmcgee"
 ZSH_THEME="jonas"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -61,11 +58,14 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/g
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
- export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
- # set default editor to vim
-export VISUAL=vim
-export EDITOR=vim
+# set default editor to vim
+export VISUAL="vim"
+export EDITOR="vim"
+
+## set vi mode
+set -o vi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -82,6 +82,3 @@ export EDITOR=vim
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias open="xdg-open"
-
-## set vi mode
-set -o vi
