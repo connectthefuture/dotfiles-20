@@ -114,3 +114,7 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# set default editor to vim
+export VISUAL=/usr/bin/vim
+export EDITOR=/usr/bin/vim
