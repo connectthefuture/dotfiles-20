@@ -135,3 +135,7 @@ imap <leader>{ {}<ESC>i
 
 " Strip all trailing whitespace in the current file
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+
+" Switch buffers
+noremap <C-l> :bnext<cr>
+noremap <C-h> :bprevious<cr>
