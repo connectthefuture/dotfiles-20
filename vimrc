@@ -41,6 +41,7 @@ set history=1000            " extend command line history
 set autowrite               " automatically save before commands like :next:make
 set hidden                  " hide buffers when they are abandoned
 set nowrap                  " no linewrapping
+set vb                      " visual bell I.E. no beeping
 
 " /------ INDENTATION ---------------------------------------------------------/
 set autoindent              " keep indentation from previous line
