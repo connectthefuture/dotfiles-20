@@ -24,22 +24,8 @@ Plugin 'bling/vim-airline'              " vim-airline
 Plugin 'kien/ctrlp.vim'                 " Full path fuzzy file/buffer/.. finder
 Plugin 'bling/vim-bufferline'           " show list of buffers in command bar
 
-
 " Color Schemes
 Plugin 'sjl/badwolf.git'
-Plugin 'vim-scripts/BusyBee.git'
-Plugin 'w0ng/vim-hybrid.git'
-Plugin 'nanotech/jellybeans.vim.git'
-Plugin 'djjcast/mirodark.git'
-Plugin 'tomasr/molokai.git'
-Plugin 'sickill/vim-monokai.git'
-Plugin 'jpo/vim-railscasts-theme.git'
-Plugin 'vim-scripts/twilight.git'
-Plugin 'jnurmine/Zenburn.git'
-
-" Color Scheme Scroller
-" After a Vim restart, type :SCROLL and use your arrow keys to preview themes.
-Plugin 'https://github.com/vim-scripts/ScrollColors'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
