@@ -22,6 +22,8 @@ Plugin 'scrooloose/nerdtree.git'        " NERDTree
 " Plugin 'snipMate'
 Plugin 'bling/vim-airline'              " vim-airline
 Plugin 'kien/ctrlp.vim'                 " Full path fuzzy file/buffer/.. finder
+Plugin 'bling/vim-bufferline'           " show list of buffers in command bar
+
 
 " Color Schemes
 Plugin 'sjl/badwolf.git'
