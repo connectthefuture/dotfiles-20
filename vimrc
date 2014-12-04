@@ -18,7 +18,6 @@ Plugin 'scrooloose/nerdtree.git'        " NERDTree
 " Plugin 'snipMate'
 Plugin 'bling/vim-airline'              " vim-airline
 Plugin 'kien/ctrlp.vim'                 " Full path fuzzy file/buffer/.. finder
-
 Plugin 'sjl/badwolf.git'                " Color Scheme
 call vundle#end()
 " /------ </PLUGINS> ----------------------------------------------------------/
