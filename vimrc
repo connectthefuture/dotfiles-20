@@ -3,47 +3,39 @@
 " available in Debian.
 runtime! debian.vim
 
-set nocompatible                " be iMproved, required (?)
-filetype off                    " required (?)
-syntax enable                   " enable syntax highlighting
 
-" /------ VUNDLE and PLUGINS --------------------------------------------------/
-" set the runtime path to include Vundle and initialize
+" /------ SETUP VUNDLE --------------------------------------------------------/
+" setup prereqs, include Vundle in runtime path and initialize
+set nocompatible
+filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
+
+" /------ <PLUGINS> -----------------------------------------------------------/
 call vundle#begin()
-
-Plugin 'gmarik/Vundle.vim'      " let Vundle manage Vundle, required
-
-" Keep Plugin commands between vundle#begin/end.
+Plugin 'gmarik/Vundle.vim'              " let Vundle manage Vundle, required
 Plugin 'vim-scripts/taglist.vim.git'    " taglist för kod-navigering
 Plugin 'scrooloose/nerdtree.git'        " NERDTree
-" snipMate : TextMate-style snippets for Vim
-" http://www.vim.org/scripts/script.php?script_id=2540
 " Plugin 'snipMate'
 Plugin 'bling/vim-airline'              " vim-airline
 Plugin 'kien/ctrlp.vim'                 " Full path fuzzy file/buffer/.. finder
 
-" Color Schemes
-Plugin 'sjl/badwolf.git'
+Plugin 'sjl/badwolf.git'                " Color Scheme
+call vundle#end()
+" /------ </PLUGINS> ----------------------------------------------------------/
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-
-filetype plugin indent on    " use indentation scripts (required(?))
-" To ignore plugin indent changes, instead use: filetype plugin on
-" Put your non-Plugin stuff after this line
-
+filetype plugin indent on               " use indentation scripts (required(?))
+                                        " To ignore plugin indent changes,
+                                        " instead use: filetype plugin on
 
 " /------ MISC. BASICS --------------------------------------------------------/
-" If using a dark background within the editing area and syntax highlighting
-" turn on this option as well
-" set background=dark
+syntax enable                           " enable syntax highlighting
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
 "if has("autocmd")
 "  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 "endif
+"
 set mouse=a                 " enable mouse usage (all modes)
 set showcmd                 " show (partial) command in status line.
 set history=1000            " extend command line history
@@ -148,3 +140,6 @@ imap <leader>{ {}<ESC>i
 
 " Strip all trailing whitespace in the current file
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+
+" Remap leader to § (key below ESC, above tab)
+let mapleader='§'
