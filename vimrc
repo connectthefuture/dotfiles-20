@@ -66,14 +66,6 @@ set list                    " show whitespace
 set listchars=tab:▸\ ,eol:¬
 
 set laststatus=2                " add full file path to your existing statusline
-"set statusline+=%F
-"set statusline=
-"set statusline+=%<\                       " cut at start
-"set statusline+=%2*[%n%H%M%R%W]%*\        " flags and buf no
-"set statusline+=%-40f\                    " path
-"set statusline+=%=%1*%y%*%*\              " file type
-"set statusline+=%10((%l,%c)%)\            " line and column
-"set statusline+=%P                        " percentage of file
 
 " File type syntax highlighting aliases
 au BufRead,BufNewFile *.ino set filetype=c                      " arduino
