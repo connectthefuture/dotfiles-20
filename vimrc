@@ -17,12 +17,11 @@ Plugin 'gmarik/Vundle.vim'      " let Vundle manage Vundle, required
 " Keep Plugin commands between vundle#begin/end.
 Plugin 'vim-scripts/taglist.vim.git'    " taglist för kod-navigering
 Plugin 'scrooloose/nerdtree.git'        " NERDTree
-" snipMate : TextMate-style snippets for Vim 
+" snipMate : TextMate-style snippets for Vim
 " http://www.vim.org/scripts/script.php?script_id=2540
 " Plugin 'snipMate'
 Plugin 'bling/vim-airline'              " vim-airline
 Plugin 'kien/ctrlp.vim'                 " Full path fuzzy file/buffer/.. finder
-Plugin 'bling/vim-bufferline'           " show list of buffers in command bar
 
 " Color Schemes
 Plugin 'sjl/badwolf.git'
@@ -55,7 +54,7 @@ set nowrap                  " no linewrapping
 " /------ INDENTATION ---------------------------------------------------------/
 set autoindent              " keep indentation from previous line
 set smartindent             " some automation, support for C-type files
-set expandtab               " always insert softtabstop amount of chars 
+set expandtab               " always insert softtabstop amount of chars
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
@@ -70,7 +69,7 @@ set incsearch               " incremental search, show results while typing.
 set cursorline              " highlight current line
 set number                  " show line numbers
 set showmatch               " show matching brackets.
-set ruler                   " show column and row in footer 
+set ruler                   " show column and row in footer
 
 set list                    " show whitespace
 set listchars=tab:▸\ ,eol:¬
@@ -100,6 +99,11 @@ colorscheme badwolf
 
 " Enable powerline fonts
 let g:airline_powerline_fonts = 1
+
+" Enable enhanced tabline
+let g:airline#extensions#tabline#enabled = 1
+
+
 
 " /------ KEYBINDINGS ---------------------------------------------------------/
 " easier moving of code blocks (Vim as Python IDE - Martin Brochhaus)
@@ -141,3 +145,5 @@ imap <leader>" ""<ESC>i
 imap <leader>( ()<ESC>i
 imap <leader>[ []<ESC>i
 
+" Strip all trailing whitespace in the current file
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
