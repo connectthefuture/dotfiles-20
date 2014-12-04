@@ -87,8 +87,11 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
 
-
 " /------ KEYBINDINGS ---------------------------------------------------------/
+" Remap leader to § (key below ESC, above tab)
+let mapleader='§'
+let leader='§'
+
 " easier moving of code blocks (Vim as Python IDE - Martin Brochhaus)
 vnoremap < <gv  " better indentation
 vnoremap > >gv  " better indentation
@@ -100,7 +103,7 @@ nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
 nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 
 " Ctrl-n opens/closes NERDtree
-"map <C-n> :NERDTreeToggle<CR>
+map <leader>n :NERDTreeToggle<CR>
 
 " fuzzy search
 map <F2> :CtrlPMixed<CR>
@@ -131,6 +134,3 @@ imap <leader>{ {}<ESC>i
 
 " Strip all trailing whitespace in the current file
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
-
-" Remap leader to § (key below ESC, above tab)
-let mapleader='§'
