@@ -109,6 +109,8 @@ match ErrorMsg '\%>80v.\+'          " Highlight anthing after 80 chars with red
 " Color scheme
 syntax on
 colorscheme badwolf
+hi Normal ctermbg=NONE
+hi Normal guibg=NONE
 
 " Enable powerline fonts
 let g:airline_powerline_fonts = 1
