@@ -81,3 +81,5 @@ set -o vi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias open="xdg-open"
+
+setopt INTERACTIVE_COMMENTS         # treat hash characters as comment delimiter
