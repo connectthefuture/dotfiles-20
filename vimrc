@@ -62,11 +62,9 @@ set cursorline              " highlight current line
 set number                  " show line numbers
 set showmatch               " show matching brackets.
 set ruler                   " show column and row in footer
-
 set list                    " show whitespace
-set listchars=tab:▸\ ,eol:¬
-
-set laststatus=2                " add full file path to your existing statusline
+set listchars=tab:▸\ ,eol:¬ " show tabs with ▸, eol with ¬
+set laststatus=2            " add full file path to your existing statusline
 
 " File type syntax highlighting aliases
 au BufRead,BufNewFile *.ino set filetype=c                      " arduino
