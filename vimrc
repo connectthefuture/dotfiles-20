@@ -141,3 +141,6 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 " Switch buffers
 noremap <C-l> :bnext<cr>
 noremap <C-h> :bprevious<cr>
+
+" F3 toggles paste mode
+nnoremap <F3> :set paste!<cr>
