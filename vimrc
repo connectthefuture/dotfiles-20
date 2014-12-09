@@ -58,13 +58,19 @@ set smartcase               " .. unless they contain at least one capital letter
 set incsearch               " incremental search, show results while typing.
 
 " /------ VISUAL --------------------------------------------------------------/
-set cursorline              " highlight current line
-set number                  " show line numbers
-set showmatch               " show matching brackets.
-set ruler                   " show column and row in footer
-set list                    " show whitespace
-set listchars=tab:▸\ ,eol:¬ " show tabs with ▸, eol with ¬
-set laststatus=2            " add full file path to your existing statusline
+set cursorline                  " highlight current line
+set number                      " show line numbers
+set showmatch                   " show matching brackets.
+set ruler                       " show column and row in footer
+set list                        " show whitespace
+set listchars=tab:▸\ ,eol:¬     " show tabs with ▸, eol with ¬
+set laststatus=2                " add full file path to your existing statusline
+set t_Co=256                    " 256 color support
+match ErrorMsg '\%>80v.\+'      " highlight anthing after 80 chars with red
+
+colorscheme badwolf             " color scheme
+hi Normal ctermbg=NONE          " bring back transparency
+hi Normal guibg=NONE            " ..
 
 " File type syntax highlighting aliases
 au BufRead,BufNewFile *.ino set filetype=c                      " arduino
@@ -72,17 +78,8 @@ au BufRead,BufNewFile *.md set filetype=markdown                " markdown
 au BufRead,BufNewFile *.kicad_mod,*.kicad_pcb set filetype=lisp " kicad
 autocmd BufRead *.tab set filetype=tab                          " guitar tabs
 
-" Highlight 80 column limit
-set t_Co=256                        " 256 color support
-match ErrorMsg '\%>80v.\+'          " highlight anthing after 80 chars with red
-
-" Color scheme
-colorscheme badwolf
-hi Normal ctermbg=NONE              " bring back transparency
-hi Normal guibg=NONE                " ..
-
-let g:airline_powerline_fonts = 1                       " Enable powerline fonts
-let g:airline#extensions#tabline#enabled = 1            " Enable enhanced tabline
+let g:airline_powerline_fonts = 1                   " Enable powerline fonts
+let g:airline#extensions#tabline#enabled = 1        " .. and enhanced tabline
 
 
 " /------ KEYBINDINGS ---------------------------------------------------------/
