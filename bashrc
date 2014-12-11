@@ -122,3 +122,6 @@ fi
 # set default editor to vim
 export VISUAL=vim
 export EDITOR=vim
+
+# color code apt-cache search
+myaptsearch(){ apt-cache search ^$1 | egrep --color=always "^[^-]+"; }
