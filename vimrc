@@ -18,6 +18,7 @@ Plugin 'snipMate'
 Plugin 'bling/vim-airline'              " vim-airline
 Plugin 'kien/ctrlp.vim'                 " Full path fuzzy file/buffer/.. finder
 Plugin 'sjl/badwolf.git'                " Color Scheme
+Plugin 'Valloric/YouCompleteMe.git'     " YouCompleteMe
 call vundle#end()
 " /------ </PLUGINS> ----------------------------------------------------------/
 
