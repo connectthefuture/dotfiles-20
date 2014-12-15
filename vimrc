@@ -6,7 +6,6 @@ runtime! debian.vim
 
 " /------ SETUP VUNDLE --------------------------------------------------------/
 " setup prereqs, include Vundle in runtime path and initialize
-set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 
@@ -15,7 +14,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'              " let Vundle manage Vundle, required
 Plugin 'vim-scripts/taglist.vim.git'    " taglist för kod-navigering
 Plugin 'scrooloose/nerdtree.git'        " NERDTree
-" Plugin 'snipMate'
+Plugin 'snipMate'
 Plugin 'bling/vim-airline'              " vim-airline
 Plugin 'kien/ctrlp.vim'                 " Full path fuzzy file/buffer/.. finder
 Plugin 'sjl/badwolf.git'                " Color Scheme
