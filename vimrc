@@ -26,6 +26,9 @@ filetype plugin indent on               " use indentation scripts (required(?))
                                         " To ignore plugin indent changes,
                                         " instead use: filetype plugin on
 
+" /------ PLUGIN SPECIFIC -----------------------------------------------------/
+let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py" " semantic stuffs
+
 " /------ MISC. BASICS --------------------------------------------------------/
 syntax enable                           " enable syntax highlighting
 
