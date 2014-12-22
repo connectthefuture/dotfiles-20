@@ -4,12 +4,12 @@
 runtime! debian.vim
 
 
-" /------ SETUP VUNDLE --------------------------------------------------------/
+" /______ SETUP VUNDLE ________________________________________________________/
 " setup prereqs, include Vundle in runtime path and initialize
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 
-" /------ <PLUGINS> -----------------------------------------------------------/
+" /______ <PLUGINS> ___________________________________________________________/
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'              " let Vundle manage Vundle, required
 Plugin 'vim-scripts/taglist.vim.git'    " taglist för kod-navigering
@@ -20,16 +20,16 @@ Plugin 'kien/ctrlp.vim'                 " Full path fuzzy file/buffer/.. finder
 Plugin 'sjl/badwolf.git'                " Color Scheme
 Plugin 'Valloric/YouCompleteMe.git'     " YouCompleteMe
 call vundle#end()
-" /------ </PLUGINS> ----------------------------------------------------------/
+" /______ </PLUGINS> __________________________________________________________/
 
 filetype plugin indent on               " use indentation scripts (required(?))
                                         " To ignore plugin indent changes,
                                         " instead use: filetype plugin on
 
-" /------ PLUGIN SPECIFIC -----------------------------------------------------/
+" /______ PLUGIN SPECIFIC _____________________________________________________/
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py" " semantic stuffs
 
-" /------ MISC. BASICS --------------------------------------------------------/
+" /______ MISC. BASICS ________________________________________________________/
 syntax enable                           " enable syntax highlighting
 
 " Uncomment the following to have Vim jump to the last position when
@@ -46,7 +46,7 @@ set hidden                  " hide buffers when they are abandoned
 set nowrap                  " no linewrapping
 set vb                      " visual bell I.E. no beeping
 
-" /------ INDENTATION ---------------------------------------------------------/
+" /______ INDENTATION _________________________________________________________/
 set autoindent              " keep indentation from previous line
 set smartindent             " some automation, support for C-type files
 set expandtab               " always insert softtabstop amount of chars
@@ -54,13 +54,13 @@ set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 
-" /------ SEARCH --------------------------------------------------------------/
+" /______ SEARCH ______________________________________________________________/
 set hlsearch                " highlight search
 set ignorecase              " searches are case insensitive..
 set smartcase               " .. unless they contain at least one capital letter
 set incsearch               " incremental search, show results while typing.
 
-" /------ VISUAL --------------------------------------------------------------/
+" /______ VISUAL ______________________________________________________________/
 set cursorline                  " highlight current line
 set number                      " show line numbers
 set showmatch                   " show matching brackets.
@@ -84,14 +84,12 @@ autocmd BufRead *.tab set filetype=tab                          " guitar tabs
 let g:airline_powerline_fonts = 1                   " Enable powerline fonts
 let g:airline#extensions#tabline#enabled = 1        " .. and enhanced tabline
 
-
-" /------ KEYBINDINGS ---------------------------------------------------------/
-let mapleader='§'                   " remap leader to § (key below ESC, above tab)
+" /______ KEYBINDINGS _________________________________________________________/
+let mapleader='§'               " remap leader to § (key below ESC, above tab)
 let leader='§'
 
-" easier moving of code blocks (Vim as Python IDE - Martin Brochhaus)
-vnoremap < <gv  " better indentation
-vnoremap > >gv  " better indentation
+vnoremap < <gv                  " easier moving of code blocks
+vnoremap > >gv                  " (Vim as Python IDE - Martin Brochhaus)
 
 " Ctrl-j/k deletes blank line below/above if it is blank, and Alt-j/k inserts.
 nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
@@ -99,13 +97,13 @@ nnoremap <silent><C-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
 nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
 nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 
-" Ctrl-n opens/closes NERDtree
+noremap <C-l> :bnext<cr>
+noremap <C-h> :bprevious<cr>
+nnoremap <F3> :set paste!<cr>
 map <leader>n :NERDTreeToggle<CR>
-
-" fuzzy search
 map <F2> :CtrlPMixed<CR>
 
-" Unmap the arrow keys
+" unmap the arrow keys
 no <down> <Nop>
 no <left> <Nop>
 no <right> <Nop>
@@ -115,26 +113,14 @@ ino <left> <Nop>
 ino <right> <Nop>
 ino <up> <Nop>
 
-" Insert todays date
-":nnoremap <F5> "=strftime("%c")<CR>P
-":inoremap <F5> <C-R>=strftime("%c")<CR>
-:nnoremap <F5> "=strftime("%Y-%m-%d %a %H:%M")<CR>P
+:nnoremap <F5> "=strftime("%Y-%m-%d %a %H:%M")<CR>
 :inoremap <F5> <C-R>=strftime("%Y-%m-%d %a %H:%M")<CR>
 
-" Quick pairs
-" source: Shawn Biddle Vim Training Class 4 - http://youtu.be/2pqipq-UEwQ
 imap <leader>' ''<ESC>i
 imap <leader>" ""<ESC>i
 imap <leader>( ()<ESC>i
 imap <leader>[ []<ESC>i
 imap <leader>{ {}<ESC>i
 
-" Strip all trailing whitespace in the current file
+" Strip all trailing whitespace in current file
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
-
-" Switch buffers
-noremap <C-l> :bnext<cr>
-noremap <C-h> :bprevious<cr>
-
-" F3 toggles paste mode
-nnoremap <F3> :set paste!<cr>
