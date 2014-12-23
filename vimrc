@@ -14,13 +14,13 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'              " let Vundle manage Vundle, required
 Plugin 'vim-scripts/taglist.vim.git'    " taglist för kod-navigering
 Plugin 'scrooloose/nerdtree.git'        " NERDTree
-Plugin 'MarcWeber/vim-addon-mw-utils'   " <+
-Plugin 'tomtom/tlib_vim'                "  | snipmate
-Plugin 'garbas/vim-snipmate'            " <+
 Plugin 'bling/vim-airline'              " vim-airline
 Plugin 'kien/ctrlp.vim'                 " Full path fuzzy file/buffer/.. finder
 Plugin 'sjl/badwolf.git'                " Color Scheme
 Plugin 'Valloric/YouCompleteMe.git'     " YouCompleteMe
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+
 call vundle#end()
 " /______ </PLUGINS> __________________________________________________________/
 
@@ -127,3 +127,13 @@ imap <leader>{ {}<ESC>i
 
 " Strip all trailing whitespace in current file
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+" Tab for snippets, Ctrl-n and Ctrl-p for next/previous YCM.
+let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltiSnipsJumpForwardTrigger="<Tab>"                                           
+let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
