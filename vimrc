@@ -12,7 +12,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 " /______ <PLUGINS> ___________________________________________________________/
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'              " let Vundle manage Vundle, required
-Plugin 'vim-scripts/taglist.vim.git'    " taglist för kod-navigering
+Plugin 'majutsushi/tagbar.git'    " taglist för kod-navigering
 Plugin 'scrooloose/nerdtree.git'        " NERDTree
 Plugin 'bling/vim-airline'              " vim-airline
 Plugin 'kien/ctrlp.vim'                 " Full path fuzzy file/buffer/.. finder
@@ -104,7 +104,7 @@ noremap <C-h> :bprevious<cr>
 nnoremap <F3> :set paste!<cr>
 map <leader>n :NERDTreeToggle<CR>
 map <C-p>     :CtrlPMixed<CR>
-map <leader>t :TlistToggle<CR>
+map <leader>t :TagbarToggle<CR>
 
 " unmap the arrow keys
 no <down> <Nop>
