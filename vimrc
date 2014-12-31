@@ -103,7 +103,7 @@ noremap <C-l> :bnext<cr>
 noremap <C-h> :bprevious<cr>
 nnoremap <F3> :set paste!<cr>
 map <leader>n :NERDTreeToggle<CR>
-map <F2> :CtrlPMixed<CR>
+map <C-p>     :CtrlPMixed<CR>
 map <leader>t :TlistToggle<CR>
 
 " unmap the arrow keys
