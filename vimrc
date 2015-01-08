@@ -48,6 +48,11 @@ set hidden                  " hide buffers when they are abandoned
 set nowrap                  " no linewrapping
 set vb                      " visual bell I.E. no beeping
 
+" /______ TEMPORARY FILES _____________________________________________________/
+set undodir=~/.vim/.undo//          " alternatively, disable with:
+set backupdir=~/.vim/.backup//      " set nobackup
+set directory=~/.vim/.swp//         " set noswapfile
+
 " /______ INDENTATION _________________________________________________________/
 set autoindent              " keep indentation from previous line
 set smartindent             " some automation, support for C-type files
