@@ -122,8 +122,8 @@ ino <left> <Nop>
 ino <right> <Nop>
 ino <up> <Nop>
 
-:nnoremap <F5> "=strftime("%Y-%m-%d %a %H:%M")<CR>
-:inoremap <F5> <C-R>=strftime("%Y-%m-%d %a %H:%M")<CR>
+:nnoremap <F5> "=strftime("%Y-%m-%d %A %H:%M")<CR>
+:inoremap <F5> <C-R>=strftime("%Y-%m-%d %A %H:%M")<CR>
 
 imap <leader>' ''<ESC>i
 imap <leader>" ""<ESC>i
@@ -138,8 +138,20 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 let g:UltiSnipsEditSplit="vertical"
 
 " Tab for snippets, Ctrl-n and Ctrl-p for next/previous YCM.
-let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
-let g:UltiSnipsExpandTrigger="<Tab>"
-let g:UltiSnipsJumpForwardTrigger="<Tab>"                                           
-let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+"let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
+"let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
+"let g:UltiSnipsExpandTrigger="<Tab>"
+"let g:UltiSnipsJumpForwardTrigger="<Tab>"                                           
+"let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+
+let g:UltiSnipsExpandTrigger = "<nop>"
+let g:ulti_expand_or_jump_res = 0
+function ExpandSnippetOrCarriageReturn()
+    let snippet = UltiSnips#ExpandSnippetOrJump()
+    if g:ulti_expand_or_jump_res > 0
+        return snippet
+    else
+        return "\<CR>"
+    endif
+endfunction
+inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
