@@ -12,14 +12,15 @@ set rtp+=~/.vim/bundle/Vundle.vim
 " /______ <PLUGINS> ___________________________________________________________/
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'              " let Vundle manage Vundle, required
-Plugin 'majutsushi/tagbar.git'    " taglist för kod-navigering
+Plugin 'majutsushi/tagbar.git'          " taglist for code navigation
 Plugin 'scrooloose/nerdtree.git'        " NERDTree
 Plugin 'bling/vim-airline'              " vim-airline
 Plugin 'kien/ctrlp.vim'                 " Full path fuzzy file/buffer/.. finder
 Plugin 'sjl/badwolf.git'                " Color Scheme
 Plugin 'Valloric/YouCompleteMe.git'     " YouCompleteMe
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+Plugin 'SirVer/ultisnips'               " ultisnips
+Plugin 'honza/vim-snippets'             " 
+Plugin 'tpope/vim-fugitive'             " fugitive
 
 call vundle#end()
 " /______ </PLUGINS> __________________________________________________________/
