@@ -43,12 +43,14 @@ HIST_STAMPS="yyyy-mm-dd"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# define where custom plugins live:
+#ZSH_CUSTOM=~/.oh-my-zsh/custom/
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
-
+plugins=(git history-substring-search zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -83,3 +85,9 @@ set -o vi
 alias open="xdg-open"
 
 setopt INTERACTIVE_COMMENTS         # treat hash characters as comment delimiter
+
+# history completion
+#bindkey '\e[A' history-beginning-search-backward
+#bindkey '\e[B' history-beginning-search-forward
+plugins=(git brew npm history-substring-search)
+
