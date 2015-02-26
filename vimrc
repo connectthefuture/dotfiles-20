@@ -77,7 +77,8 @@ set list                        " show whitespace
 set listchars=tab:▸\ ,eol:¬     " show tabs with ▸, eol with ¬
 set laststatus=2                " add full file path to your existing statusline
 set t_Co=256                    " 256 color support
-match ErrorMsg '\%>80v.\+'      " highlight anthing after 80 chars with red
+"match ErrorMsg '\%>80v.\+'      " highlight anthing after 80 chars with red
+:set colorcolumn=81
 
 colorscheme badwolf             " color scheme
 hi Normal ctermbg=NONE          " bring back transparency
