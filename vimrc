@@ -19,7 +19,7 @@ Plugin 'kien/ctrlp.vim'                 " Full path fuzzy file/buffer/.. finder
 Plugin 'sjl/badwolf.git'                " Color Scheme
 Plugin 'Valloric/YouCompleteMe.git'     " YouCompleteMe
 Plugin 'SirVer/ultisnips'               " ultisnips
-Plugin 'honza/vim-snippets'             " 
+Plugin 'honza/vim-snippets'             "
 Plugin 'tpope/vim-fugitive'             " fugitive
 
 call vundle#end()
@@ -77,7 +77,13 @@ set list                        " show whitespace
 set listchars=tab:▸\ ,eol:¬     " show tabs with ▸, eol with ¬
 set laststatus=2                " add full file path to your existing statusline
 set t_Co=256                    " 256 color support
-match ErrorMsg '\%>80v.\+'      " highlight anthing after 80 chars with red
+
+" highlight column 80 using colorcolumn if available
+if exists('+colorcolumn')
+  set colorcolumn=80
+else
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
 
 colorscheme badwolf             " color scheme
 hi Normal ctermbg=NONE          " bring back transparency
@@ -141,7 +147,7 @@ let g:UltiSnipsEditSplit="vertical"
 "let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
 "let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
 "let g:UltiSnipsExpandTrigger="<Tab>"
-"let g:UltiSnipsJumpForwardTrigger="<Tab>"                                           
+"let g:UltiSnipsJumpForwardTrigger="<Tab>"
 "let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 
 let g:UltiSnipsExpandTrigger = "<nop>"
