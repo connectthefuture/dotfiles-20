@@ -1,0 +1,12 @@
+[user]
+	email = jomeganas@gmail.com
+	name = Jonas Sjöberg
+[push]
+    default = matching
+[diff]
+	tool = vimdiff 
+[merge]
+	conflictstyle = diff3
+	tool = vimdiff
+[mergetool]
+	prompt = false
