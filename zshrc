@@ -86,6 +86,8 @@ set -o vi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias open="xdg-open"
 alias hgrep="history | grep"
+alias apts="apt-cache search"
+alias aptsh="apt-cache show"
 
 setopt INTERACTIVE_COMMENTS         # treat hash characters as comment delimiter
 
