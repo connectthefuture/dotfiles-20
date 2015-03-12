@@ -21,6 +21,7 @@ Plugin 'Valloric/YouCompleteMe.git'     " YouCompleteMe
 Plugin 'SirVer/ultisnips'               " ultisnips
 Plugin 'honza/vim-snippets'             "
 Plugin 'tpope/vim-fugitive'             " fugitive
+Plugin 'junegunn/goyo.vim'              " distraction free mode
 
 call vundle#end()
 " /______ </PLUGINS> __________________________________________________________/
