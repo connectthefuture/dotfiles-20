@@ -47,6 +47,7 @@ set mouse=a                 " enable mouse usage (all modes)
 set showcmd                 " show (partial) command in status line.
 set history=1000            " extend command line history
 set autowrite               " automatically save before commands like :next:make
+set autoread                " automatically read file when changed outside vim
 set hidden                  " hide buffers when they are abandoned
 set nowrap                  " no linewrapping
 set vb                      " visual bell I.E. no beeping
