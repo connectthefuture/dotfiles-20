@@ -42,6 +42,7 @@ syntax enable                           " enable syntax highlighting
 "  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 "endif
 "
+autocmd BufEnter * cd %:p:h " automatically change current directory to file dir
 set mouse=a                 " enable mouse usage (all modes)
 set showcmd                 " show (partial) command in status line.
 set history=1000            " extend command line history
