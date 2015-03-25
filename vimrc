@@ -51,6 +51,8 @@ set autoread                " automatically read file when changed outside vim
 set hidden                  " hide buffers when they are abandoned
 set nowrap                  " no linewrapping
 set vb                      " visual bell I.E. no beeping
+set keywordprg=trans\ :sv   " translate with google translate via translateshell
+                            " (Shift-K to view translation of word under cursor)
 
 " /______ TEMPORARY FILES _____________________________________________________/
 set undodir=~/.vim/.undo//          " alternatively, disable with:
