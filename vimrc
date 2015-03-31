@@ -108,8 +108,9 @@ let g:airline#extensions#tabline#enabled = 1
 let mapleader='§'               " remap leader to § (key below ESC, above tab)
 let leader='§'
 
-vnoremap < <gv                  " easier moving of code blocks
-vnoremap > >gv                  " (Vim as Python IDE - Martin Brochhaus)
+" Easier moving of code blocks (Vim as Python IDE - Martin Brochhaus)
+vnoremap < <gv
+vnoremap > >gv
 
 " Ctrl-j/k deletes blank line below/above if it is blank, and Alt-j/k inserts.
 nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
