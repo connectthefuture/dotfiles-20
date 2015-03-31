@@ -22,6 +22,7 @@ Plugin 'SirVer/ultisnips'               " ultisnips
 Plugin 'honza/vim-snippets'             "
 Plugin 'tpope/vim-fugitive'             " fugitive
 Plugin 'junegunn/goyo.vim'              " distraction free mode
+Plugin 'scrooloose/nerdcommenter'       " code commenting
 
 call vundle#end()
 " /______ </PLUGINS> __________________________________________________________/
@@ -90,9 +91,10 @@ else
   au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
 
-colorscheme badwolf             " color scheme
-hi Normal ctermbg=NONE          " bring back transparency
-hi Normal guibg=NONE            " ..
+" Set colorscheme and bring back transparency
+colorscheme badwolf
+hi Normal ctermbg=NONE
+hi Normal guibg=NONE
 
 " File type syntax highlighting aliases
 au BufRead,BufNewFile *.ino set filetype=c                      " arduino
@@ -100,8 +102,9 @@ au BufRead,BufNewFile *.md set filetype=markdown                " markdown
 au BufRead,BufNewFile *.kicad_mod,*.kicad_pcb set filetype=lisp " kicad
 autocmd BufRead *.tab set filetype=tab                          " guitar tabs
 
-let g:airline_powerline_fonts = 1                   " Enable powerline fonts
-let g:airline#extensions#tabline#enabled = 1        " .. and enhanced tabline
+" Enable powerline fonts and enhanced tabline
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
 " /______ KEYBINDINGS _________________________________________________________/
 let mapleader='§'               " remap leader to § (key below ESC, above tab)
