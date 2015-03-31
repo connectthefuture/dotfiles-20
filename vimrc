@@ -105,7 +105,8 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
 " /______ KEYBINDINGS _________________________________________________________/
-let mapleader='§'               " remap leader to § (key below ESC, above tab)
+" Remap leader to § (key below ESC, above tab)
+let mapleader='§'
 let leader='§'
 
 " Easier moving of code blocks (Vim as Python IDE - Martin Brochhaus)
@@ -118,14 +119,19 @@ nnoremap <silent><C-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
 nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
 nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 
+" Ctrl-l and Ctrl-h for navigating open buffers
 noremap <C-l> :bnext<cr>
 noremap <C-h> :bprevious<cr>
+
+" F3 toggles paste mode
 nnoremap <F3> :set paste!<cr>
+
+" Map keys for nerdtree, ctrlp and tagbar
 map <leader>n :NERDTreeToggle<CR>
 map <C-p>     :CtrlPMixed<CR>
 map <leader>t :TagbarToggle<CR>
 
-" unmap the arrow keys
+" Unmap the arrow keys. Because they should not be used, ever.
 no <down> <Nop>
 no <left> <Nop>
 no <right> <Nop>
@@ -135,9 +141,11 @@ ino <left> <Nop>
 ino <right> <Nop>
 ino <up> <Nop>
 
+" Shortcut for inserting a timestamp. Useful when taking notes at lectures.
 :nnoremap <F5> "=strftime("%Y-%m-%d %A %H:%M")<CR>
 :inoremap <F5> <C-R>=strftime("%Y-%m-%d %A %H:%M")<CR>
 
+" When in insert mode; hit leader before ( to insert text surrounded by ().
 imap <leader>' ''<ESC>i
 imap <leader>" ""<ESC>i
 imap <leader>( ()<ESC>i
@@ -157,6 +165,8 @@ let g:UltiSnipsEditSplit="vertical"
 "let g:UltiSnipsJumpForwardTrigger="<Tab>"
 "let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 
+" Snippets plugin and YCM initially didn't play well together.
+" This seems to fix it but I couldn't tell you how or why.
 let g:UltiSnipsExpandTrigger = "<nop>"
 let g:ulti_expand_or_jump_res = 0
 function ExpandSnippetOrCarriageReturn()
