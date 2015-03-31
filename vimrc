@@ -52,9 +52,11 @@ if has("autocmd")
 endif
 
 " /______ TEMPORARY FILES _____________________________________________________/
-set undodir=~/.vim/.undo//          " Alternatively, disable with:
-set backupdir=~/.vim/.backup//      " Set nobackup
-set directory=~/.vim/.swp//         " Set noswapfile
+" Keep temporary files in alternate locations to reduce clutter.
+" (alternatively disable with: Set nobackup Set noswapfile)
+set undodir=~/.vim/.undo//
+set backupdir=~/.vim/.backup//
+set directory=~/.vim/.swp//
 
 " /______ INDENTATION _________________________________________________________/
 set autoindent              " Keep indentation from previous line
@@ -87,7 +89,7 @@ else
   au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
 
-" Set colorscheme and bring back transparency
+" Set colorscheme and hacky fix to bring back transparency
 colorscheme badwolf
 hi Normal ctermbg=NONE
 hi Normal guibg=NONE
@@ -150,7 +152,7 @@ imap <leader>( ()<ESC>i
 imap <leader>[ []<ESC>i
 imap <leader>{ {}<ESC>i
 
-" Strip all trailing whitespace in current file
+" Strip all trailing whitespace in current file with leader-W
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 " If you want :UltiSnipsEdit to split your window.
