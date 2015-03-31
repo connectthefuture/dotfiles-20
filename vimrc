@@ -1,17 +1,15 @@
-" unmap in insert mode" This line should not be removed as it ensures that
-" various options are properly set to work with the Vim-related packages
-" available in Debian.
+" This line should not be removed as it ensures that various options are
+" properly set to work with the Vim-related packages available in Debian.
 runtime! debian.vim
 
-
 " /______ SETUP VUNDLE ________________________________________________________/
-" setup prereqs, include Vundle in runtime path and initialize
+" Setup prereqs, include Vundle in runtime path and initialize
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 
 " /______ <PLUGINS> ___________________________________________________________/
 call vundle#begin()
-Plugin 'gmarik/Vundle.vim'              " let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'              " Let Vundle manage Vundle, required
 Plugin 'majutsushi/tagbar.git'          " taglist for code navigation
 Plugin 'scrooloose/nerdtree.git'        " NERDTree
 Plugin 'bling/vim-airline'              " vim-airline
@@ -21,32 +19,32 @@ Plugin 'Valloric/YouCompleteMe.git'     " YouCompleteMe
 Plugin 'SirVer/ultisnips'               " ultisnips
 Plugin 'honza/vim-snippets'             "
 Plugin 'tpope/vim-fugitive'             " fugitive
-Plugin 'junegunn/goyo.vim'              " distraction free mode
-Plugin 'scrooloose/nerdcommenter'       " code commenting
+Plugin 'junegunn/goyo.vim'              " Distraction free mode
+Plugin 'scrooloose/nerdcommenter'       " Code commenting
 
 call vundle#end()
 " /______ </PLUGINS> __________________________________________________________/
 
-filetype plugin indent on               " use indentation scripts (required(?))
+filetype plugin indent on               " Use indentation scripts (required(?))
                                         " To ignore plugin indent changes,
                                         " instead use: filetype plugin on
 
 " /______ PLUGIN SPECIFIC _____________________________________________________/
-let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py" " semantic stuffs
+let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py" " Semantic stuffs
 
 " /______ MISC. BASICS ________________________________________________________/
-set mouse=a                 " enable mouse usage (all modes)
-set showcmd                 " show (partial) command in status line.
-set history=1000            " extend command line history
-set autowrite               " automatically save before commands like :next:make
-set autoread                " automatically read file when changed outside vim
-set hidden                  " hide buffers when they are abandoned
-set nowrap                  " no linewrapping
-set vb                      " visual bell I.E. no beeping
-set keywordprg=trans\ :sv   " translate with google translate via translateshell
+set mouse=a                 " Enable mouse usage (all modes)
+set showcmd                 " Show (partial) command in status line.
+set history=1000            " Extend command line history
+set autowrite               " Automatically save before commands like :next:make
+set autoread                " Automatically read file when changed outside vim
+set hidden                  " Hide buffers when they are abandoned
+set nowrap                  " No linewrapping
+set vb                      " Visual bell I.E. no beeping
+set keywordprg=trans\ :sv   " Translate with google translate via translateshell
                             " (Shift-K to view translation of word under cursor)
-syntax enable               " enable syntax highlighting
-autocmd BufEnter * cd %:p:h " automatically change current directory to file dir
+syntax enable               " Enable syntax highlighting
+autocmd BufEnter * cd %:p:h " Automatically change current directory to file dir
 
 " Jump to the last position when reopening a file
 if has("autocmd")
@@ -54,35 +52,35 @@ if has("autocmd")
 endif
 
 " /______ TEMPORARY FILES _____________________________________________________/
-set undodir=~/.vim/.undo//          " alternatively, disable with:
-set backupdir=~/.vim/.backup//      " set nobackup
-set directory=~/.vim/.swp//         " set noswapfile
+set undodir=~/.vim/.undo//          " Alternatively, disable with:
+set backupdir=~/.vim/.backup//      " Set nobackup
+set directory=~/.vim/.swp//         " Set noswapfile
 
 " /______ INDENTATION _________________________________________________________/
-set autoindent              " keep indentation from previous line
-set smartindent             " some automation, support for C-type files
-set expandtab               " always insert softtabstop amount of chars
+set autoindent              " Keep indentation from previous line
+set smartindent             " Some automation, support for C-type files
+set expandtab               " Always insert softtabstop amount of chars
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 
 " /______ SEARCH ______________________________________________________________/
-set hlsearch                " highlight search
-set ignorecase              " searches are case insensitive..
+set hlsearch                " Highlight search
+set ignorecase              " Searches are case insensitive..
 set smartcase               " .. unless they contain at least one capital letter
-set incsearch               " incremental search, show results while typing.
+set incsearch               " Incremental search, show results while typing.
 
 " /______ VISUAL ______________________________________________________________/
-set cursorline                  " highlight current line
-set number                      " show line numbers
-set showmatch                   " show matching brackets.
-set ruler                       " show column and row in footer
-set list                        " show whitespace
-set listchars=tab:▸\ ,eol:¬     " show tabs with ▸, eol with ¬
-set laststatus=2                " add full file path to your existing statusline
+set cursorline                  " Highlight current line
+set number                      " Show line numbers
+set showmatch                   " Show matching brackets.
+set ruler                       " Show column and row in footer
+set list                        " Show whitespace
+set listchars=tab:▸\ ,eol:¬     " Show tabs with ▸, eol with ¬
+set laststatus=2                " Add full file path to your existing statusline
 set t_Co=256                    " 256 color support
 
-" highlight column 80 using colorcolumn if available
+" Highlight column 80 using colorcolumn if available
 if exists('+colorcolumn')
   set colorcolumn=80
 else
