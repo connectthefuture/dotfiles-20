@@ -35,15 +35,6 @@ filetype plugin indent on               " use indentation scripts (required(?))
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py" " semantic stuffs
 
 " /______ MISC. BASICS ________________________________________________________/
-syntax enable                           " enable syntax highlighting
-
-" Uncomment the following to have Vim jump to the last position when
-" reopening a file
-"if has("autocmd")
-"  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-"endif
-"
-autocmd BufEnter * cd %:p:h " automatically change current directory to file dir
 set mouse=a                 " enable mouse usage (all modes)
 set showcmd                 " show (partial) command in status line.
 set history=1000            " extend command line history
@@ -54,6 +45,13 @@ set nowrap                  " no linewrapping
 set vb                      " visual bell I.E. no beeping
 set keywordprg=trans\ :sv   " translate with google translate via translateshell
                             " (Shift-K to view translation of word under cursor)
+syntax enable               " enable syntax highlighting
+autocmd BufEnter * cd %:p:h " automatically change current directory to file dir
+
+" Jump to the last position when reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
 
 " /______ TEMPORARY FILES _____________________________________________________/
 set undodir=~/.vim/.undo//          " alternatively, disable with:
