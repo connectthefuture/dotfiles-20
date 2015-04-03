@@ -21,6 +21,7 @@ Plugin 'honza/vim-snippets'             "
 Plugin 'tpope/vim-fugitive'             " fugitive
 Plugin 'junegunn/goyo.vim'              " Distraction free mode
 Plugin 'scrooloose/nerdcommenter'       " Code commenting
+Plugin 'godlygeek/tabular'              " For making things neater
 
 call vundle#end()
 " /______ </PLUGINS> __________________________________________________________/
