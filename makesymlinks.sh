@@ -1,5 +1,5 @@
 #!/bin/bash
-#| =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+#| =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=
 #| DOTFILES SETUP SCRIPT
 #| ---------------------
 #| Should only need to run after a clean reinstall of the home directory.
@@ -7,10 +7,10 @@
 #| files kept in this here repository under version control.
 #|
 #|
-#| =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+#| =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=
 
 
-cd "$(dirname "$0")/.."             # this probably lands us in $HOME
+#cd "$(dirname "$0")/.."             # this probably lands us in $HOME
 DOTFILES_ROOT=$(pwd)
 TEMP_DIR="$HOME/temporary_dotfiles"
 BACKUP_DIR="$HOME"
@@ -24,32 +24,32 @@ cat << EOF
                            Dotfiles setup script 
                            =====================
 
- * started with root "$DOTFILES_ROOT"
- * backing up any .dotfiles already in "$HOME" ..
+  ** started with root "$DOTFILES_ROOT"
+  ** backing up any .dotfiles already in "$HOME" ..
 
 EOF
 
-
 mkdir -pvv "$TEMP_DIR"               # setup a folder for temporary storage
+cd "$HOME"
 
-# cd "$DOTFILES_ROOT"                    # get in position ..
-# mkdir -pv "$TEMP_DIR"-               # setup a folder for temporary storage
-# echo ""
-# 
-# for file in $CONFIGFILES; do           # check for current config files
-#     if [ -f "$file" ];           # if present move to temporary storage 
-#     then
-#         echo "* moving "$file" out of the way .."
-#         mv -nv "$file" "$TEMP_DIR"
-#     fi
-# 
-#     if [ -f "$DOTFILES_ROOT/$file" ];
-#     then
-# 
-#     fi
-# done
-# 
-# tar vcfz ""$BACKUP_DIR"dotfiles-$(date +%Y-%m-%d_%H-%M-%S).tar.gz" "$TEMP_DIR/*"
+for file in $CONFIGFILES;            # check for current config files
+do
+    if [ -f ".$file" ];              # if present move to temporary storage 
+    then
+        echo "* moving ".$file" out of the way .."
+        mv -vni ".$file" "$TEMP_DIR"
+        echo ""
+    fi
+
+    if [ -f "$DOTFILES_ROOT/$file" ];
+    then
+        echo "* creating symlink to "$DOTFILES_ROOT/$file" .."
+        ln -vsi "$DOTFILES_ROOT/$file" "$HOME/.$file"
+        echo ""
+    fi
+done
+ 
+tar vcfz ""$BACKUP_DIR"dotfiles-$(date +%Y-%m-%d_%H-%M-%S).tar.gz" "$TEMP_DIR/*"
 # 
 # # create dotfiles_old in homedir
 # echo "Creating $dotfiles_old for backup of any existing dotfiles in "$HOME" .."
