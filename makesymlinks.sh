@@ -13,7 +13,7 @@
 #cd "$(dirname "$0")/.."             # this probably lands us in $HOME
 DOTFILES_ROOT=$(pwd)
 TEMP_DIR="$HOME/temporary_dotfiles"
-BACKUP_DIR="$HOME"
+BACKUP_DIR="$HOME/"
 
 # These files are *the* dotfiles!
 CONFIGFILES="bashrc vimrc vim zshrc oh-my-zsh gitconfig"   
@@ -24,8 +24,8 @@ cat << EOF
                            Dotfiles setup script 
                            =====================
 
-  ** started with root "$DOTFILES_ROOT"
-  ** backing up any .dotfiles already in "$HOME" ..
+** started with root "$DOTFILES_ROOT"
+** backing up any .dotfiles already in "$HOME" ..
 
 EOF
 
@@ -49,7 +49,15 @@ do
     fi
 done
  
-tar vcfz ""$BACKUP_DIR"dotfiles-$(date +%Y-%m-%d_%H-%M-%S).tar.gz" "$TEMP_DIR/*"
+# print some text
+cat << EOF
+
+** done ..
+** creating .tar.gz archive with old dotfiles ..
+
+EOF
+
+tar vcfz ""$BACKUP_DIR"dotfiles-$(date +%Y-%m-%d_%H-%M-%S).tar.gz" "$TEMP_DIR"
 # 
 # # create dotfiles_old in homedir
 # echo "Creating $dotfiles_old for backup of any existing dotfiles in "$HOME" .."
