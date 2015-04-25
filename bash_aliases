@@ -32,3 +32,6 @@ alias gco='git checkout'
 alias gcm='git checkout master'
 
 
+# apt
+alias apts='apt-cache search'
+alias aptsh='apt-cache show'
