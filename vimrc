@@ -16,7 +16,7 @@ Plugin 'scrooloose/nerdtree.git'        " NERDTree
 Plugin 'bling/vim-airline'              " vim-airline
 Plugin 'kien/ctrlp.vim'                 " Full path fuzzy file/buffer/.. finder
 Plugin 'sjl/badwolf.git'                " Color Scheme
-Plugin 'Valloric/YouCompleteMe.git'     " YouCompleteMe
+"Plugin 'Valloric/YouCompleteMe.git'     " YouCompleteMe
 Plugin 'SirVer/ultisnips'               " ultisnips
 Plugin 'honza/vim-snippets'             "
 Plugin 'tpope/vim-fugitive'             " fugitive
