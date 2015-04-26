@@ -30,12 +30,12 @@ cat << EOF
 * started with root "$DOTFILES_ROOT"
 * creating symlinks from "$HOME" to "$DOTFILES_ROOT"
   for dotfiles: "$CONFIGFILES"
-* current dotfiles will be backed up to "$BACKUP_ARCHIVE"
+* any current dotfiles will be backed up to "$BACKUP_ARCHIVE"
 
 EOF
 
 mkdir -pvv "$TEMP_DIR"                   # setup a folder for temporary storage
-cd "$HOME"
+cd "$DOTFILES_ROOT"
 
 for file in $CONFIGFILES;            
 do
@@ -48,11 +48,12 @@ do
 
     if [ -f "$DOTFILES_ROOT/$file" ];    # check that file is in repo directory
     then                                 # if not, print error and die
-        echo "* creating symlink from "$HOME/.$file" to "$DOTFILES_ROOT/$file" .."
+        # create symlink from "$HOME/.$file" to "$DOTFILES_ROOT/$file"
+        echo "** creating symlink .."
         ln -vsi "$DOTFILES_ROOT/$file" "$HOME/.$file"
         echo ""
     else
-        echo "** error! $DOTFILES_ROOT/$file doesn't exist!"
+        echo "* error! $DOTFILES_ROOT/$file doesn't exist!"
         exit
     fi
 done
@@ -68,34 +69,59 @@ EOF
 # this assumes more than a minute passes between runs .. file exists error?
 tar vcfz "$BACKUP_ARCHIVE" -C "$TEMP_DIR" .
 
+cat << EOF
+
+* done ..
+** removing temporary files ..
+
+EOF
+
+rm -vrfi "$TEMP_DIR"
+
+echo ""
+echo "* done .."
+
+
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 # symlink thunar custom actions config file
 THUNARCONF_DST="$HOME/.config/Thunar/uca.xml"
 THUNARCONF_SRC="$DOTFILES_ROOT/thunar-custom.xml"
+THUNARCONF_BAK=""$THUNARCONF_DST"_$(date +%Y-%m-%d_%H-%M-%S)"
 
-if [ -f "$THUNARCONF_SRC" ];
+cat << EOF
+  ──────────────────────────────────────────────────────────────────────────────
+  Thunar custom actions setup 
+  ===========================
+
+* creating symlinks from "$THUNARCONF_DST" to "$THUNARCONF_SRC"
+  for thunar custom actions configuration XML file.
+* current configuration file will be renamed to "$THUNARCONF_BAK"
+
+EOF
+
+if [ -f "$THUNARCONF_SRC" ];        # is the repo file in place?
 then
-    echo "$THUNARCONF_SRC exists .."
 
     if [ -f "$THUNARCONF_DST" ];    # is the config file already in place?
     then
-        echo "$THUNARCONF_DST exists .."
         echo "** moving existing file out of the way .."
-        $MOVE "$THUNARCONF_DST" ""$THUNARCONF_DST"_$(date +%Y-%m-%d_%H-%M-%S)"
+        $MOVE "$THUNARCONF_DST" "$THUNARCONF_BAK"
         echo ""
     fi
 
-#   echo "* creating symlink from "$THUNARCONF_DST" to "$THUNARCONF_SRC" .."
+    # creating symlink from "$THUNARCONF_DST" to "$THUNARCONF_SRC"
     echo "** creating symlink .."
     ln -vsi "$THUNARCONF_SRC" "$THUNARCONF_DST"
     echo ""
 else
-    echo "** error! $THUNARCONF_SRC doesn't exist!"
+    echo "* error! $THUNARCONF_SRC doesn't exist!"
     exit
 fi
 
 
+echo ""
+echo "done!"
 
 ## create symlink to zsh theme
 #echo "Symlink zsh theme .."
