@@ -139,6 +139,9 @@ noremap <C-h> :bprevious<cr>
 "** F3 toggles paste mode
 nnoremap <F3> :set paste!<cr>
 
+"** F6 toggles option to display whitespace
+nnoremap <F6> :set list!<cr>
+
 "** Map keys for nerdtree, ctrlp and tagbar
 map <leader>n :NERDTreeToggle<CR>
 map <C-p>     :CtrlPMixed<CR>
