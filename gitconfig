@@ -1,12 +1,15 @@
 [user]
 	email = jomeganas@gmail.com
-	name = Jonas Sjöberg
+	name = Jonas Sjöberg\n
 [push]
     default = matching
 [diff]
-	tool = vimdiff 
+	tool = meld
 [merge]
 	conflictstyle = diff3
 	tool = vimdiff
 [mergetool]
 	prompt = false
+[difftool "visdiff"]
+	cmd = /usr/local/bin/vis_diff.sh $LOCAL $REMOTE x:
+
