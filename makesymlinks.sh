@@ -15,13 +15,14 @@
 
 DOTFILES_ROOT=$(pwd)
 TEMP_DIR="$HOME/temporary_dotfiles"
-BACKUP_ARCHIVE="$HOME/dotfiles_$(date +%Y-%m-%d_%H-%M-%S).tar.gz" 
+BACKUP_ARCHIVE="$HOME/dotfiles_$(date +%Y-%m-%d_%H-%M-%S).tar.gz"
 MOVE="mv -vni"
 
 # These files are *the* dotfiles!
-CONFIGFILES="bashrc vimrc vim zshrc oh-my-zsh gitconfig"
+#CONFIGFILES="bashrc vimrc vim zshrc oh-my-zsh gitconfig"
+CONFIGFILES="bashrc vimrc vim zshrc gitconfig"
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 cat << EOF
   ──────────────────────────────────────────────────────────────────────────────
   Dotfiles setup script
@@ -37,12 +38,12 @@ EOF
 mkdir -pvv "$TEMP_DIR"                   # setup a folder for temporary storage
 cd "$HOME"
 
-for file in $CONFIGFILES;            
+for file in $CONFIGFILES;
 do
     if [ -f ".$file" ];                  # check for current config files
     then                                 # if present move to temporary storage
         echo "** moving ".$file" out of the way .."
-        $MOVE "$HOME/.$file" "$TEMP_DIR"        
+        $MOVE "$HOME/.$file" "$TEMP_DIR"
         echo ""
     fi
 
@@ -58,7 +59,7 @@ do
     fi
 done
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 cat << EOF
 
 * done ..
@@ -82,7 +83,7 @@ echo ""
 echo "* done .."
 
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # symlink thunar custom actions config file
 THUNARCONF_DST="$HOME/.config/Thunar/uca.xml"
@@ -91,10 +92,11 @@ THUNARCONF_BAK=""$THUNARCONF_DST"_$(date +%Y-%m-%d_%H-%M-%S)"
 
 cat << EOF
   ──────────────────────────────────────────────────────────────────────────────
-  Thunar custom actions setup 
+  Thunar custom actions setup
   ===========================
 
-* creating symlinks from "$THUNARCONF_DST" to "$THUNARCONF_SRC"
+* creating symlinks from "$THUNARCONF_DST"
+  to "$THUNARCONF_SRC"
   for thunar custom actions configuration XML file.
 * current configuration file will be renamed to "$THUNARCONF_BAK"
 
