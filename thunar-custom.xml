@@ -1,0 +1,97 @@
+<?xml encoding="UTF-8" version="1.0"?>
+<actions>
+<action>
+	<icon>filefind</icon>
+	<name>Find in this folder</name>
+	<unique-id>1424200141473395-2</unique-id>
+	<command>catfish --path=%f</command>
+	<description>Search for files within this folder</description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>emblem-symbolic-link</icon>
+	<name>Create symlink</name>
+	<unique-id>1427195518905622-7</unique-id>
+	<command>ln -s %f %n.symlink</command>
+	<description>Create a symbolic link</description>
+	<patterns>*</patterns>
+	<directories/>
+	<other-files/>
+</action>
+<action>
+	<icon>Terminal</icon>
+	<name>Open Terminal Here</name>
+	<unique-id>1424200141473257-1</unique-id>
+	<command>exo-open --working-directory %f --launch TerminalEmulator</command>
+	<description>Example for a custom action</description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Open a root terminal here</name>
+	<unique-id>1427196041392888-12</unique-id>
+	<command>gksu &quot;xfce4-terminal --default-working-directory=%f&quot;</command>
+	<description>Open a terminal as root</description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>system-file-manager</icon>
+	<name>Open Thunar as root here</name>
+	<unique-id>1427890308719551-2</unique-id>
+	<command>gksu thunar %d</command>
+	<description>Opens thunar as root</description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>meld</icon>
+	<name>Compare</name>
+	<unique-id>1426461179621484-2</unique-id>
+	<command>meld %F</command>
+	<description>Compares selected files or folders in Meld</description>
+	<patterns>*</patterns>
+	<directories/>
+	<text-files/>
+</action>
+<action>
+	<icon>accessories-character-map</icon>
+	<name>Slugify Filename</name>
+	<unique-id>1427195192259099-3</unique-id>
+	<command>for file in %N; do mv &quot;$file&quot; &quot;$(echo &quot;$file&quot; | tr -s &apos; &apos; | tr &apos; A-Z&apos; &apos;-a-z&apos; | tr -s &apos;-&apos; | tr -c &apos;[:alnum:][:cntrl:].&apos; &apos;-&apos;)&quot;; done</command>
+	<description>Rename the currently selected files, making the filenames lower-case &amp; replacing spaces with dashes.</description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>mediainfo</icon>
+	<name>Media Info</name>
+	<unique-id>1427193729542164-2</unique-id>
+	<command>mediainfo-gui %f</command>
+	<description>Displays information about an audio or video file</description>
+	<patterns>*</patterns>
+	<audio-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>xfce4-clipman-plugin</icon>
+	<name>Copy Pathname to Clipboard</name>
+	<unique-id>1427196652117016-16</unique-id>
+	<command>echo -n %f | xclip -i -selection c</command>
+	<description>Copies file&apos;s full pathname to the X PRIMARY selection</description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+</actions>
