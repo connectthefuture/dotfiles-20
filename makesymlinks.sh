@@ -44,10 +44,15 @@ cd "$HOME"
 
 for file in $CONFIGFILES;
 do
-    if [ -f ".$file" ];                  # check for current config files
-    then                                 # if present move to temporary storage
-        echo "** moving ".$file" out of the way .."
-        $MOVE "$HOME/.$file" "$TEMP_DIR"
+    if [ -f ".$file" ];                  # check for existing config files
+    then                                 # delete symlinks, move regular files 
+        if [ -L ".$file" ];              # to temporary storage
+        then
+            rm -v ".$file"
+        else
+            echo "** moving ".$file" out of the way .."
+            $MOVE "$HOME/.$file" "$TEMP_DIR" 
+        fi
     fi
 
     if [ -e "$DOTFILES_ROOT/$file" ];    # check that file is in repo directory
