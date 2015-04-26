@@ -39,30 +39,34 @@ cat << EOF
 
 EOF
 
-mkdir -pvv "$TEMP_DIR"                   # setup a folder for temporary storage
 cd "$HOME"
 
 for file in $CONFIGFILES;
 do
-    if [ -f ".$file" ];                  # check for existing config files
-    then                                 # delete symlinks, move regular files 
-        if [ -L ".$file" ];              # to temporary storage
-        then
-            rm -v ".$file"
+    THIS_SRC="$HOME/.$file"              # this file is a link .. 
+    THIS_DST="$DOTFILES_ROOT/$file"      # .. to this file
+
+    if [ -f "$THIS_SRC" ]; then
+        if [ -L "$THIS_SRC" ]; then
+            echo "* removing symlink .$file .."
+            rm -v "$THIS_SRC"
         else
+            if [ ! -d "$TEMP_DIR" ]; then
+                mkdir -pvv "$TEMP_DIR"   # setup a folder for temporary storage
+            fi
+
             echo "** moving ".$file" out of the way .."
-            $MOVE "$HOME/.$file" "$TEMP_DIR" 
+            $MOVE "$THIS_SRC" "$TEMP_DIR"
         fi
     fi
 
-    if [ -e "$DOTFILES_ROOT/$file" ];    # check that file is in repo directory
+    if [ -e "$THIS_DST" ];               # check that file is in repo directory
     then                                 # if not, print error and die
-        # create symlink from "$HOME/.$file" to "$DOTFILES_ROOT/$file"
-        echo "** creating symlink .."
-        ln -vsi "$DOTFILES_ROOT/$file" "$HOME/.$file"
+        echo "** creating symlink .."    # else create symlink from SRC to DST
+        ln -vsi "$THIS_DST" "$THIS_SRC"
         echo ""
     else
-        echo "* error! $DOTFILES_ROOT/$file doesn't exist!"
+        echo "* error! $THIS_DST doesn't exist!"
         exit
     fi
 done
@@ -94,9 +98,9 @@ echo "* done .."
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # symlink thunar custom actions config file
-THUNARCONF_DST="$HOME/.config/Thunar/uca.xml"
-THUNARCONF_SRC="$DOTFILES_ROOT/thunar-custom.xml"
-THUNARCONF_BAK=""$THUNARCONF_DST"_$(date +%Y-%m-%d_%H-%M-%S)"
+THUNARCONF_SRC="$HOME/.config/Thunar/uca.xml"       # this file is a link ..
+THUNARCONF_DST="$DOTFILES_ROOT/thunar-custom.xml"   # .. to this file
+THUNARCONF_BAK=""$THUNARCONF_SRC"_$(date +%Y-%m-%d_%H-%M-%S)"
 
 cat << EOF
 
@@ -105,28 +109,30 @@ cat << EOF
   ===========================
 
 * creating symlink for thunar custom actions configuration XML file.
-     from source: $THUNARCONF_DST
-  to destination: $THUNARCONF_SRC
-  
+     from source: $THUNARCONF_SRC
+  to destination: $THUNARCONF_DST
+
 * current file will be saved as "$THUNARCONF_BAK"
 ────────────────────────────────────────────────────────────────────────────────
 EOF
 
-if [ -f "$THUNARCONF_SRC" ];        # is the repo file in place?
-then
-
-    if [ -f "$THUNARCONF_DST" ];    # is the config file already in place?
-    then
-        echo "** moving existing file out of the way .."
-        $MOVE "$THUNARCONF_DST" "$THUNARCONF_BAK"
+if [ -f "$THUNARCONF_DST" ]; then         # is the repo file in place?
+    if [ -f "$THUNARCONF_SRC" ]; then     # is the config file already in place?
+        if [ -L "$THUNARCONF_SRC" ]; then # is the config file a symlink?
+            echo "* removing symlink $THUNARCONF_SRC .."
+            rm -v "$THUNARCONF_SRC"
+        else
+            echo "** moving existing file out of the way .."
+            $MOVE "$THUNARCONF_SRC" "$THUNARCONF_BAK"
+        fi
     fi
 
     # creating symlink from "$THUNARCONF_DST" to "$THUNARCONF_SRC"
     echo "** creating symlink .."
-    ln -vsi "$THUNARCONF_SRC" "$THUNARCONF_DST"
+    ln -vsi "$THUNARCONF_DST" "$THUNARCONF_SRC"
     echo ""
 else
-    echo "* error! $THUNARCONF_SRC doesn't exist!"
+    echo "* error! $THUNARCONF_DST doesn't exist!"
     exit
 fi
 
