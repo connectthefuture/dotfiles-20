@@ -10,10 +10,11 @@
 	default = matching
 [merge]
 	conflictstyle = diff3
-	tool = vimdiff
+	tool = meld
+	#tool = vimdiff
 [mergetool]
 	prompt = false[gui]
-	recentrepo = /home/spock/git/electronics_calc
+    tool = meld
 [diff]
 	tool = meld
 	#tool = vimdiff 
