@@ -1,29 +1,22 @@
 [user]
-	name = Jonas Sjöberg
 	email = jomeganas@gmail.com
+	name = Jonas Sjöberg
 [color]
 	ui = true
 [core]
 	editor = vim
 	attributesfile = ~/.gitattributes
 [push]
-    default = matching
-[diff]
-    default = matching
-	tool = meld
-	#tool = vimdiff 
+	default = matching
 [merge]
 	conflictstyle = diff3
-	#tool = vimdiff
-	tool = meld
+	tool = vimdiff
 [mergetool]
-	prompt = false
+	prompt = false[gui]
+	recentrepo = /home/spock/git/electronics_calc
 [diff]
 	tool = meld
 	#tool = vimdiff 
-[difftool "visdiff"]
-	cmd = /usr/local/bin/vis_diff.sh $LOCAL $REMOTE x:
-	prompt = false[gui]
 [diff "image"]
 	command = ~/bin/git-imgdiff 
 [alias]
