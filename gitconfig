@@ -18,6 +18,9 @@
 [diff]
 	tool = meld
 	#tool = vimdiff 
+[difftool "visdiff"]
+	cmd = /usr/local/bin/vis_diff.sh $LOCAL $REMOTE x:
+	prompt = false[gui]
 [diff "image"]
 	command = ~/bin/git-imgdiff 
 [alias]
