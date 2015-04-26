@@ -24,14 +24,18 @@ CONFIGFILES="bashrc vimrc vim zshrc gitconfig"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 cat << EOF
-  ──────────────────────────────────────────────────────────────────────────────
+────────────────────────────────────────────────────────────────────────────────
   Dotfiles setup script
   =====================
 
-* started with root "$DOTFILES_ROOT"
-* creating symlinks from "$HOME" to "$DOTFILES_ROOT"
-  for dotfiles: "$CONFIGFILES"
-* any current dotfiles will be backed up to "$BACKUP_ARCHIVE"
+* started with root: $DOTFILES_ROOT
+
+* will symlink from source: $HOME
+         .. to destination: $DOTFILES_ROOT
+  .. acting on these files: $CONFIGFILES
+
+* archiving any existing to: $BACKUP_ARCHIVE
+────────────────────────────────────────────────────────────────────────────────
 
 EOF
 
@@ -44,7 +48,6 @@ do
     then                                 # if present move to temporary storage
         echo "** moving ".$file" out of the way .."
         $MOVE "$HOME/.$file" "$TEMP_DIR"
-        echo ""
     fi
 
     if [ -e "$DOTFILES_ROOT/$file" ];    # check that file is in repo directory
@@ -77,7 +80,7 @@ cat << EOF
 
 EOF
 
-rm -vrfi "$TEMP_DIR"
+rm -vrf "$TEMP_DIR"
 
 echo ""
 echo "* done .."
@@ -91,15 +94,17 @@ THUNARCONF_SRC="$DOTFILES_ROOT/thunar-custom.xml"
 THUNARCONF_BAK=""$THUNARCONF_DST"_$(date +%Y-%m-%d_%H-%M-%S)"
 
 cat << EOF
-  ──────────────────────────────────────────────────────────────────────────────
+
+────────────────────────────────────────────────────────────────────────────────
   Thunar custom actions setup
   ===========================
 
-* creating symlinks from "$THUNARCONF_DST"
-  to "$THUNARCONF_SRC"
-  for thunar custom actions configuration XML file.
-* current configuration file will be renamed to "$THUNARCONF_BAK"
-
+* creating symlink for thunar custom actions configuration XML file.
+     from source: $THUNARCONF_DST
+  to destination: $THUNARCONF_SRC
+  
+* current file will be saved as "$THUNARCONF_BAK"
+────────────────────────────────────────────────────────────────────────────────
 EOF
 
 if [ -f "$THUNARCONF_SRC" ];        # is the repo file in place?
@@ -109,7 +114,6 @@ then
     then
         echo "** moving existing file out of the way .."
         $MOVE "$THUNARCONF_DST" "$THUNARCONF_BAK"
-        echo ""
     fi
 
     # creating symlink from "$THUNARCONF_DST" to "$THUNARCONF_SRC"
