@@ -35,3 +35,7 @@ alias gcm='git checkout master'
 # apt
 alias apts='apt-cache search'
 alias aptsh='apt-cache show'
+
+
+# miscellaneous
+alias hgrep='history | grep'
