@@ -35,18 +35,18 @@ cat << EOF
 EOF
 
 mkdir -pvv "$TEMP_DIR"                   # setup a folder for temporary storage
-cd "$DOTFILES_ROOT"
+cd "$HOME"
 
 for file in $CONFIGFILES;            
 do
     if [ -f ".$file" ];                  # check for current config files
     then                                 # if present move to temporary storage
         echo "** moving ".$file" out of the way .."
-        $MOVE ".$file" "$TEMP_DIR"        
+        $MOVE "$HOME/.$file" "$TEMP_DIR"        
         echo ""
     fi
 
-    if [ -f "$DOTFILES_ROOT/$file" ];    # check that file is in repo directory
+    if [ -e "$DOTFILES_ROOT/$file" ];    # check that file is in repo directory
     then                                 # if not, print error and die
         # create symlink from "$HOME/.$file" to "$DOTFILES_ROOT/$file"
         echo "** creating symlink .."
