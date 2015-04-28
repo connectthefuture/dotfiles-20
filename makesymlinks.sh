@@ -48,7 +48,7 @@ do
 
     if [ -f "$THIS_SRC" ]; then
         if [ -L "$THIS_SRC" ]; then
-            echo "* removing symlink .$file .."
+            echo "** removing symlink .$file .."
             rm -v "$THIS_SRC"
         else
             if [ ! -d "$TEMP_DIR" ]; then
@@ -71,29 +71,20 @@ do
     fi
 done
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-cat << EOF
+echo "\n* done .."
 
-* done ..
-** archiving the old dotfiles ..
+if [ -d "$TEMP_DIR" ]; then
+    echo "\n** archiving the old dotfiles .."
 
-EOF
+    # this assumes more than a minute passes between runs .. file exists error?
+    tar vcfz "$BACKUP_ARCHIVE" -C "$TEMP_DIR" .
 
-# this assumes more than a minute passes between runs .. file exists error?
-tar vcfz "$BACKUP_ARCHIVE" -C "$TEMP_DIR" .
-
-cat << EOF
-
-* done ..
-** removing temporary files ..
-
-EOF
-
-rm -vrf "$TEMP_DIR"
-
-echo ""
-echo "* done .."
-
+    echo "\n* done .."
+    echo "** removing temporary files .."
+    rm -vrf "$TEMP_DIR"
+    
+    echo "\n* done .."
+fi
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
