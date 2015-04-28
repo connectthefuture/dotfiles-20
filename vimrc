@@ -158,8 +158,8 @@ ino <right> <Nop>
 ino <up> <Nop>
 
 "** Shortcut for inserting a timestamp. Useful when taking notes at lectures.
-:nnoremap <F5> "=strftime("%Y-%m-%d %A %H:%M")<CR>
-:inoremap <F5> <C-R>=strftime("%Y-%m-%d %A %H:%M")<CR>
+:nnoremap <F5> "=strftime("%F %A")<CR>
+:inoremap <F5> <C-R>=strftime("%F %A")<CR>
 
 "** When in insert mode; hit leader before ( to insert text surrounded by ().
 imap <leader>' ''<ESC>i
