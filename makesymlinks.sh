@@ -3,7 +3,7 @@
 
 #   DOTFILES SETUP SCRIPT
 #                               written by Jonas Sjöberg for *personal* use
-#                                                  Last updated: 2015-04-26
+#                                                  Last updated: 2015-04-30
 #   ______________________________________________________________________
 
 #   Should only ever need to be executed after a clean reinstall of the home
@@ -45,6 +45,12 @@ EOF
 
 cd "$HOME"
 
+# Run through the list of configfiles. Check if the source file (THIS_SRC)
+# exists and is an ordinary file. Then check if it is a symbolic link, which
+# is deleted. If it isn't a symlink, it is moved to a temporary directory, which
+# is created if need be.
+# Next, check if the destination file ($THIS_DST) exists. If it does, go ahead
+# and create a symlink from source to destination.
 for file in $CONFIGFILES;
 do
     THIS_SRC="$HOME/.$file"              # this file is a link .. 
@@ -77,6 +83,10 @@ done
 
 echo "\n* done .."
 
+# Create a backup archive if needed. First check if the temporary directory
+# exists. If it does, we can assume it contains our old dotfiles.
+# Create a zipped tar archive with a date and timestamp in the filename.
+# Then go ahead aand remove the .
 if [ -d "$TEMP_DIR" ]; then
     echo "\n** archiving the old dotfiles .."
 
@@ -135,6 +145,7 @@ fi
 echo ""
 echo "done!"
 
+# TODO: This here below;
 ## create symlink to zsh theme
 #echo "Symlink zsh theme .."
 #ln -s $dir/jonas.zsh-theme $dir/oh-my-zsh/themes/jonas.zsh-theme
