@@ -86,7 +86,7 @@ echo "\n* done .."
 # Create a backup archive if needed. First check if the temporary directory
 # exists. If it does, we can assume it contains our old dotfiles.
 # Create a zipped tar archive with a date and timestamp in the filename.
-# Then go ahead aand remove the .
+# Then go ahead aand remove the temporary directory and files.
 if [ -d "$TEMP_DIR" ]; then
     echo "\n** archiving the old dotfiles .."
 
