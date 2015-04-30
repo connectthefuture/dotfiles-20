@@ -22,8 +22,12 @@ MOVE="mv -vni"
 #CONFIGFILES="bashrc vimrc vim zshrc oh-my-zsh gitconfig"
 CONFIGFILES="bashrc vimrc vim zshrc gitconfig"
 
+# Be verbose. Prints debug information.
+VERBOSE=true
+
+
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-cat << EOF
+[[ $VERBOSE ]] && cat << EOF
 ────────────────────────────────────────────────────────────────────────────────
   Dotfiles setup script
   =====================
@@ -93,7 +97,7 @@ THUNARCONF_SRC="$HOME/.config/Thunar/uca.xml"       # this file is a link ..
 THUNARCONF_DST="$DOTFILES_ROOT/thunar-custom.xml"   # .. to this file
 THUNARCONF_BAK=""$THUNARCONF_SRC"_$(date +%Y-%m-%d_%H-%M-%S)"
 
-cat << EOF
+[[ $VERBOSE ]] && cat << EOF
 
 ────────────────────────────────────────────────────────────────────────────────
   Thunar custom actions setup
