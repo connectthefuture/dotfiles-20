@@ -81,23 +81,23 @@ do
     fi
 done
 
-echo "\n* done .."
+printf "\n* done ..\n"
 
 # Create a backup archive if needed. First check if the temporary directory
 # exists. If it does, we can assume it contains our old dotfiles.
 # Create a zipped tar archive with a date and timestamp in the filename.
 # Then go ahead aand remove the temporary directory and files.
 if [ -d "$TEMP_DIR" ]; then
-    echo "\n** archiving the old dotfiles .."
+    printf "\n** archiving the old dotfiles ..\n"
 
     # this assumes more than a minute passes between runs .. file exists error?
     tar vcfz "$BACKUP_ARCHIVE" -C "$TEMP_DIR" .
 
-    echo "\n* done .."
+    printf "\n* done ..\n"
     echo "** removing temporary files .."
     rm -vrf "$TEMP_DIR"
     
-    echo "\n* done .."
+    printf "\n* done ..\n"
 fi
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -108,7 +108,6 @@ THUNARCONF_DST="$DOTFILES_ROOT/thunar-custom.xml"   # .. to this file
 THUNARCONF_BAK=""$THUNARCONF_SRC"_$(date +%Y-%m-%d_%H-%M-%S)"
 
 [[ $VERBOSE ]] && cat << EOF
-
 ────────────────────────────────────────────────────────────────────────────────
   Thunar custom actions setup
   ===========================
@@ -142,8 +141,7 @@ else
 fi
 
 
-echo ""
-echo "done!"
+printf "\ndone!\n"
 
 # TODO: This here below;
 ## create symlink to zsh theme
