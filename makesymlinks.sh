@@ -19,8 +19,7 @@ BACKUP_ARCHIVE="$HOME/dotfiles_$(date +%Y-%m-%d_%H-%M-%S).tar.gz"
 MOVE="mv -vni"
 
 # These files are *the* dotfiles!
-#CONFIGFILES="bashrc vimrc vim zshrc oh-my-zsh gitconfig"
-CONFIGFILES="bashrc vimrc vim zshrc gitconfig"
+CONFIGFILES="bashrc vimrc vim zshrc oh-my-zsh gitconfig"
 
 # Be verbose. Prints debug information.
 VERBOSE=true
@@ -143,7 +142,15 @@ fi
 
 printf "\ndone!\n"
 
-# TODO: This here below;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ## create symlink to zsh theme
-#echo "Symlink zsh theme .."
-#ln -s $dir/jonas.zsh-theme $dir/oh-my-zsh/themes/jonas.zsh-theme
+echo "Symlink zsh theme .."
+OHMYZSH_THEMES="$DOTFILES_ROOT/oh-my-zsh/themes"
+
+if [ -d "$OHMYZSH_THEMES" ]; then
+    ln -vsi "$DOTFILES_ROOT/jonas.zsh-theme" \
+          "$OHMYZSH_THEMES/jonas.zsh-theme"
+else
+    echo "* error! $OHMYZSH_THEMES doesn't exist!"
+    echo "         make sure oh-my-zsh is installed."
+fi
