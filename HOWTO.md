@@ -59,13 +59,13 @@ VIM
               ~/dotfiles/vim/bundle/Vundle.vim
     ```
 
-3.  * Install Plugins. First launch Vim, then run:
+3. Install Plugins. First launch Vim, then run:
 
         ```bash
         :PluginInstall
         ```
 
-   * Alternatively, to install from the command line:
+   Alternatively, to install from the command line:
 
         ```bash
         vim +PluginInstall +qall
