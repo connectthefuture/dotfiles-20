@@ -48,16 +48,16 @@ VIM
 
 1. Install Vim using your preferred method, maybe like so:
 
-```bash
-apt-get install vim vim-youcompleteme
-```
+    ```bash
+    apt-get install vim vim-youcompleteme
+    ```
 
 2. Setup Vundle:
 
-```bash
-git clone https://github.com/gmarik/Vundle.vim.git \
-          ~/dotfiles/vim/bundle/Vundle.vim
-```
+        ```bash
+        git clone https://github.com/gmarik/Vundle.vim.git \
+                  ~/dotfiles/vim/bundle/Vundle.vim
+        ```
 
 3. Install Plugins. First launch Vim, then run:
 
