@@ -61,15 +61,15 @@ VIM
 
 3. Install Plugins. First launch Vim, then run:
 
-        ```bash
-        :PluginInstall
-        ```
+    ```bash
+    :PluginInstall
+    ```
 
    Alternatively, to install from the command line:
 
-        ```bash
-        vim +PluginInstall +qall
-        ```
+    ```bash
+    vim +PluginInstall +qall
+    ```
 
 4. Install powerline fonts.
 
