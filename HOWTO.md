@@ -20,26 +20,26 @@ apt-get install zsh
 2. Install oh-my-zsh. Assumes you really trust their code ..
 
 ```bash
-    export ZSH=/home/spock/dotfiles/oh-my-zsh
-    wget --no-check-certificate http://install.ohmyz.sh -O - | sh
+export ZSH=/home/spock/dotfiles/oh-my-zsh
+wget --no-check-certificate http://install.ohmyz.sh -O - | sh
 ```
 
 3. Set zsh to default shell:
 
 ```bash
-    chsh -s $(which zsh)
+chsh -s $(which zsh)
 ```
 
    Alternatively, do:
 
 ```bash
-    sudo update-alternatives --config x-terminal-emulator
+sudo update-alternatives --config x-terminal-emulator
 ```
 
 4. Run makesymlinks.sh:
 
 ```bash
-    ~/dotfiles/makesymlinks.sh
+~/dotfiles/makesymlinks.sh
 ```
 
 
@@ -49,45 +49,45 @@ VIM
 1. Install Vim using your preferred method, maybe like so:
 
 ```bash
-    apt-get install vim vim-youcompleteme
+apt-get install vim vim-youcompleteme
 ```
 
 2. Setup Vundle:
 
 ```bash
-    git clone https://github.com/gmarik/Vundle.vim.git \
-                ~/dotfiles/vim/bundle/Vundle.vim
+git clone https://github.com/gmarik/Vundle.vim.git \
+          ~/dotfiles/vim/bundle/Vundle.vim
 ```
 
 3. Install Plugins. First launch Vim, then run:
 
 ```bash
-    :PluginInstall
+:PluginInstall
 ```
 
 Alternatively, to install from the command line:
 
 ```bash
-k   vim +PluginInstall +qall
+vim +PluginInstall +qall
 ```
 
 4. Install powerline fonts.
 
 ```bash
-    apt-get install fonts-powerline 
+apt-get install fonts-powerline 
 ```
 
 5. Create folders for temporary files
    .. With one fancy one-liner:
 
 ```bash
-    mkdir ~/.vim/.{undo,backup,swp}
+mkdir ~/.vim/.{undo,backup,swp}
 ```
 
    .. or keep it simple(r):
 
 ```bash
-    mkdir ~/.vim/.undo
-    mkdir ~/.vim/.backup
-    mkdir ~/.vim/.swp
+mkdir ~/.vim/.undo
+mkdir ~/.vim/.backup
+mkdir ~/.vim/.swp
 ```
