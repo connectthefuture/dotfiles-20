@@ -90,7 +90,8 @@ if [ -d "$TEMP_DIR" ]; then
     printf "\n** archiving the old dotfiles ..\n"
 
     # this assumes more than a minute passes between runs .. file exists error?
-    tar vcfz "$BACKUP_ARCHIVE" -C "$TEMP_DIR" .
+    # tar vcfz "$BACKUP_ARCHIVE" -C "$TEMP_DIR" .
+    find "$TEMP_DIR" -maxdepth 1 -type f -name ".*" -exec tar vczf "$BACKUP_ARCHIVE" "{}" +
 
     printf "\n* done ..\n"
     echo "** removing temporary files .."
