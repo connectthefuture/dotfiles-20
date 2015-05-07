@@ -13,7 +13,6 @@
 	tool = meld
 	#tool = vimdiff
 [mergetool]
-	prompt = false[gui]
     tool = meld
 [diff]
 	tool = meld
