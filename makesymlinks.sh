@@ -15,7 +15,7 @@
 
 DOTFILES_ROOT=$(pwd)
 TEMP_DIR="$HOME/temporary_dotfiles"
-BACKUP_ARCHIVE="$HOME/dotfiles_$(date +%Y-%m-%d_%H-%M-%S).tar.gz"
+BACKUP_ARCHIVE="$HOME/dotfiles_$(date +%F_%H-%M-%S).tar.gz"
 MOVE="mv -vni"
 
 # These files are *the* dotfiles!
@@ -104,7 +104,7 @@ fi
 # symlink thunar custom actions config file
 THUNARCONF_SRC="$HOME/.config/Thunar/uca.xml"       # this file is a link ..
 THUNARCONF_DST="$DOTFILES_ROOT/thunar-custom.xml"   # .. to this file
-THUNARCONF_BAK=""$THUNARCONF_SRC"_$(date +%Y-%m-%d_%H-%M-%S)"
+THUNARCONF_BAK=""$THUNARCONF_SRC"_$(date +%F_%H-%M-%S)"
 
 [[ $VERBOSE ]] && cat << EOF
 ────────────────────────────────────────────────────────────────────────────────
