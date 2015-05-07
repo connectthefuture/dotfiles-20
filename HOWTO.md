@@ -14,7 +14,7 @@ ZSH
 1. Download ZSH
 
 ```bash
-$ apt-get install zsh
+apt-get install zsh
 ```
 
 2. Install oh-my-zsh. Assumes you really trust their code ..
