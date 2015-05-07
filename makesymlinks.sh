@@ -101,12 +101,14 @@ fi
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# symlink thunar custom actions config file
-THUNARCONF_SRC="$HOME/.config/Thunar/uca.xml"       # this file is a link ..
-THUNARCONF_DST="$DOTFILES_ROOT/thunar-custom.xml"   # .. to this file
-THUNARCONF_BAK=""$THUNARCONF_SRC"_$(date +%F_%H-%M-%S)"
-
+if command -v thunar >/dev/null; then
+    # symlink thunar custom actions config file
+    THUNARCONF_SRC="$HOME/.config/Thunar/uca.xml"       # this file is a link ..
+    THUNARCONF_DST="$DOTFILES_ROOT/thunar-custom.xml"   # .. to this file
+    THUNARCONF_BAK=""$THUNARCONF_SRC"_$(date +%F_%H-%M-%S)"
+    
 [[ $VERBOSE ]] && cat << EOF
+
 ────────────────────────────────────────────────────────────────────────────────
   Thunar custom actions setup
   ===========================
@@ -117,34 +119,39 @@ THUNARCONF_BAK=""$THUNARCONF_SRC"_$(date +%F_%H-%M-%S)"
 
 * current file will be saved as "$THUNARCONF_BAK"
 ────────────────────────────────────────────────────────────────────────────────
-EOF
 
-if [ -f "$THUNARCONF_DST" ]; then         # is the repo file in place?
-    if [ -f "$THUNARCONF_SRC" ]; then     # is the config file already in place?
-        if [ -L "$THUNARCONF_SRC" ]; then # is the config file a symlink?
-            echo "* removing symlink $THUNARCONF_SRC .."
-            rm -v "$THUNARCONF_SRC"
-        else
-            echo "** moving existing file out of the way .."
-            $MOVE "$THUNARCONF_SRC" "$THUNARCONF_BAK"
+EOF
+    
+    if [ -f "$THUNARCONF_DST" ]; then         # is the repo file in place?
+        if [ -f "$THUNARCONF_SRC" ]; then     # is the config file already in place?
+            if [ -L "$THUNARCONF_SRC" ]; then # is the config file a symlink?
+                echo "* removing symlink $THUNARCONF_SRC .."
+                rm -v "$THUNARCONF_SRC"
+            else
+                echo "** moving existing file out of the way .."
+                $MOVE "$THUNARCONF_SRC" "$THUNARCONF_BAK"
+            fi
         fi
+    
+        # creating symlink from "$THUNARCONF_DST" to "$THUNARCONF_SRC"
+        echo "** creating symlink .."
+        ln -vsi "$THUNARCONF_DST" "$THUNARCONF_SRC"
+        echo ""
+    else
+        echo "* error! $THUNARCONF_DST doesn't exist!"
+        exit
     fi
 
-    # creating symlink from "$THUNARCONF_DST" to "$THUNARCONF_SRC"
-    echo "** creating symlink .."
-    ln -vsi "$THUNARCONF_DST" "$THUNARCONF_SRC"
-    echo ""
+    printf "\ndone!\n"
 else
-    echo "* error! $THUNARCONF_DST doesn't exist!"
-    exit
+    printf "\n\n* Thunar doesn't seem to be installed. Skipping ..\n\n"
 fi
 
 
-printf "\ndone!\n"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ## create symlink to zsh theme
-echo "Symlink zsh theme .."
+echo "Symlinking zsh theme .."
 OHMYZSH_THEMES="$DOTFILES_ROOT/oh-my-zsh/themes"
 
 if [ -d "$OHMYZSH_THEMES" ]; then
