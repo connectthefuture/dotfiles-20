@@ -103,3 +103,6 @@ setopt INTERACTIVE_COMMENTS         # treat hash characters as comment delimiter
 plugins=(vi-mode git zsh-syntax-highlighting history-substring-search)
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets cursor)
 
+# bind k and j for VI mode
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
