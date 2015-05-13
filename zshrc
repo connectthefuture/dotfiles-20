@@ -68,7 +68,7 @@ export VISUAL="vim"
 export EDITOR="vim"
 
 ## set vi mode
-set -o vi
+#set -o vi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -91,12 +91,6 @@ alias aptsh="apt-cache show"
 
 setopt INTERACTIVE_COMMENTS         # treat hash characters as comment delimiter
 
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(vi-mode git zsh-syntax-highlighting history-substring-search)
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets cursor)
 
 # Keybind for searching history 
 # bind k and j for VI mode
