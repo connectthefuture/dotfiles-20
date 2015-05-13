@@ -118,6 +118,7 @@ let g:airline#extensions#tabline#enabled = 1
 "** Remap leader to § (key below ESC, above tab)
 let mapleader='§'
 let leader='§'
+set timeout timeoutlen=1500
 
 "** Easier moving of code blocks (Vim as Python IDE - Martin Brochhaus)
 vnoremap < <gv
