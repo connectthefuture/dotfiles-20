@@ -41,7 +41,7 @@
 	<icon>system-file-manager</icon>
 	<name>Open Thunar as root here</name>
 	<unique-id>1427890308719551-2</unique-id>
-	<command>gksu thunar %d</command>
+	<command>gksu thunar %f</command>
 	<description>Opens thunar as root</description>
 	<patterns>*</patterns>
 	<directories/>
