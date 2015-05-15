@@ -19,7 +19,7 @@ BACKUP_ARCHIVE="$HOME/dotfiles_$(date +%F_%H-%M-%S).tar.gz"
 MOVE="mv -vni"
 
 # These files are *the* dotfiles!
-CONFIGFILES="bashrc bash_aliases vimrc vim zshrc oh-my-zsh gitconfig"
+CONFIGFILES="bashrc bash_aliases vimrc vim zshrc oh-my-zsh gitconfig zshenv"
 
 # Be verbose. Prints debug information.
 VERBOSE=true

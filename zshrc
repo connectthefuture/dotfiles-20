@@ -50,7 +50,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git history-substring-search zsh-syntax-highlighting)
+plugins=(vi-mode git zsh-syntax-highlighting history-substring-search)
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets cursor)
 
 source $ZSH/oh-my-zsh.sh
@@ -68,7 +68,7 @@ export VISUAL="vim"
 export EDITOR="vim"
 
 ## set vi mode
-set -o vi
+#set -o vi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -91,8 +91,10 @@ alias aptsh="apt-cache show"
 
 setopt INTERACTIVE_COMMENTS         # treat hash characters as comment delimiter
 
-# history completion
+
+# Keybind for searching history 
+# bind k and j for VI mode
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
 #bindkey '\e[A' history-beginning-search-backward
 #bindkey '\e[B' history-beginning-search-forward
-plugins=(git brew npm history-substring-search)
-

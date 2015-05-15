@@ -41,7 +41,7 @@
 	<icon>system-file-manager</icon>
 	<name>Open Thunar as root here</name>
 	<unique-id>1427890308719551-2</unique-id>
-	<command>gksu thunar %d</command>
+	<command>gksu thunar %f</command>
 	<description>Opens thunar as root</description>
 	<patterns>*</patterns>
 	<directories/>
@@ -59,9 +59,8 @@
 <action>
 	<icon>accessories-character-map</icon>
 	<name>Slugify Filename</name>
-	<unique-id>1427195192259099-3</unique-id>
-	<command>for file in %N; do mv &quot;$file&quot; &quot;$(echo &quot;$file&quot; | tr -s &apos; &apos; | tr &apos; A-Z&apos; &apos;-a-z&apos; | tr -s &apos;-&apos; | tr -c &apos;[:alnum:][:cntrl:].&apos; &apos;-&apos;)&quot;; done</command>
-	<description>Rename the currently selected files, making the filenames lower-case &amp; replacing spaces with dashes.</description>
+	<command>for file in %N; do mv -n "$file" "$(echo "$file" | tr -s ' ' | tr -s '-' | tr -c '[:alnum:][:cntrl:].' '-')"; done</command>
+	<description>Rename the currently selected files, replacing spaces with dashes.</description>
 	<patterns>*</patterns>
 	<directories/>
 	<audio-files/>

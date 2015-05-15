@@ -24,3 +24,5 @@
 	command = ~/bin/git-imgdiff 
 [alias]
 	lol = log --graph --oneline --decorate --all
+[difftool "eaglediff"]
+	cmd = eaglediff $LOCAL $REMOTE
