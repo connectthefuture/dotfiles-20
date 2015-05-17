@@ -13,7 +13,8 @@
 #   responsability for anything you might do with this script. Be careful.
 #
 
-DOTFILES_ROOT=$(pwd)
+
+DOTFILES_ROOT=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 TEMP_DIR=$(mktemp -d dotfiles.XXXXXX)
 BACKUP_ARCHIVE="$HOME/dotfiles_$(date +%F_%H-%M-%S).tar.gz"
 MOVE="mv -vni"
