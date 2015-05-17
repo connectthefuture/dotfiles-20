@@ -13,20 +13,21 @@
 #   responsability for anything you might do with this script. Be careful.
 #
 
+# USER CONFIGURABLE VARIABLES
+# These are the dotfiles that will be installed.
+CONFIGFILES="bashrc bash_aliases vimrc vim zshrc oh-my-zsh gitconfig zshenv"
 
+# Be verbose, print debug information.
+VERBOSE=true
+
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# FIXED VARIABLES
 DOTFILES_ROOT=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 TEMP_DIR=$(mktemp -d dotfiles.XXXXXX)
 BACKUP_ARCHIVE="$HOME/dotfiles_$(date +%F_%H-%M-%S).tar.gz"
 MOVE="mv -vni"
 
-# These files are *the* dotfiles!
-CONFIGFILES="bashrc bash_aliases vimrc vim zshrc oh-my-zsh gitconfig zshenv"
-
-# Be verbose. Prints debug information.
-VERBOSE=true
-
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 [[ $VERBOSE ]] && cat << EOF
 ────────────────────────────────────────────────────────────────────────────────
   Dotfiles setup script
