@@ -2,8 +2,8 @@
 #   ______________________________________________________________________
 
 #   DOTFILES SETUP SCRIPT
-#                               written by Jonas Sjöberg for *personal* use
-#                                                  Last updated: 2015-04-30
+#                              written by Jonas Sjöberg for *personal* use
+#                                                 Last updated: 2015-05-17
 #   ______________________________________________________________________
 
 #   Should only ever need to be executed after a clean reinstall of the home
@@ -14,7 +14,7 @@
 #
 
 DOTFILES_ROOT=$(pwd)
-TEMP_DIR="$HOME/temporary_dotfiles"
+TEMP_DIR=$(mktemp -d dotfiles.XXXXXX)
 BACKUP_ARCHIVE="$HOME/dotfiles_$(date +%F_%H-%M-%S).tar.gz"
 MOVE="mv -vni"
 
