@@ -2,8 +2,8 @@
 #   ______________________________________________________________________
 
 #   DOTFILES SETUP SCRIPT
-#                               written by Jonas Sjöberg for *personal* use
-#                                                  Last updated: 2015-04-30
+#                              written by Jonas Sjöberg for *personal* use
+#                                                 Last updated: 2015-05-17
 #   ______________________________________________________________________
 
 #   Should only ever need to be executed after a clean reinstall of the home
@@ -13,19 +13,21 @@
 #   responsability for anything you might do with this script. Be careful.
 #
 
-DOTFILES_ROOT=$(pwd)
-TEMP_DIR="$HOME/temporary_dotfiles"
-BACKUP_ARCHIVE="$HOME/dotfiles_$(date +%F_%H-%M-%S).tar.gz"
-MOVE="mv -vni"
-
-# These files are *the* dotfiles!
+# USER CONFIGURABLE VARIABLES
+# These are the dotfiles that will be installed.
 CONFIGFILES="bashrc bash_aliases vimrc vim zshrc oh-my-zsh gitconfig zshenv"
 
-# Be verbose. Prints debug information.
+# Be verbose, print debug information.
 VERBOSE=true
 
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Set useful variables.
+DOTFILES_ROOT=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+TEMP_DIR=$(mktemp -d dotfiles.XXXXXX)
+BACKUP_ARCHIVE="$HOME/dotfiles_$(date +%F_%H-%M-%S).tar.gz"
+MOVE="mv -vni"
+
 [[ $VERBOSE ]] && cat << EOF
 ────────────────────────────────────────────────────────────────────────────────
   Dotfiles setup script
@@ -52,7 +54,7 @@ cd "$HOME"
 # and create a symlink from source to destination.
 for file in $CONFIGFILES;
 do
-    THIS_SRC="$HOME/.$file"              # this file is a link .. 
+    THIS_SRC="$HOME/.$file"              # this file is a link ..
     THIS_DST="$DOTFILES_ROOT/$file"      # .. to this file
 
     if [ -f "$THIS_SRC" ]; then
@@ -95,7 +97,7 @@ if [ -d "$TEMP_DIR" ]; then
     printf "\n* done ..\n"
     echo "** removing temporary files .."
     rm -vrf "$TEMP_DIR"
-    
+
     printf "\n* done ..\n"
 fi
 
@@ -106,7 +108,7 @@ if command -v thunar >/dev/null; then
     THUNARCONF_SRC="$HOME/.config/Thunar/uca.xml"       # this file is a link ..
     THUNARCONF_DST="$DOTFILES_ROOT/thunar-custom.xml"   # .. to this file
     THUNARCONF_BAK=""$THUNARCONF_SRC"_$(date +%F_%H-%M-%S)"
-    
+
 [[ $VERBOSE ]] && cat << EOF
 
 ────────────────────────────────────────────────────────────────────────────────
@@ -121,19 +123,21 @@ if command -v thunar >/dev/null; then
 ────────────────────────────────────────────────────────────────────────────────
 
 EOF
-    
+
     if [ -f "$THUNARCONF_DST" ]; then         # is the repo file in place?
         if [ -f "$THUNARCONF_SRC" ]; then     # is the config file already in place?
             if [ -L "$THUNARCONF_SRC" ]; then # is the config file a symlink?
+                # It's a symlink. Just remove it.
                 echo "* removing symlink $THUNARCONF_SRC .."
                 rm -v "$THUNARCONF_SRC"
             else
+                # Not a symlink. Probably default config file.
                 echo "** moving existing file out of the way .."
                 $MOVE "$THUNARCONF_SRC" "$THUNARCONF_BAK"
             fi
         fi
-    
-        # creating symlink from "$THUNARCONF_DST" to "$THUNARCONF_SRC"
+
+        # Create symlink from "$THUNARCONF_DST" to "$THUNARCONF_SRC".
         echo "** creating symlink .."
         ln -vsi "$THUNARCONF_DST" "$THUNARCONF_SRC"
         echo ""

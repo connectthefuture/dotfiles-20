@@ -146,6 +146,7 @@ nnoremap <F6> :set list!<cr>
 "** Map keys for nerdtree, ctrlp and tagbar
 map <leader>n :NERDTreeToggle<CR>
 map <C-p>     :CtrlPMixed<CR>
+map <C-b>     :CtrlPBuffer<CR>
 map <leader>t :TagbarToggle<CR>
 
 "** Unmap the arrow keys. Because they should not be used, ever.
