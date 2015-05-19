@@ -38,7 +38,7 @@ alias gcm='git checkout master'
 
 
 # apt
-alias apts='apt-cache search'
+apts() { apt-cache search ^$1 | egrep --color=always "^[^-]+"; }
 alias aptsh='apt-cache show'
 alias aptin='sudo apt-get install'
 
