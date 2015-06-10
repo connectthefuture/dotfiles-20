@@ -23,6 +23,7 @@ Plugin 'tpope/vim-fugitive'             " fugitive
 Plugin 'junegunn/goyo.vim'              " Distraction free mode
 Plugin 'scrooloose/nerdcommenter'       " Code commenting
 Plugin 'godlygeek/tabular'              " For making things neater
+Plugin 'tpope/vim-surround'             " Surround with chars or words
 
 call vundle#end()
 " /______ </PLUGINS> __________________________________________________________/
