@@ -1,8 +1,8 @@
 " This line should not be removed as it ensures that various options are
 " properly set to work with the Vim-related packages available in Debian.
 runtime! debian.vim
-
 "  ____________________________________________________________________________ 
+
 " /______ SETUP VUNDLE ________________________________________________________/
 " Setup prereqs, include Vundle in runtime path and initialize
 filetype off
@@ -101,7 +101,14 @@ endif
 
 "** Set colorscheme and hacky fix to bring back transparency
 colorscheme badwolf
+"hi clear CursorLine
 hi Normal ctermbg=NONE
+hi LineNr ctermbg=NONE
+hi Folded ctermbg=NONE
+hi NonText ctermbg=NONE
+hi SpecialKey ctermbg=NONE
+hi VertSplit ctermbg=NONE
+hi SignColumn ctermbg=NONE
 hi Normal guibg=NONE
 
 "** File type syntax highlighting aliases
