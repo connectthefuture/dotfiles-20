@@ -122,4 +122,5 @@ export PATH=$PATH:"/opt/microchip/xc8/v1.33/bin"
 # pk2cmd PICkit2 command line tool
 export PATH=$PATH:/usr/share/pk2
 
-
+# add user bin to path 
+export PATH=$PATH:/home/spock/bin
