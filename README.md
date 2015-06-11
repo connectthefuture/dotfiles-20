@@ -1,7 +1,7 @@
 jonasjberg/dotfiles
 ===================
 
-Configuration files for common *nix (Linux) utilities; Bash, VIM, Zsh, Thunar,
+Configuration files for common \*nix utilities; Bash, VIM, Zsh, Thunar,
 etc..
 
 
