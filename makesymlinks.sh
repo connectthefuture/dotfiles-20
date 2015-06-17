@@ -28,7 +28,7 @@ set -e                         # Exit immediately if a command returns non-zero.
 # Set useful variables.
 DOTFILES_ROOT=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 TEMP_DIR=$(mktemp -d dotfiles.XXXXXX)
-BACKUP_ARCHIVE="$HOME/dotfiles_$(date +%F_%H-%M-%S).tar.gz"
+BACKUP_ARCHIVE="${HOME}/dotfiles_$(date +%F_%H-%M-%S).tar.gz"
 MOVE="mv -vni"
 
 [[ $VERBOSE ]] && cat << EOF
@@ -47,7 +47,7 @@ MOVE="mv -vni"
 
 EOF
 
-cd "$HOME"
+cd "${HOME}"
 
 # Run through the list of configfiles. Check if the source file (THIS_SRC)
 # exists and is an ordinary file. Then check if it is a symbolic link, which
@@ -57,27 +57,27 @@ cd "$HOME"
 # and create a symlink from source to destination.
 for file in $CONFIGFILES;
 do
-    THIS_SRC="$HOME/.$file"              # this file is a link ..
-    THIS_DST="$DOTFILES_ROOT/$file"      # .. to this file
+    THIS_SRC="${HOME}/.${file}"              # this file is a link ..
+    THIS_DST="${DOTFILES_ROOT}/${file}"      # .. to this file
 
-    if [ -f "$THIS_SRC" ]; then
-        if [ -L "$THIS_SRC" ]; then
+    if [ -f "${THIS_SRC}" ]; then
+        if [ -L "${THIS_SRC}" ]; then
             echo "** removing symlink .$file .."
-            rm -v "$THIS_SRC"
+            rm -v "${THIS_SRC}"
         else
-            if [ ! -d "$TEMP_DIR" ]; then
-                mkdir -pvv "$TEMP_DIR"   # setup a folder for temporary storage
+            if [ ! -d "${TEMP_DIR}" ]; then
+                mkdir -pvv "${TEMP_DIR}"   # setup a folder for temporary storage
             fi
 
             echo "** moving ".$file" out of the way .."
-            $MOVE "$THIS_SRC" "$TEMP_DIR"
+            $MOVE "${THIS_SRC}" "${TEMP_DIR}"
         fi
     fi
 
-    if [ -e "$THIS_DST" ];               # check that file is in repo directory
+    if [ -e "${THIS_DST}" ];               # check that file is in repo directory
     then                                 # if not, print error and die
         echo "** creating symlink .."    # else create symlink from SRC to DST
-        ln -vsi "$THIS_DST" "$THIS_SRC"
+        ln -vsi "${THIS_DST}" "${THIS_SRC}"
         echo ""
     else
         echo "* error! $THIS_DST doesn't exist!"
@@ -91,15 +91,15 @@ printf "\n* done ..\n"
 # exists. If it does, we can assume it contains our old dotfiles.
 # Create a zipped tar archive with a date and timestamp in the filename.
 # Then go ahead aand remove the temporary directory and files.
-if [ -d "$TEMP_DIR" ]; then
+if [ -d "${TEMP_DIR}" ]; then
     printf "\n** archiving the old dotfiles ..\n"
 
     # this assumes more than a minute passes between runs .. file exists error?
-    find "$TEMP_DIR" -maxdepth 1 -type f -name ".*" -exec tar vczf "$BACKUP_ARCHIVE" "{}" +
+    find "${TEMP_DIR}" -maxdepth 1 -type f -name ".*" -exec tar vczf "$BACKUP_ARCHIVE" "{}" +
 
     printf "\n* done ..\n"
     echo "** removing temporary files .."
-    rm -vrf "$TEMP_DIR"
+    rm -vrf "${TEMP_DIR}"
 
     printf "\n* done ..\n"
 fi
@@ -108,9 +108,9 @@ fi
 
 if command -v thunar >/dev/null; then
     # symlink thunar custom actions config file
-    THUNARCONF_SRC="$HOME/.config/Thunar/uca.xml"       # this file is a link ..
-    THUNARCONF_DST="$DOTFILES_ROOT/thunar-custom.xml"   # .. to this file
-    THUNARCONF_BAK=""$THUNARCONF_SRC"_$(date +%F_%H-%M-%S)"
+    THUNARCONF_SRC="${HOME}/.config/Thunar/uca.xml"       # this file is a link ..
+    THUNARCONF_DST="${DOTFILES_ROOT}/thunar-custom.xml"   # .. to this file
+    THUNARCONF_BAK="${THUNARCONF_SRC}_$(date +%F_%H-%M-%S)"
 
 [[ $VERBOSE ]] && cat << EOF
 
@@ -127,22 +127,22 @@ if command -v thunar >/dev/null; then
 
 EOF
 
-    if [ -f "$THUNARCONF_DST" ]; then         # is the repo file in place?
-        if [ -f "$THUNARCONF_SRC" ]; then     # is the config file already in place?
-            if [ -L "$THUNARCONF_SRC" ]; then # is the config file a symlink?
+    if [ -f "${THUNARCONF_DST}" ]; then         # is the repo file in place?
+        if [ -f "${THUNARCONF_SRC}" ]; then     # is the config file already in place?
+            if [ -L "${THUNARCONF_SRC}" ]; then # is the config file a symlink?
                 # It's a symlink. Just remove it.
-                echo "* removing symlink $THUNARCONF_SRC .."
-                rm -v "$THUNARCONF_SRC"
+                echo "* removing symlink ${THUNARCONF_SRC} .."
+                rm -v "${THUNARCONF_SRC}"
             else
                 # Not a symlink. Probably default config file.
                 echo "** moving existing file out of the way .."
-                $MOVE "$THUNARCONF_SRC" "$THUNARCONF_BAK"
+                $MOVE "${THUNARCONF_SRC}" "${THUNARCONF_BAK}"
             fi
         fi
 
         # Create symlink from "$THUNARCONF_DST" to "$THUNARCONF_SRC".
         echo "** creating symlink .."
-        ln -vsi "$THUNARCONF_DST" "$THUNARCONF_SRC"
+        ln -vsi "${THUNARCONF_DST}" "${THUNARCONF_SRC}"
         echo ""
     else
         echo "* error! $THUNARCONF_DST doesn't exist!"
@@ -159,11 +159,11 @@ fi
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ## create symlink to zsh theme
 echo "Symlinking zsh theme .."
-OHMYZSH_THEMES="$DOTFILES_ROOT/oh-my-zsh/themes"
+OHMYZSH_THEMES="${DOTFILES_ROOT}/oh-my-zsh/themes"
 
-if [ -d "$OHMYZSH_THEMES" ]; then
-    ln -vsi "$DOTFILES_ROOT/jonas.zsh-theme" \
-          "$OHMYZSH_THEMES/jonas.zsh-theme"
+if [ -d "${OHMYZSH_THEMES}" ]; then
+    ln -vsi "${DOTFILES_ROOT}/jonas.zsh-theme" \
+          "${OHMYZSH_THEMES}/jonas.zsh-theme"
 else
     echo "* error! $OHMYZSH_THEMES doesn't exist!"
     echo "         make sure oh-my-zsh is installed."
