@@ -85,7 +85,7 @@ do
             rm -v "${THIS_SRC}"
         else
             if [[ ! -d "${TEMP_DIR}" ]]; then
-                mkdir -pvv "${TEMP_DIR}"   # setup a folder for temporary storage
+                die "unable to create temporary folder"
             fi
 
             print_info "moving ".$file" out of the way"
@@ -94,8 +94,8 @@ do
     fi
 
     if [[ -e "${THIS_DST}" ]];               # check that file is in repo directory
-    then                                 # if not, print error and die
-        print_info "creating symlink"    # else create symlink from SRC to DST
+    then                                     # if not, print error and die
+        print_info "creating symlink"        # else create symlink from SRC to DST
         ln -vsi "${THIS_DST}" "${THIS_SRC}"
         echo ""
     else
@@ -111,16 +111,16 @@ printf "\n* done ..\n"
 # Create a zipped tar archive with a date and timestamp in the filename.
 # Then go ahead aand remove the temporary directory and files.
 if [[ -d "${TEMP_DIR}" ]]; then
-    printf "\n** archiving the old dotfiles ..\n"
+    print_info "archiving the old dotfiles"
 
     # this assumes more than a minute passes between runs .. file exists error?
     find "${TEMP_DIR}" -maxdepth 1 -type f -name ".*" -exec tar vczf "$BACKUP_ARCHIVE" "{}" +
 
-    printf "\n* done ..\n"
+    print_info "done"
     print_info "removing temporary files"
     rm -vrf "${TEMP_DIR}"
 
-    printf "\n* done ..\n"
+    print_info "done"
 fi
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
