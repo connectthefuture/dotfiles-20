@@ -36,12 +36,6 @@ ZSH
     sudo update-alternatives --config x-terminal-emulator
     ```
 
-4. Run makesymlinks.sh:
-
-    ```bash
-    ~/dotfiles/makesymlinks.sh
-    ```
-
 
 VIM
 ---
@@ -90,4 +84,14 @@ VIM
     mkdir ~/.vim/.undo
     mkdir ~/.vim/.backup
     mkdir ~/.vim/.swp
+    ```
+
+
+dotfiles
+--------
+
+1. Run makesymlinks.sh:
+
+    ```bash
+    ~/dotfiles/makesymlinks.sh
     ```
