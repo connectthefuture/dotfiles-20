@@ -123,4 +123,4 @@ export PATH=$PATH:"/opt/microchip/xc8/v1.33/bin"
 export PATH=$PATH:/usr/share/pk2
 
 # add user bin to path 
-export PATH=$PATH:/home/spock/bin
+export PATH=$PATH:/home/spock/Bin
