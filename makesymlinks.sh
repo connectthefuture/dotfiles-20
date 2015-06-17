@@ -104,7 +104,7 @@ do
     fi
 done
 
-printf "\n* done ..\n"
+print_info "done"
 
 # Create a backup archive if needed. First check if the temporary directory
 # exists. If it does, we can assume it contains our old dotfiles.
@@ -168,9 +168,9 @@ EOF
         exit
     fi
 
-    printf "\ndone!\n"
+    print_info "done"
 else
-    printf "\n\n* Thunar doesn't seem to be installed. Skipping ..\n\n"
+    print_info "Thunar doesn't seem to be installed. Skipping"
 fi
 
 
