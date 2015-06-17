@@ -1,14 +1,14 @@
 " This line should not be removed as it ensures that various options are
 " properly set to work with the Vim-related packages available in Debian.
 runtime! debian.vim
-"  ____________________________________________________________________________ 
 
+"  ____________________________________________________________________________
 " /______ SETUP VUNDLE ________________________________________________________/
 " Setup prereqs, include Vundle in runtime path and initialize
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 
-" /______ <PLUGINS> ___________________________________________________________/
+" _______ PLUGINS _____________________________________________________________
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'              " Let Vundle manage Vundle, required
 Plugin 'majutsushi/tagbar.git'          " taglist for code navigation
@@ -24,19 +24,17 @@ Plugin 'junegunn/goyo.vim'              " Distraction free mode
 Plugin 'scrooloose/nerdcommenter'       " Code commenting
 Plugin 'godlygeek/tabular'              " For making things neater
 Plugin 'tpope/vim-surround'             " Surround with chars or words
-
 call vundle#end()
-" /______ </PLUGINS> __________________________________________________________/
 
+"  ____________________________________________________________________________
+" /______ PLUGIN SPECIFIC _____________________________________________________/
 filetype plugin indent on               " Use indentation scripts (required(?))
                                         " To ignore plugin indent changes,
                                         " instead use: filetype plugin on
 
-"  ____________________________________________________________________________ 
-" /______ PLUGIN SPECIFIC _____________________________________________________/
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py" " Semantic stuffs
 
-"  ____________________________________________________________________________ 
+"  ____________________________________________________________________________
 " /______ MISC. BASICS ________________________________________________________/
 set mouse=a                 " Enable mouse usage (all modes)
 set showcmd                 " Show (partial) command in status line.
@@ -57,7 +55,7 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-"  ____________________________________________________________________________ 
+"  ____________________________________________________________________________
 " /______ TEMPORARY FILES _____________________________________________________/
 " Keep temporary files in alternate locations to reduce clutter.
 " (alternatively disable with: Set nobackup Set noswapfile)
@@ -65,7 +63,7 @@ set undodir=~/.vim/.undo//
 set backupdir=~/.vim/.backup//
 set directory=~/.vim/.swp//
 
-"  ____________________________________________________________________________ 
+"  ____________________________________________________________________________
 " /______ INDENTATION _________________________________________________________/
 set autoindent              " Keep indentation from previous line
 set smartindent             " Some automation, support for C-type files
@@ -74,14 +72,14 @@ set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 
-"  ____________________________________________________________________________ 
+"  ____________________________________________________________________________
 " /______ SEARCH ______________________________________________________________/
 set hlsearch                " Highlight search
 set ignorecase              " Searches are case insensitive..
 set smartcase               " .. unless they contain at least one capital letter
 set incsearch               " Incremental search, show results while typing.
 
-"  ____________________________________________________________________________ 
+"  ____________________________________________________________________________
 " /______ VISUAL ______________________________________________________________/
 set cursorline                  " Highlight current line
 set number                      " Show line numbers
@@ -121,7 +119,7 @@ autocmd BufRead *.tab set filetype=tab                          " guitar tabs
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
-"  ____________________________________________________________________________ 
+"  ____________________________________________________________________________
 " /______ KEYBINDINGS _________________________________________________________/
 "** Remap leader to § (key below ESC, above tab)
 let mapleader='§'
@@ -166,6 +164,12 @@ ino <down> <Nop>
 ino <left> <Nop>
 ino <right> <Nop>
 ino <up> <Nop>
+
+"** Switch windows a tad faster by not having to hit <ctrl>.
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>h <C-w>h
+nnoremap <leader>l <C-w>l
 
 "** Shortcut for inserting a timestamp. Useful when taking notes at lectures.
 ":inoremap <F5> <C-R>=strftime("%F %A")<CR>
