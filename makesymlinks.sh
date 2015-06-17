@@ -31,6 +31,25 @@ TEMP_DIR=$(mktemp -d dotfiles.XXXXXX)
 BACKUP_ARCHIVE="${HOME}/dotfiles_$(date +%F_%H-%M-%S).tar.gz"
 MOVE="mv -vni"
 
+# Print info to stdout
+print_info()
+{
+    if [[ $VERBOSE ]]; then
+        printf "* %s ..\n" "$1"
+    fi
+}
+
+# Print error and exit.
+die()
+{
+    if [[ ! -z "$1" ]];
+    then
+        printf "[!] ERROR: %s\n" "$1" 1>&2
+    fi
+    exit 1
+}
+
+
 [[ $VERBOSE ]] && cat << EOF
 ────────────────────────────────────────────────────────────────────────────────
   Dotfiles setup script
@@ -62,25 +81,25 @@ do
 
     if [[ -f "${THIS_SRC}" ]]; then
         if [[ -L "${THIS_SRC}" ]]; then
-            echo "** removing symlink .$file .."
+            print_info "removing symlink .$file"
             rm -v "${THIS_SRC}"
         else
             if [[ ! -d "${TEMP_DIR}" ]]; then
                 mkdir -pvv "${TEMP_DIR}"   # setup a folder for temporary storage
             fi
 
-            echo "** moving ".$file" out of the way .."
+            print_info "moving ".$file" out of the way"
             $MOVE "${THIS_SRC}" "${TEMP_DIR}"
         fi
     fi
 
     if [[ -e "${THIS_DST}" ]];               # check that file is in repo directory
     then                                 # if not, print error and die
-        echo "** creating symlink .."    # else create symlink from SRC to DST
+        print_info "creating symlink"    # else create symlink from SRC to DST
         ln -vsi "${THIS_DST}" "${THIS_SRC}"
         echo ""
     else
-        echo "* error! $THIS_DST doesn't exist!"
+        die "$THIS_DST doesn't exist!"
         exit
     fi
 done
@@ -98,7 +117,7 @@ if [[ -d "${TEMP_DIR}" ]]; then
     find "${TEMP_DIR}" -maxdepth 1 -type f -name ".*" -exec tar vczf "$BACKUP_ARCHIVE" "{}" +
 
     printf "\n* done ..\n"
-    echo "** removing temporary files .."
+    print_info "removing temporary files"
     rm -vrf "${TEMP_DIR}"
 
     printf "\n* done ..\n"
@@ -131,21 +150,21 @@ EOF
         if [[ -f "${THUNARCONF_SRC}" ]]; then     # is the config file already in place?
             if [[ -L "${THUNARCONF_SRC}" ]]; then # is the config file a symlink?
                 # It's a symlink. Just remove it.
-                echo "* removing symlink ${THUNARCONF_SRC} .."
+                print_info "removing symlink ${THUNARCONF_SRC}"
                 rm -v "${THUNARCONF_SRC}"
             else
                 # Not a symlink. Probably default config file.
-                echo "** moving existing file out of the way .."
+                print_info "moving existing file out of the way"
                 $MOVE "${THUNARCONF_SRC}" "${THUNARCONF_BAK}"
             fi
         fi
 
         # Create symlink from "$THUNARCONF_DST" to "$THUNARCONF_SRC".
-        echo "** creating symlink .."
+        print_info "creating symlink"
         ln -vsi "${THUNARCONF_DST}" "${THUNARCONF_SRC}"
         echo ""
     else
-        echo "* error! $THUNARCONF_DST doesn't exist!"
+        die "$THUNARCONF_DST doesn't exist!"
         exit
     fi
 
@@ -158,13 +177,13 @@ fi
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ## create symlink to zsh theme
-echo "Symlinking zsh theme .."
+print_info "symlinking zsh theme"
 OHMYZSH_THEMES="${DOTFILES_ROOT}/oh-my-zsh/themes"
 
 if [[ -d "${OHMYZSH_THEMES}" ]]; then
     ln -vsi "${DOTFILES_ROOT}/jonas.zsh-theme" \
           "${OHMYZSH_THEMES}/jonas.zsh-theme"
 else
-    echo "* error! $OHMYZSH_THEMES doesn't exist!"
-    echo "         make sure oh-my-zsh is installed."
+    die "$OHMYZSH_THEMES doesn't exist! make sure oh-my-zsh is installed."
+
 fi
