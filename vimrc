@@ -36,7 +36,7 @@ let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py" " Semantic stuffs
 
 "  ____________________________________________________________________________
 " /______ MISC. BASICS ________________________________________________________/
-set mouse=a                 " Enable mouse usage (all modes)
+set mouse=v                 " Enable mouse in visual mode only
 set showcmd                 " Show (partial) command in status line.
 set history=1000            " Extend command line history
 set autowrite               " Automatically save before commands like :next:make
