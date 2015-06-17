@@ -27,9 +27,9 @@ set -e                         # Exit immediately if a command returns non-zero.
 
 # Set useful variables.
 DOTFILES_ROOT=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-TEMP_DIR=$(mktemp -d dotfiles.XXXXXX)
+TEMP_DIR=$(mktemp -d /tmp/dotfiles.XXXXXX)
 BACKUP_ARCHIVE="${HOME}/dotfiles_$(date +%F_%H-%M-%S).tar.gz"
-MOVE="mv -vni"
+MOVE="mv -ni"
 
 # Print info to stdout
 print_info()
@@ -84,7 +84,7 @@ do
             print_info "removing symlink .$file"
             rm -v "${THIS_SRC}"
         else
-            if [[ ! -d "${TEMP_DIR}" ]]; then
+            if [[ ! -d "$TEMP_DIR" ]]; then
                 die "unable to create temporary folder"
             fi
 
