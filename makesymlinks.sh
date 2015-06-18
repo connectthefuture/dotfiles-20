@@ -42,7 +42,7 @@ print_info()
 # Print error and exit.
 die()
 {
-    if [[ ! -z "$1" ]];
+    if [[ ! -z $1 ]];
     then
         printf "[!] ERROR: %s\n" "$1" 1>&2
     fi
@@ -79,12 +79,12 @@ do
     THIS_SRC="${HOME}/.${file}"              # this file is a link ..
     THIS_DST="${DOTFILES_ROOT}/${file}"      # .. to this file
 
-    if [[ -f "${THIS_SRC}" ]]; then
+    if [[ -f ${THIS_SRC} ]]; then
         if [[ -L "${THIS_SRC}" ]]; then
             print_info "removing symlink .$file"
             rm -v "${THIS_SRC}"
         else
-            if [[ ! -d "$TEMP_DIR" ]]; then
+            if [[ ! -d $TEMP_DIR ]]; then
                 die "unable to create temporary folder"
             fi
 
@@ -93,7 +93,7 @@ do
         fi
     fi
 
-    if [[ -e "${THIS_DST}" ]];               # check that file is in repo directory
+    if [[ -e ${THIS_DST} ]];               # check that file is in repo directory
     then                                     # if not, print error and die
         print_info "creating symlink"        # else create symlink from SRC to DST
         ln -vsi "${THIS_DST}" "${THIS_SRC}"
@@ -110,7 +110,7 @@ print_info "done"
 # exists. If it does, we can assume it contains our old dotfiles.
 # Create a zipped tar archive with a date and timestamp in the filename.
 # Then go ahead aand remove the temporary directory and files.
-if [[ -d "${TEMP_DIR}" ]]; then
+if [[ -d ${TEMP_DIR} ]]; then
     print_info "archiving the old dotfiles"
 
     # this assumes more than a minute passes between runs .. file exists error?
@@ -146,9 +146,9 @@ if command -v thunar >/dev/null; then
 
 EOF
 
-    if [[ -f "${THUNARCONF_DST}" ]]; then         # is the repo file in place?
-        if [[ -f "${THUNARCONF_SRC}" ]]; then     # is the config file already in place?
-            if [[ -L "${THUNARCONF_SRC}" ]]; then # is the config file a symlink?
+    if [[ -f ${THUNARCONF_DST} ]]; then         # is the repo file in place?
+        if [[ -f ${THUNARCONF_SRC} ]]; then     # is the config file already in place?
+            if [[ -L ${THUNARCONF_SRC} ]]; then # is the config file a symlink?
                 # It's a symlink. Just remove it.
                 print_info "removing symlink ${THUNARCONF_SRC}"
                 rm -v "${THUNARCONF_SRC}"
@@ -180,7 +180,7 @@ fi
 print_info "symlinking zsh theme"
 OHMYZSH_THEMES="${DOTFILES_ROOT}/oh-my-zsh/themes"
 
-if [[ -d "${OHMYZSH_THEMES}" ]]; then
+if [[ -d ${OHMYZSH_THEMES} ]]; then
     ln -vsi "${DOTFILES_ROOT}/jonas.zsh-theme" \
           "${OHMYZSH_THEMES}/jonas.zsh-theme"
 else
