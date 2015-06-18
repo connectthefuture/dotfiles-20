@@ -18,6 +18,7 @@ Plugin 'kien/ctrlp.vim'                 " Full path fuzzy file/buffer/.. finder
 Plugin 'sjl/badwolf.git'                " Color Scheme
 "Plugin 'Valloric/YouCompleteMe.git'     " YouCompleteMe
 Plugin 'SirVer/ultisnips'               " ultisnips
+Plugin 'ervandew/supertab'
 Plugin 'honza/vim-snippets'             "
 Plugin 'tpope/vim-fugitive'             " fugitive
 Plugin 'junegunn/goyo.vim'              " Distraction free mode
@@ -188,26 +189,15 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 "** If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-"** Tab for snippets, Ctrl-n and Ctrl-p for next/previous YCM.
-"let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
-"let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
-"let g:UltiSnipsExpandTrigger="<Tab>"
-"let g:UltiSnipsJumpForwardTrigger="<Tab>"
-"let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
 
-"** Snippets plugin and YCM initially didn't play well together.
-"   This seems to fix it but I couldn't tell you how or why.
-let g:UltiSnipsExpandTrigger = "<nop>"
-let g:ulti_expand_or_jump_res = 0
-function ExpandSnippetOrCarriageReturn()
-    let snippet = UltiSnips#ExpandSnippetOrJump()
-    if g:ulti_expand_or_jump_res > 0
-        return snippet
-    else
-        return "\<CR>"
-    endif
-endfunction
-inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 "** View text file in two columns.
 "   Activate with <leader>vs Deactivate with ctrl-W then o
