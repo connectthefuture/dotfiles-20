@@ -96,7 +96,7 @@
 <action>
 	<icon>accessories-character-map</icon>
 	<name>Slugify Filename Light</name>
-	<command>for file in %N; do mv -n "$file" "${file// /-}"; done</command>
+	<command>for file in %N; do mv -n "${file}" "$(echo "${file}" | tr -s ' ' | tr -s '-' | tr ' ' '-')"; done</command>
 	<description>Rename the currently selected files, replacing spaces with dashes.</description>
 	<patterns>*</patterns>
 	<directories/>
