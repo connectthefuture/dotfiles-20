@@ -29,7 +29,7 @@ set -e                         # Exit immediately if a command returns non-zero.
 DOTFILES_ROOT=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 TEMP_DIR=$(mktemp -d /tmp/dotfiles.XXXXXX)
 BACKUP_ARCHIVE="${HOME}/dotfiles_$(date +%F_%H-%M-%S).tar.gz"
-MOVE="mv -ni"
+MOVE='mv -niv --'
 
 # Print info to stdout
 print_info()
