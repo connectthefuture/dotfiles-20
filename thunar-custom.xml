@@ -60,7 +60,7 @@
 	<icon>accessories-character-map</icon>
 	<name>Slugify Filename</name>
 	<command>for file in %N; do mv -n "$file" "$(echo "$file" | tr -s ' ' | tr -s '-' | tr -c '[:alnum:][:cntrl:].' '-')"; done</command>
-	<description>Rename the currently selected files, replacing spaces with dashes.</description>
+	<description>Rename the currently selected files, replacing spaces and non-alphanumerics with dashes.</description>
 	<patterns>*</patterns>
 	<directories/>
 	<audio-files/>
@@ -85,6 +85,19 @@
 	<unique-id>1427196652117016-16</unique-id>
 	<command>echo -n %f | xclip -i -selection c</command>
 	<description>Copies file&apos;s full pathname to the X PRIMARY selection</description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>accessories-character-map</icon>
+	<name>Slugify Filename Light</name>
+	<command>for file in %N; do mv -n "$file" "${file// /-}"; done</command>
+	<description>Rename the currently selected files, replacing spaces with dashes.</description>
 	<patterns>*</patterns>
 	<directories/>
 	<audio-files/>
