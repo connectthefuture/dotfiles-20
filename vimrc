@@ -150,6 +150,9 @@ nnoremap <F3> :set paste!<cr>
 "** F6 toggles option to display whitespace
 nnoremap <F6> :set list!<cr>
 
+"** F7 toggles relative line numbers
+nnoremap <F7> :set relativenumber!<cr>
+
 "** Map keys for nerdtree, ctrlp and tagbar
 map <leader>n :NERDTreeToggle<CR>
 map <C-p>     :CtrlPMixed<CR>
