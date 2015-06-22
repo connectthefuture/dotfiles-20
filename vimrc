@@ -38,7 +38,7 @@ let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py" " Semantic stuffs
 "  ____________________________________________________________________________
 " /______ MISC. BASICS ________________________________________________________/
 set mouse=v                 " Enable mouse in visual mode only
-set showcmd                 " Show (partial) command in status line.
+set showcmd                 " Show (partial) command in status line
 set history=1000            " Extend command line history
 set autowrite               " Automatically save before commands like :next:make
 set autoread                " Automatically read file when changed outside vim
@@ -58,8 +58,9 @@ endif
 
 "  ____________________________________________________________________________
 " /______ TEMPORARY FILES _____________________________________________________/
-" Keep temporary files in alternate locations to reduce clutter.
+" Keep temporary files in alternate locations to reduce clutter
 " (alternatively disable with: Set nobackup Set noswapfile)
+" Trailing // fixes name collisions. Source: http://stackoverflow.com/a/15317146
 set undodir=~/.vim/.undo//
 set backupdir=~/.vim/.backup//
 set directory=~/.vim/.swp//
@@ -78,13 +79,13 @@ set softtabstop=4
 set hlsearch                " Highlight search
 set ignorecase              " Searches are case insensitive..
 set smartcase               " .. unless they contain at least one capital letter
-set incsearch               " Incremental search, show results while typing.
+set incsearch               " Incremental search, show results while typing
 
 "  ____________________________________________________________________________
 " /______ VISUAL ______________________________________________________________/
 set cursorline                  " Highlight current line
 set number                      " Show line numbers
-set showmatch                   " Show matching brackets.
+set showmatch                   " Show matching brackets
 set ruler                       " Show column and row in footer
 set list                        " Show whitespace
 set listchars=tab:▸\ ,eol:¬     " Show tabs with ▸, eol with ¬
@@ -169,17 +170,17 @@ ino <left> <Nop>
 ino <right> <Nop>
 ino <up> <Nop>
 
-"** Switch windows a tad faster by not having to hit <ctrl>.
+"** Switch windows a tad faster by not having to hit <ctrl> w <direction>
 nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
 nnoremap <leader>h <C-w>h
 nnoremap <leader>l <C-w>l
 
-"** Shortcut for inserting a timestamp. Useful when taking notes at lectures.
+"** Shortcut for inserting a timestamp. Useful when taking notes at lectures
 ":inoremap <F5> <C-R>=strftime("%F %A")<CR>
 :inoremap <F5> <C-R>=strftime("%F %A")<CR><ESC>yypVr-j
 
-"** When in insert mode; hit leader before ( to insert text surrounded by ().
+"** When in insert mode; hit leader before ( to insert text surrounded by ()
 imap <leader>' ''<ESC>i
 imap <leader>" ""<ESC>i
 imap <leader>( ()<ESC>i
@@ -189,10 +190,10 @@ imap <leader>{ {}<ESC>i
 "** Strip all trailing whitespace in current file with leader-W
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
-"** If you want :UltiSnipsEdit to split your window.
+"** If you want :UltiSnipsEdit to split your window
 let g:UltiSnipsEditSplit="vertical"
 
-" Disable <tab> and use <ctrl-N< and <ctrl-P> instead.
+" Disable <tab> and use <ctrl-N< and <ctrl-P> instead
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
 
@@ -210,10 +211,10 @@ inoremap <CR> <C-R>=(Ulti_ExpandOrJump_and_getRes() > 0)?"":"\n"<CR>
 
 
 
-"** View text file in two columns.
+"** View text file in two columns
 "   Activate with <leader>vs Deactivate with ctrl-W then o
 :noremap <silent> <Leader>vs :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
 
-"** Goyo - Distraction-free writing in Vim.
-""  Toggle full-screen, less cluttered mode.
+"** Goyo - Distraction-free writing in Vim
+""  Toggle full-screen, less cluttered mode
 nnoremap <F10> :Goyo<cr>
