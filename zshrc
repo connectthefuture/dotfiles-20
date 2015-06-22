@@ -88,6 +88,7 @@ alias open="xdg-open"
 alias hgrep="history | grep"
 alias apts="apt-cache search"
 alias aptsh="apt-cache show"
+alias move="mv -vni"
 
 setopt INTERACTIVE_COMMENTS         # treat hash characters as comment delimiter
 
