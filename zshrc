@@ -89,6 +89,7 @@ alias hgrep="history | grep"
 alias apts="apt-cache search"
 alias aptsh="apt-cache show"
 alias move="mv -vni --"
+alias copy="cp -vni --"
 
 setopt INTERACTIVE_COMMENTS         # treat hash characters as comment delimiter
 
