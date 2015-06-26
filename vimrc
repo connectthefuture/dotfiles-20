@@ -34,6 +34,8 @@ filetype plugin indent on               " Use indentation scripts (required(?))
                                         " instead use: filetype plugin on
 
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py" " Semantic stuffs
+" Fixes syntastics interaction with YouCompleteMe (syntastic help section 6.4)
+let g:ycm_show_diagnostics_ui = 0
 
 "  ____________________________________________________________________________
 " /______ MISC. BASICS ________________________________________________________/
@@ -206,6 +208,9 @@ endfunction
 inoremap <CR> <C-R>=(Ulti_ExpandOrJump_and_getRes() > 0)?"":"\n"<CR>
 
 
+"** Disable Syntastic by default and toggle error checking with <meta> S
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+nnoremap <leader>S :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 
 
 
@@ -218,3 +223,14 @@ inoremap <CR> <C-R>=(Ulti_ExpandOrJump_and_getRes() > 0)?"":"\n"<CR>
 "** Goyo - Distraction-free writing in Vim
 ""  Toggle full-screen, less cluttered mode
 nnoremap <F10> :Goyo<cr>
+
+
+"** Syntastic related. Basically the recommended defaults. Use ':help syntastic'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1 " put detected errors in list
+let g:syntastic_auto_loc_list = 1            " auto close/open location list
+let g:syntastic_check_on_open = 0            " do not check when loading buffers
+let g:syntastic_check_on_wq = 0              " do not check when writing buffers
