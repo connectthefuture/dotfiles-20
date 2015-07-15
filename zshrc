@@ -68,7 +68,7 @@ export VISUAL="vim"
 export EDITOR="vim"
 
 ## set vi mode
-#set -o vi
+set -o vi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
