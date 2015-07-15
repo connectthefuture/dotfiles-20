@@ -25,6 +25,7 @@ Plugin 'junegunn/goyo.vim'              " Distraction free mode
 Plugin 'scrooloose/nerdcommenter'       " Code commenting
 Plugin 'godlygeek/tabular'              " For making things neater
 Plugin 'tpope/vim-surround'             " Surround with chars or words
+Plugin 'fxn/vim-monochrome' 
 call vundle#end()
 
 "  ____________________________________________________________________________
@@ -103,6 +104,7 @@ endif
 
 "** Set colorscheme and hacky fix to bring back transparency
 colorscheme badwolf
+
 "hi clear CursorLine
 hi Normal ctermbg=NONE
 hi LineNr ctermbg=NONE
@@ -114,10 +116,10 @@ hi SignColumn ctermbg=NONE
 hi Normal guibg=NONE
 
 "** File type syntax highlighting aliases
-au BufRead,BufNewFile *.ino set filetype=c                      " arduino
-au BufRead,BufNewFile *.md set filetype=markdown                " markdown
-au BufRead,BufNewFile *.kicad_mod,*.kicad_pcb set filetype=lisp " kicad
-autocmd BufRead *.tab set filetype=tab                          " guitar tabs
+au BufRead,BufNewFile *.ino                   set filetype=c        " arduino
+au BufRead,BufNewFile *.{md,mkd,markdown,txt} set filetype=markdown " markdown
+au BufRead,BufNewFile *.{kicad_mod,kicad_pcb} set filetype=lisp     " kicad
+au BufRead,BufNewFile *.tab                   set filetype=tab      " guitartabs
 
 "** Enable powerline fonts and enhanced tabline
 let g:airline_powerline_fonts = 1
