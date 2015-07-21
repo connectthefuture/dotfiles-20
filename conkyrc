@@ -33,7 +33,7 @@ default_outline_color white
 default_shade_color white
 double_buffer yes
 draw_borders no
-draw_graph_borders yes
+draw_graph_borders no
 draw_outline no
 draw_shades no
 use_xft yes
@@ -64,12 +64,12 @@ format_human_readable yes
 pad_percents 0
 
 # free disk space templates
-#template0 \1${alignr}${fs_free_perc \1}% free
-#template1 ${fs_bar 6,250 \1}${alignr}${fs_free \1}/${fs_size \1}
-template0 \1${alignr}${fs_free \1} / ${fs_size \1}
-template1 ${fs_bar 6,320 \1}${alignr}${fs_free_perc \1}% free
-#template2 ${diskiograph \1 10, , -l}
-template2 Read: ${diskio_read \1} Write: ${diskio_write \1}
+#template0 \1${alignr}${fs_free \1} / ${fs_size \1}
+#template1 ${fs_bar 6,320 \1}${alignr}${fs_free_perc \1}% free
+#template2 Read: ${diskio_read \1} Write: ${diskio_write \1}
+template0 \1${alignr}${fs_used \1} / ${fs_size \1} (${fs_free_perc \1}% free)
+template1 ${fs_bar 6 \1}
+template2 I/O:${alignr}${diskiograph \1 16,360 -l}
 
 
 TEXT
