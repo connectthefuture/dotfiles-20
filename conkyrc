@@ -83,8 +83,7 @@ TEXT
 SYSTEM ${hr 2}
 ${uid_name 1000} ${color grey}running $color$sysname $kernel ${color grey}on$color $machine
 ${color grey}Uptime:$color $uptime
-Temperature:$alignr${acpitemp} C
-
+${color grey}Temperature:$color ${acpitemp}°C$alignr${color grey}Fan state:$color ${acpifan}
 
 PROCESSOR ${hr 2}
 #CPU1: ${cpu cpu1}% ${cpubar cpu1}$color
@@ -93,13 +92,11 @@ ${template4 CPU1 cpu1}
 ${template4 CPU2 cpu2}
 ${cpugraph 70, , -l}
 
-
 MEMORY ${hr 2}
 RAM ${alignr}$mem / $memmax ($memperc%)
 ${membar 6}
 SWAP ${alignr}$swap / $swapmax ($swapperc%)
 ${swapbar 6}
-
 
 FILESYSTEM ${hr 2}
 ${template0 /}
