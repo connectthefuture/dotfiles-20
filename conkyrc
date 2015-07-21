@@ -79,13 +79,13 @@ ${color grey}Running $color$sysname $kernel ${color grey}on$color $machine
 Architecture: $machine
 Kernel:       $kernel
 ${color grey}Uptime:$color $uptime
+Temperature:$alignr${acpitemp} C
 
 
 PROCESSOR ${hr 2}
 CPU1: ${cpu cpu1}% ${cpubar cpu1}$color
 CPU2: ${cpu cpu2}% ${cpubar cpu2}$color
 ${cpugraph 70, , -l}
-Temperature:$alignr${acpitemp} C
 
 
 MEMORY ${hr 2}
