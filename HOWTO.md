@@ -86,6 +86,27 @@ VIM
     mkdir ~/.vim/.swp
     ```
 
+6. Install 'Youcompleteme' from Ubuntu repositories using 'vim-addon-manager'.
+   Seems to be an overall easier solution than getting them through Vundle.
+   The 'YouCompleteMe' install in particular is somewhat involved and I'd
+   rather not go through the compilation process if at all possible..
+
+    ```bash
+    apt-get install vim-youcompleteme
+    vam install youcompleteme 
+    ```
+
+7. While we're at it, go ahead and install more plugins from the Ubuntu
+   repositories. I'm thinking it's best to keep to just the one source for
+   vim addons. At least just one addon-manager, so whenever possible I choose
+   Ubuntu packages over Git(Hub) sources.
+
+    ```bash
+    apt-get install vim-tabular vim-ctrlp vim-syntastic ultisnips
+    vam install vim-tabular vim-ctrlp vim-syntastic ultisnips
+    ```
+
+
 
 dotfiles
 --------
