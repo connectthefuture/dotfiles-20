@@ -11,21 +11,20 @@ set rtp+=~/.vim/bundle/Vundle.vim
 " _______ PLUGINS _____________________________________________________________
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'              " Let Vundle manage Vundle, required
-Plugin 'majutsushi/tagbar.git'          " taglist for code navigation
+"Plugin 'majutsushi/tagbar.git'          " taglist for code navigation
 Plugin 'scrooloose/nerdtree.git'        " NERDTree
 Plugin 'bling/vim-airline'              " vim-airline
-Plugin 'kien/ctrlp.vim'                 " Full path fuzzy file/buffer/.. finder
+"Plugin 'kien/ctrlp.vim'                 " Full path fuzzy file/buffer/.. finder
 Plugin 'sjl/badwolf.git'                " Color Scheme
 "Plugin 'Valloric/YouCompleteMe.git'     " YouCompleteMe
-Plugin 'SirVer/ultisnips'               " ultisnips
-Plugin 'ervandew/supertab'
-Plugin 'honza/vim-snippets'             "
-Plugin 'tpope/vim-fugitive'             " fugitive
-Plugin 'junegunn/goyo.vim'              " Distraction free mode
+"Plugin 'SirVer/ultisnips'               " ultisnips
+"Plugin 'ervandew/supertab'
+"Plugin 'honza/vim-snippets'             "
+"Plugin 'tpope/vim-fugitive'             " fugitive
+"Plugin 'junegunn/goyo.vim'              " Distraction free mode
 Plugin 'scrooloose/nerdcommenter'       " Code commenting
 Plugin 'godlygeek/tabular'              " For making things neater
 Plugin 'tpope/vim-surround'             " Surround with chars or words
-Plugin 'fxn/vim-monochrome' 
 call vundle#end()
 
 "  ____________________________________________________________________________
