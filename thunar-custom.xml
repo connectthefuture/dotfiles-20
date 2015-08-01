@@ -32,7 +32,7 @@
 	<icon>utilities-terminal</icon>
 	<name>Open a root terminal here</name>
 	<unique-id>1427196041392888-12</unique-id>
-	<command>gksu &quot;xfce4-terminal --default-working-directory=%f&quot;</command>
+	<command>gksu "xfce4-terminal --default-working-directory=%f"</command>
 	<description>Open a terminal as root</description>
 	<patterns>*</patterns>
 	<directories/>
@@ -59,9 +59,11 @@
 <action>
 	<icon>accessories-character-map</icon>
 	<name>Slugify Filename</name>
-	<command>for file in %N; do mv -n "$file" "$(echo "$file" | tr -s ' ' | tr -s '-' | tr -c '[:alnum:][:cntrl:].' '-')"; done</command>
+	<unique-id>1438411859679272-13</unique-id>
+	<command>for file in %N; do ~/Bin/slugify-filename "${file}"; done</command>
 	<description>Rename the currently selected files, replacing spaces and non-alphanumerics with dashes.</description>
 	<patterns>*</patterns>
+	<startup-notify/>
 	<directories/>
 	<audio-files/>
 	<image-files/>
@@ -84,7 +86,7 @@
 	<name>Copy Pathname to Clipboard</name>
 	<unique-id>1427196652117016-16</unique-id>
 	<command>echo -n %f | xclip -i -selection c</command>
-	<description>Copies file&apos;s full pathname to the X PRIMARY selection</description>
+	<description>Copies file's full pathname to the X PRIMARY selection</description>
 	<patterns>*</patterns>
 	<directories/>
 	<audio-files/>
@@ -96,6 +98,7 @@
 <action>
 	<icon>accessories-character-map</icon>
 	<name>Slugify Filename Light</name>
+	<unique-id>1437906932502863-2</unique-id>
 	<command>for file in %N; do mv -n "${file}" "$(echo "${file}" | tr -s ' ' | tr -s '-' | tr ' ' '-')"; done</command>
 	<description>Rename the currently selected files, replacing spaces with dashes.</description>
 	<patterns>*</patterns>
@@ -105,5 +108,51 @@
 	<other-files/>
 	<text-files/>
 	<video-files/>
+</action>
+<action>
+	<icon>view-list-images-symbolic</icon>
+	<name>exiftool info</name>
+	<unique-id>1438411708101404-12</unique-id>
+	<command>exiftool %n | zenity --text-info --title="Exif Info" --width=450 --height=600</command>
+	<description>View Exif data in a Zenity dialog.</description>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>view-list-images-symbolic</icon>
+	<name>exiftool info grep date</name>
+	<unique-id>1438411686308817-11</unique-id>
+	<command>exiftool %n | grep -i date | zenity --text-info --title="Exif Info" --width=450 --height=600</command>
+	<description>View Exif data grepped for "date", in a Zenity dialog.</description>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>format-text-strikethrough-symbolic</icon>
+	<name>Add dashes to timestamp</name>
+	<unique-id>1438411642956586-10</unique-id>
+	<command>for file in %N; do ~/Bin/timestampdashes "${file}"; done</command>
+	<description>Strip everything but digits and add in dashes and underlines, like so: "1945-02-13_13-00-00".jpg</description>
+	<patterns>*</patterns>
+	<image-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>edit-clear-all-symbolic</icon>
+	<name>Fslint here</name>
+	<unique-id>1438411338695504-6</unique-id>
+	<command>fslint-gui %f</command>
+	<description>Launch FSlint in this directory.</description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>edit-find-replace-symbolic</icon>
+	<name>Rename image to exif date</name>
+	<unique-id>1438411401000005-7</unique-id>
+	<command>for file in %N; do ~/Bin/exif-rename "${file}"; done</command>
+	<description>Rename images to exif date using the 'exif-rename' script.</description>
+	<patterns>*</patterns>
+	<image-files/>
 </action>
 </actions>
