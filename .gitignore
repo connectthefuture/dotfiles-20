@@ -17,6 +17,7 @@ Thumbs.db
 Session.vim
 .netrwhist
 *~
+vim/.ycm_extra_conf.pyc
 
 # ______ Linux _______________________________________________________________ #
 ### ###
