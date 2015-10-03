@@ -155,4 +155,22 @@
 	<patterns>*</patterns>
 	<image-files/>
 </action>
+<action>
+	<icon>view-list-images-symbolic</icon>
+	<name>exiftool info grep date</name>
+	<unique-id>1438411686308817-11</unique-id>
+	<command>exiftool %n | grep -i date | zenity --text-info --title=&quot;Exif Info&quot; --width=450 --height=600</command>
+	<description></description>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>folder-symbolic</icon>
+	<name>Delete empty directories</name>
+	<unique-id>1443884784221203-1</unique-id>
+	<command>find %f -type d -empty -delete</command>
+	<description>Recursively deletes empty directories.</description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
 </actions>

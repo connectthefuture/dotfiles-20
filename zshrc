@@ -50,8 +50,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(vi-mode git zsh-syntax-highlighting history-substring-search)
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets cursor)
+plugins=(vi-mode git history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -59,6 +58,9 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/spock/Bin"
 # export MANPATH="/usr/local/man:$MANPATH"
+export ANDROID_HOME=/home/spock/Android/Sdk
+export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+export ANDROID_EMULATOR_FORCE_32BIT=true
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
@@ -91,6 +93,7 @@ alias aptsh="apt-cache show"
 alias move="mv -vni --"
 alias copy="cp -vni --"
 alias trash="gvfs-trash"
+alias grepin='grep -iRnHa --'
 
 setopt INTERACTIVE_COMMENTS         # treat hash characters as comment delimiter
 
