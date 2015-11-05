@@ -1,3 +1,4 @@
+" (Reload vimrc while editing with :so %)
 " This line should not be removed as it ensures that various options are
 " properly set to work with the Vim-related packages available in Debian.
 runtime! debian.vim
@@ -15,12 +16,14 @@ Plugin 'gmarik/Vundle.vim'              " Let Vundle manage Vundle, required
 Plugin 'scrooloose/nerdtree.git'        " NERDTree
 Plugin 'bling/vim-airline'              " vim-airline
 Plugin 'sjl/badwolf.git'                " Color Scheme
+Plugin 'flazz/vim-colorschemes'         " Color theme pack
 "Plugin 'ervandew/supertab'
 "Plugin 'honza/vim-snippets'             "
 "Plugin 'tpope/vim-fugitive'             " fugitive
 "Plugin 'junegunn/goyo.vim'              " Distraction free mode
 Plugin 'scrooloose/nerdcommenter'       " Code commenting
 Plugin 'tpope/vim-surround'             " Surround with chars or words
+Plugin 'vim-scripts/AutoComplPop.git'
 call vundle#end()
 
 "  ____________________________________________________________________________
@@ -73,6 +76,10 @@ set tabstop=4
 set softtabstop=4
 
 "  ____________________________________________________________________________
+" /______ COMPLETION __________________________________________________________/
+set completeopt=longest,menuone
+
+"  ____________________________________________________________________________
 " /______ SEARCH ______________________________________________________________/
 set hlsearch                " Highlight search
 set ignorecase              " Searches are case insensitive..
@@ -85,10 +92,11 @@ set cursorline                  " Highlight current line
 set number                      " Show line numbers
 set showmatch                   " Show matching brackets
 set ruler                       " Show column and row in footer
-set list                        " Show whitespace
+"set list                       " Show whitespace
 set listchars=tab:▸\ ,eol:¬     " Show tabs with ▸, eol with ¬
 set laststatus=2                " Add full file path to your existing statusline
 set t_Co=256                    " 256 color support
+set lazyredraw                  " Don't redraw during macros, etc
 
 "** Highlight column 80 using colorcolumn if available
 if exists('+colorcolumn')
@@ -98,6 +106,8 @@ else
 endif
 
 "** Set colorscheme and hacky fix to bring back transparency
+set background=dark
+"colorscheme 256-grayvim
 colorscheme badwolf
 
 "hi clear CursorLine
@@ -119,6 +129,7 @@ au BufRead,BufNewFile *.tab                   set filetype=tab      " guitartabs
 "** Enable powerline fonts and enhanced tabline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+"let g:airline_theme='murmur'
 
 "  ____________________________________________________________________________
 " /______ KEYBINDINGS _________________________________________________________/
@@ -133,12 +144,12 @@ vnoremap > >gv
 
 "** Ctrl-j moves lines or selection down
 "   Ctrl-k moves lines or selection up
-nnoremap <C-j> :m .+1<CR>==
-nnoremap <C-k> :m .-2<CR>==
-inoremap <C-j> <Esc>:m .+1<CR>==gi
-inoremap <C-k> <Esc>:m .-2<CR>==gi
-vnoremap <C-j> :m '>+1<CR>gv=gv
-vnoremap <C-k> :m '<-2<CR>gv=gv
+"nnoremap <C-j> :m .+1<CR>==
+"nnoremap <C-k> :m .-2<CR>==
+"inoremap <C-j> <Esc>:m .+1<CR>==gi
+"inoremap <C-k> <Esc>:m .-2<CR>==gi
+"vnoremap <C-j> :m '>+1<CR>gv=gv
+"vnoremap <C-k> :m '<-2<CR>gv=gv
 
 "** Ctrl-l and Ctrl-h for navigating open buffers
 noremap <C-l> :bnext<cr>
@@ -192,17 +203,11 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 "** If you want :UltiSnipsEdit to split your window
 let g:UltiSnipsEditSplit="vertical"
 
-" Disable <tab> and use <ctrl-N< and <ctrl-P> instead
-let g:ycm_key_list_select_completion=[]
-let g:ycm_key_list_previous_completion=[]
+let g:UltiSnipsExpandTrigger="<c-k>"
+let g:UltiSnipsJumpForwardTrigger="<c-k>"
+let g:UltiSnipsJumpBackwardTrigger="<s-c-j>"
 
-let g:ulti_expand_or_jump_res = 0 "default value, just set once
-function! Ulti_ExpandOrJump_and_getRes()
-    call UltiSnips#ExpandSnippetOrJump()
-    return g:ulti_expand_or_jump_res
-endfunction
-
-inoremap <CR> <C-R>=(Ulti_ExpandOrJump_and_getRes() > 0)?"":"\n"<CR>
+let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 
 
 "** Disable Syntastic by default and toggle error checking with <meta> S
@@ -231,3 +236,9 @@ let g:syntastic_always_populate_loc_list = 1 " put detected errors in list
 let g:syntastic_auto_loc_list = 1            " auto close/open location list
 let g:syntastic_check_on_open = 0            " do not check when loading buffers
 let g:syntastic_check_on_wq = 0              " do not check when writing buffers
+
+
+"** CtrlP related
+let g:ctrlp_follow_symlinks = 1
+let g:ctrlp_cmd = 'CtrlP'
+
