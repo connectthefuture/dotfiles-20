@@ -124,3 +124,8 @@ export PATH=$PATH:/usr/share/pk2
 
 # add user bin to path 
 export PATH=$PATH:/home/spock/Bin
+
+# Android SDK
+export ANDROID_HOME=/home/spock/Android/Sdk
+export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+export ANDROID_EMULATOR_FORCE_32BIT=true
