@@ -73,16 +73,16 @@ bureau_git_prompt () {
 
 _PATH="%{$fg_bold[white]%}%~%{$reset_color%}"
 
-# colors for host probookii
+# colors for host 6465b
 if [[ $EUID -eq 0 ]]; then
-  _USERNAME="%{$fg_bold[blue]%}%n"
-  _LIBERTY="%{$fg[blue]%}#"
+  _USERNAME="%{$fg_bold[red]%}%n"
+  _LIBERTY="%{$fg[red]%}#"
 else
-  _USERNAME="%{$fg_bold[blue]%}%n"
-  _LIBERTY="%{$fg[blue]%}$"
+  _USERNAME="%{$fg_bold[red]%}%n"
+  _LIBERTY="%{$fg[white]%}$"
 fi
 #_USERNAME="$_USERNAME%{$reset_color%}@%m"
-_USERNAME="$_USERNAME%{$fg_bold[blue]%}@%m"
+_USERNAME="$_USERNAME%{$fg_bold[red]%}@%m"
 _LIBERTY="$_LIBERTY%{$reset_color%}"
 
 
