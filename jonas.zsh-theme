@@ -73,22 +73,49 @@ bureau_git_prompt () {
 
 _PATH="%{$fg_bold[white]%}%~%{$reset_color%}"
 
-if [[ $EUID -eq 0 ]]; then
-  _USERNAME="%{$fg_bold[red]%}%n"
-  _LIBERTY="%{$fg[red]%}#"
+# set colors depending on hostname
+HOSTNAME=$(echo $(hostname) | sed "s/$(echo "$(hostname -s)\.")//g")
+
+if [ "$HOSTNAME" = ProBookII ]; then
+  if [[ $EUID -eq 0 ]]; then
+    _USERNAME="%{$fg_bold[blue]%}%n"
+    _LIBERTY="%{$fg[blue]%}#"
+  else
+    _USERNAME="%{$fg_bold[blue]%}%n"
+    _LIBERTY="%{$fg[blue]%}$"
+  fi
+  #_USERNAME="$_USERNAME%{$reset_color%}@%m"
+  _USERNAME="$_USERNAME%{$fg_bold[blue]%}@%m"
+  _LIBERTY="$_LIBERTY%{$reset_color%}"
+elif [ "$HOSTNAME" = ProBook-6465b ]; then
+  if [[ $EUID -eq 0 ]]; then
+    _USERNAME="%{$fg_bold[red]%}%n"
+    _LIBERTY="%{$fg[red]%}#"
+  else
+    _USERNAME="%{$fg_bold[red]%}%n"
+    _LIBERTY="%{$fg[white]%}$"
+  fi
+  #_USERNAME="$_USERNAME%{$reset_color%}@%m"
+  _USERNAME="$_USERNAME%{$fg_bold[red]%}@%m"
+  _LIBERTY="$_LIBERTY%{$reset_color%}"
 else
-  _USERNAME="%{$fg_bold[red]%}%n"
-  _LIBERTY="%{$fg[white]%}$"
+  if [[ $EUID -eq 0 ]]; then
+    _USERNAME="%{$fg_bold[red]%}%n"
+    _LIBERTY="%{$fg[red]%}#"
+  else
+    _USERNAME="%{$fg_bold[red]%}%n"
+    _LIBERTY="%{$fg[white]%}$"
+  fi
+  #_USERNAME="$_USERNAME%{$reset_color%}@%m"
+  _USERNAME="$_USERNAME%{$fg_bold[red]%}@%m"
+  _LIBERTY="$_LIBERTY%{$reset_color%}"
 fi
-#_USERNAME="$_USERNAME%{$reset_color%}@%m"
-_USERNAME="$_USERNAME%{$fg_bold[red]%}@%m"
-_LIBERTY="$_LIBERTY%{$reset_color%}"
 
 
 get_space () {
   local STR=$1$2
   local zero='%([BSUbfksu]|([FB]|){*})'
-  local LENGTH=${#${(S%%)STR//$~zero/}} 
+  local LENGTH=${#${(S%%)STR//$~zero/}}
   local SPACES=""
   (( LENGTH = ${COLUMNS} - $LENGTH - 1))
 
@@ -105,7 +132,7 @@ _1RIGHT="[%*] "
 
 bureau_precmd () {
   _1SPACES=`get_space $_1LEFT $_1RIGHT`
-  print 
+  print
   print -rP "$_1LEFT$_1SPACES$_1RIGHT"
 }
 
