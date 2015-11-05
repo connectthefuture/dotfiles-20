@@ -72,6 +72,10 @@ export EDITOR="vim"
 ## set vi mode
 set -o vi
 
+## By default, there is a 400 ms second delay between mode changes in VI-mode.
+ # this sets it to 100 ms seconds.
+export KEYTIMEOUT=1
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
