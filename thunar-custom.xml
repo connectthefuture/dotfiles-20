@@ -117,6 +117,7 @@
 	<description>View Exif data in a Zenity dialog.</description>
 	<patterns>*</patterns>
 	<image-files/>
+	<video-files/>
 </action>
 <action>
 	<icon>view-list-images-symbolic</icon>
@@ -126,6 +127,7 @@
 	<description>View Exif data grepped for "date", in a Zenity dialog.</description>
 	<patterns>*</patterns>
 	<image-files/>
+	<video-files/>
 </action>
 <action>
 	<icon>format-text-strikethrough-symbolic</icon>
