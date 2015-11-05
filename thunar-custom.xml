@@ -132,9 +132,9 @@
 <action>
 	<icon>format-text-strikethrough-symbolic</icon>
 	<name>Add dashes to timestamp</name>
-	<unique-id>1438411642956586-10</unique-id>
-	<command>for file in %N; do ~/Bin/timestampdashes "${file}"; done</command>
-	<description>Strip everything but digits and add in dashes and underlines, like so: "1945-02-13_13-00-00".jpg</description>
+	<unique-id>1443048004899754-1</unique-id>
+	<command>~/Bin/timestampdashes %N</command>
+	<description>Strip everything but digits and add in dashes and underlines, like so: &quot;1945-02-13_13-00-00&quot;.jpg</description>
 	<patterns>*</patterns>
 	<image-files/>
 	<video-files/>
