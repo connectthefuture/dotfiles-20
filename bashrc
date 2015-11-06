@@ -9,7 +9,7 @@ case $- in
 esac
 
 # set variables for platform dependent stuff
-host=$(echo $(hostname) | sed “s/$(echo “$(hostname -s)\.”)//g”)
+host=$(echo $(hostname) | sed "s/$(echo "$(hostname -s)\.")//g")
 os=$(uname -s)
 
 # don't put duplicate lines or lines starting with space in the history.
