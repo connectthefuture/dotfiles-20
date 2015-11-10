@@ -35,6 +35,8 @@ alias ga='git add'
 alias gc='git commit'
 alias gco='git checkout'
 alias gcm='git checkout master'
+alias gd='git diff'
+alias gdca='git diff --cached'
 
 
 # apt
