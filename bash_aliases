@@ -47,6 +47,7 @@ alias aptin='sudo apt-get install'
 
 # miscellaneous
 alias hgrep='history | grep'
+alias grepin='grep -iRnHal --'
 
 
 # rsync
