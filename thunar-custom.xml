@@ -175,4 +175,18 @@
 	<patterns>*</patterns>
 	<directories/>
 </action>
+<action>
+    <icon></icon>
+    <name>Size on Disk</name>
+    <unique-id>1447169572183817-5</unique-id>
+    <command>du -chs --apparent-size %N | sort -hr | zenity --text-info --title=&quot;Size on Disk&quot;</command>
+    <description>Displays the (apparent) size of the selected file(s) and/or folder(s) sorted by size.</description>
+    <patterns>*</patterns>
+    <directories/>
+    <audio-files/>
+    <image-files/>
+    <other-files/>
+    <text-files/>
+    <video-files/>
+</action>
 </actions>
