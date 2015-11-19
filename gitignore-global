@@ -1,0 +1,60 @@
+# Temporary backup files
+# ----------------------
+*.swp
+*.pcb-
+*.sym~
+
+# Vim
+# ---
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~
+
+# Compiled source
+# ---------------
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Compressed archives
+# -------------------
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases
+# ------------------
+*.log
+*.sql
+*.sqlite
+
+# OS generated files
+# ------------------
+.DS_Store
+.DS_Store?
+.AppleDouble/*
+*/.AppleDouble/*
+._*
+.Spotlight-V100
+.Trashes
+.Trash-*
+Icon?
+ehthumbs.db
+Thumbs.db
+*~
+.directory
+
+# Miscellaneous
+# -------------
+*.local

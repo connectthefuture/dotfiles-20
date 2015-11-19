@@ -15,7 +15,7 @@
 
 # USER CONFIGURABLE VARIABLES
 # These are the dotfiles that will be installed.
-CONFIGFILES="bashrc bash_aliases vimrc vim zshrc oh-my-zsh gitconfig zshenv conkyrc"
+CONFIGFILES="bashrc bash_aliases vimrc vim zshrc oh-my-zsh gitconfig zshenv conkyrc gitignore-global"
 
 # Be verbose, print debug information.
 VERBOSE=true
