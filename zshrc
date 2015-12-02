@@ -82,12 +82,12 @@ export KEYTIMEOUT=1
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+# Aliases ______________________________________________________________________
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias open="xdg-open"
@@ -98,6 +98,12 @@ alias move="mv -vni --"
 alias copy="cp -vni --"
 alias trash="gvfs-trash"
 alias grepin='grep -iRnHa --'
+
+# Find files and directories, anywhere. Not case sensitive.
+function fufind() {
+    find / -iname "*$1*" 2>/dev/null
+}
+
 
 setopt INTERACTIVE_COMMENTS         # treat hash characters as comment delimiter
 
