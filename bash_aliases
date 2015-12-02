@@ -49,6 +49,11 @@ alias aptin='sudo apt-get install'
 alias hgrep='history | grep'
 alias grepin='grep -iRnHal --'
 
+# Find files and directories, anywhere. Not case sensitive.
+function fufind() {
+    find / -iname "*$1*" 2>/dev/null
+}
+
 
 # rsync
 alias rsync-copy="rsync -avz --progress -h"
