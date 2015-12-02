@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Launches conky configuration files as separate processes for a columnated design.
+
+sleep 1 && conky -c ~/dotfiles/conky/conkyrc_1 &
+sleep 1 && conky -c ~/dotfiles/conky/conkyrc_2 &
+sleep 1 && conky -c ~/dotfiles/conky/conkyrc_3 &
+sleep 1 && conky -c ~/dotfiles/conky/conkyrc_4 &
+sleep 1 && conky -c ~/dotfiles/conky/conkyrc_5 &
+sleep 1 && conky -c ~/dotfiles/conky/conkyrc_6

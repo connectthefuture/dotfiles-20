@@ -1,0 +1,120 @@
+-- conky configuration file
+
+-- written by Jonas Sjöberg
+-- https://github.com/jonasjberg
+
+conky.config = {
+    -- Main canvas and window settings
+    ----------------------------------------------------------------------------
+    -- Align window to where?
+    alignment = 'bottom_left',
+    --
+    -- Offset from whichever screen border is set above.
+    -- This is determined by which column this instance represents.
+    gap_x = 1600,
+    gap_y = 20,
+
+    -- Use a colored background?
+    background = false,
+    border_width = 1,
+    minimum_height = 180,
+	minimum_width = 300,
+
+    -- Create own window to draw?
+    own_window = true,
+
+    -- Set the WM_CLASS name (?)
+    own_window_class = 'conky-semi',
+
+    -- Select window type; normal, desktop, dock, panel or override.
+    -- (default normal)
+    own_window_type = 'desktop',
+
+    -- Use ARGB visual for real transparency.
+    own_window_argb_visual = true,
+
+    -- Set alpha value.
+    -- Range is 0-255, where 0 is 0% opacity, 255 is 100% opacity.
+    own_window_argb_value = 180,
+
+    -- If ARGB visual is enabled, sets background opacity to 0%.
+    own_window_transparent = true,
+
+    -- If own_window_transparent is false, set background colour
+    -- (default black)
+    own_window_colour = 'black',
+
+    -- "Stroke"-like effect on everything
+    draw_outline = false,
+    -- Similar to above but less extreme (?)
+    draw_shades = false,
+    -- Border around everything (canvas)
+    draw_borders = false,
+    -- Dashed borders width
+    stippled_borders = 0,
+
+    -- Graphs
+    ----------------------------------------------------------------------------
+    --draw_graph_scale = false,
+    --draw_graph_range = false,
+    draw_graph_borders = true,
+
+    -- Units and formatting
+    ----------------------------------------------------------------------------
+    short_units = false,
+    format_human_readable = true,
+    pad_percents = 0,
+
+    -- Text fonts
+    ----------------------------------------------------------------------------
+    use_xft = true,
+    font = 'DejaVu Sans Mono:size=8',
+    -- Can't get transparency to work with xfce4 ..
+    xftalpha = 0.5,
+    -- Add spaces around objects to lock them down..
+    use_spacer = 'left',
+
+    uppercase = false,
+
+    -- Performance related
+    ----------------------------------------------------------------------------
+    update_interval = 1.0,
+    double_buffer = true,
+    -- Samples to average for CPU monitoring.
+    cpu_avg_samples = 3,
+    update_interval = 1.5,
+    -- Update interval when on battery power.
+    update_interval_on_battery = 3,
+    -- The number of samples to average for net data
+    net_avg_samples = 3,
+    -- Subtract (filesystem) buffers from used memory
+    no_buffers = true,
+
+    out_to_console = false,
+    out_to_stderr = false,
+    extra_newline = false,
+
+    -- Colors -
+    ----------------------------------------------------------------------------
+    default_color = 'white',
+    default_outline_color = 'black',
+    default_shade_color = 'black',
+    color1 = 'darkgray',
+    color2 = 'gray',
+}
+
+conky.text = [[
+${font DejaVu Sans Mono:size=14}${color1}
+FILESYSTEM ${hr 1} ${color}${font}
+/ ${alignr} ${fs_free /} free  ${fs_size /} total  (${fs_used_perc /}% used)
+${fs_bar 8 /}
+${color1}I/O:${alignr}${diskiograph /dev/sdb1 8}${color}
+
+/home ${alignr} ${fs_free /home} free  ${fs_size /home} total  (${fs_used_perc /home}% used)
+${fs_bar 8 /home}
+${color1}I/O:${alignr}${diskiograph /dev/sdb3 8}${color}
+
+/Archived ${alignr} ${fs_free /Archived} free  ${fs_size /Archived} total  (${fs_used_perc /Archived}% used)
+${fs_bar 8 /Archived}
+${color1}I/O:${alignr}${diskiograph /dev/sda1 8}${color}
+]]
