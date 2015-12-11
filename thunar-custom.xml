@@ -60,7 +60,7 @@
 	<icon>accessories-character-map</icon>
 	<name>Slugify Filename</name>
 	<unique-id>1438411859679272-13</unique-id>
-	<command>for file in %N; do ~/Bin/slugify-filename "${file}"; done</command>
+	<command>~/Bin/slugify-filename %N</command>
 	<description>Rename the currently selected files, replacing spaces and non-alphanumerics with dashes.</description>
 	<patterns>*</patterns>
 	<startup-notify/>
@@ -159,9 +159,9 @@
 </action>
 <action>
 	<icon>view-list-images-symbolic</icon>
-	<name>exiftool info grep date</name>
+	<name>exiftool info grep date 2</name>
 	<unique-id>1438411686308817-11</unique-id>
-	<command>exiftool %n | grep -i date | zenity --text-info --title=&quot;Exif Info&quot; --width=450 --height=600</command>
+	<command>exiftool %n | grep -i date | zenity --list --title=&quot;Exif Info&quot; --width=450 --height=600</command>
 	<description></description>
 	<patterns>*</patterns>
 	<image-files/>
