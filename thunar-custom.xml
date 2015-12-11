@@ -140,7 +140,10 @@
 	<command>~/Bin/timestampdashes %N</command>
 	<description>Strip everything but digits and add in dashes and underlines, like so: &quot;1945-02-13_13-00-00&quot;.jpg</description>
 	<patterns>*</patterns>
+	<audio-files/>
 	<image-files/>
+	<other-files/>
+	<text-files/>
 	<video-files/>
 </action>
 <action>
