@@ -196,4 +196,22 @@
     <text-files/>
     <video-files/>
 </action>
+<action>
+	<icon></icon>
+	<name>Clipboard-to-file</name>
+	<unique-id>1449232726944875-1</unique-id>
+	<command>~/Bin/clipboard-to-file %f</command>
+	<description>Create a file with the contents of the clipboard.</description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon></icon>
+	<name>Rotate image clockwise</name>
+	<unique-id>1449869779758051-3</unique-id>
+	<command>exiftran -9 -i -g -p %F</command>
+	<description>Losslessly rotate JPEG image 90 degrees clockwise</description>
+	<patterns>*.jpg;*.JPG;*.jpeg;*.JPEG</patterns>
+	<image-files/>
+</action>
 </actions>
