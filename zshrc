@@ -98,6 +98,7 @@ alias move="mv -vni --"
 alias copy="cp -vni --"
 alias trash="gvfs-trash"
 alias grepin='grep -iRnHa --'
+alias qmv='qmv --editor=vim --options=spaces,tabsize=4 --'
 
 # Find files and directories, anywhere. Not case sensitive.
 function fufind() {
