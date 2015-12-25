@@ -105,16 +105,9 @@ conky.config = {
 
 conky.text = [[
 ${font DejaVu Sans Mono:size=14}${color1}
-FILESYSTEM ${hr 1} ${color}${font}
-/ ${alignr} ${fs_free /} free  ${fs_size /} total  (${fs_used_perc /}% used)
-${fs_bar 8 /}
-${color1}I/O:${alignr}${diskiograph /dev/sdb1 8}${color}
-
-/home ${alignr} ${fs_free /home} free  ${fs_size /home} total  (${fs_used_perc /home}% used)
-${fs_bar 8 /home}
-${color1}I/O:${alignr}${diskiograph /dev/sdb3 8}${color}
-
-/Archived ${alignr} ${fs_free /Archived} free  ${fs_size /Archived} total  (${fs_used_perc /Archived}% used)
-${fs_bar 8 /Archived}
-${color1}I/O:${alignr}${diskiograph /dev/sda1 8}${color}
+NETWORK ${hr 1} ${color}${font}
+Hostname   : ${nodename}
+IP address : ${addr enp1s0}
+D: ${downspeed enp1s0}${alignr}${downspeedgraph enp1s0 8}
+U: ${upspeed enp1s0}${alignr}${upspeedgraph enp1s0 8}
 ]]

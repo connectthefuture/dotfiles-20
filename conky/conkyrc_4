@@ -114,7 +114,7 @@ ${color1}I/O:${alignr}${diskiograph /dev/sdb1 8}${color}
 ${fs_bar 8 /home}
 ${color1}I/O:${alignr}${diskiograph /dev/sdb3 8}${color}
 
-/Archived ${alignr} ${fs_free /Archived} free  ${fs_size /Archived} total  (${fs_used_perc /Archived}% used)
-${fs_bar 8 /Archived}
+Archived ${alignr} ${fs_free /mnt/Archived} free  ${fs_size /mnt/Archived} total  (${fs_used_perc /mnt/Archived}% used)
+${fs_bar 8 /mnt/Archived}
 ${color1}I/O:${alignr}${diskiograph /dev/sda1 8}${color}
 ]]
