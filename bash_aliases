@@ -48,6 +48,7 @@ alias aptin='sudo apt-get install'
 # miscellaneous
 alias hgrep='history | grep'
 alias grepin='grep -iRnHal --'
+alias ack=ack-grep
 
 # Find files and directories, anywhere. Not case sensitive.
 function fufind() {
