@@ -126,6 +126,10 @@ au BufRead,BufNewFile *.{md,mkd,markdown,txt} set filetype=markdown " markdown
 au BufRead,BufNewFile *.{kicad_mod,kicad_pcb} set filetype=lisp     " kicad
 au BufRead,BufNewFile *.tab                   set filetype=tab      " guitartabs
 
+"** Tab behaviour specific to file type
+autocmd BufRead,BufNewFile *.tex setlocal tabstop=2 shiftwidth=2
+
+
 "** Enable powerline fonts and enhanced tabline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
