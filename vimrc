@@ -107,8 +107,8 @@ set lazyredraw                  " Don't redraw during macros, etc
 
 "** Set colorscheme and hacky fix to bring back transparency
 set background=dark
-"colorscheme 256-grayvim
-colorscheme badwolf
+colorscheme 256-grayvim
+"colorscheme badwolf
 
 "hi clear CursorLine
 hi Normal ctermbg=NONE
@@ -133,7 +133,7 @@ autocmd BufRead,BufNewFile *.tex setlocal tabstop=2 shiftwidth=2
 "** Enable powerline fonts and enhanced tabline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-"let g:airline_theme='murmur'
+let g:airline_theme='behelit'
 
 "  ____________________________________________________________________________
 " /______ KEYBINDINGS _________________________________________________________/
