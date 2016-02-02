@@ -99,11 +99,11 @@ set t_Co=256                    " 256 color support
 set lazyredraw                  " Don't redraw during macros, etc
 
 "** Highlight column 80 using colorcolumn if available
-if exists('+colorcolumn')
-  set colorcolumn=80
-else
-  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
-endif
+"if exists('+colorcolumn')
+  "set colorcolumn=80
+"else
+  "au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+"endif
 
 "** Set colorscheme and hacky fix to bring back transparency
 set background=dark
