@@ -23,6 +23,7 @@ Plugin 'flazz/vim-colorschemes'         " Color theme pack
 Plugin 'scrooloose/nerdcommenter'       " Code commenting
 Plugin 'tpope/vim-surround'             " Surround with chars or words
 "Plugin 'vim-scripts/AutoComplPop.git'
+Plugin 'dhruvasagar/vim-table-mode'     " VIM Table Mode
 call vundle#end()
 
 "  ____________________________________________________________________________
