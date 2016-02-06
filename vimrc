@@ -20,7 +20,6 @@ Plugin 'flazz/vim-colorschemes'         " Color theme pack
 "Plugin 'ervandew/supertab'
 "Plugin 'honza/vim-snippets'             "
 "Plugin 'tpope/vim-fugitive'             " fugitive
-"Plugin 'junegunn/goyo.vim'              " Distraction free mode
 Plugin 'scrooloose/nerdcommenter'       " Code commenting
 Plugin 'tpope/vim-surround'             " Surround with chars or words
 Plugin 'vim-scripts/AutoComplPop.git'
