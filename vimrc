@@ -14,8 +14,9 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'              " Let Vundle manage Vundle, required
 "Plugin 'majutsushi/tagbar.git'          " taglist for code navigation
 Plugin 'scrooloose/nerdtree.git'        " NERDTree
-Plugin 'bling/vim-airline'              " vim-airline
 Plugin 'sjl/badwolf.git'                " Color Scheme
+Plugin 'vim-airline/vim-airline'        " vim-airline
+Plugin 'vim-airline/vim-airline-themes' " airline themes moevd to this repo
 Plugin 'flazz/vim-colorschemes'         " Color theme pack
 "Plugin 'ervandew/supertab'
 "Plugin 'honza/vim-snippets'             "
