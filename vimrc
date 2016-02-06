@@ -22,7 +22,7 @@ Plugin 'flazz/vim-colorschemes'         " Color theme pack
 "Plugin 'tpope/vim-fugitive'             " fugitive
 Plugin 'scrooloose/nerdcommenter'       " Code commenting
 Plugin 'tpope/vim-surround'             " Surround with chars or words
-Plugin 'vim-scripts/AutoComplPop.git'
+"Plugin 'vim-scripts/AutoComplPop.git'
 call vundle#end()
 
 "  ____________________________________________________________________________
