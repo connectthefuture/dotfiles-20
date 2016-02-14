@@ -89,7 +89,8 @@ set incsearch               " Incremental search, show results while typing
 "  ____________________________________________________________________________
 " /______ VISUAL ______________________________________________________________/
 set cursorline                  " Highlight current line
-set number                      " Show line numbers
+set number                      " Show line number at cursor
+set relativenumber              " Show relative line numbers
 set showmatch                   " Show matching brackets
 set ruler                       " Show column and row in footer
 "set list                       " Show whitespace
