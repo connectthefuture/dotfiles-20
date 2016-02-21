@@ -214,4 +214,13 @@
 	<patterns>*.jpg;*.JPG;*.jpeg;*.JPEG</patterns>
 	<image-files/>
 </action>
+<action>
+	<icon></icon>
+	<name>DiffPDF</name>
+	<unique-id>1456089862524051-1</unique-id>
+	<command>diffpdf %F</command>
+	<description>Diff pdf documents using DiffPDF</description>
+	<patterns>*.pdf</patterns>
+	<other-files/>
+</action>
 </actions>
