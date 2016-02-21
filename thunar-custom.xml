@@ -198,6 +198,15 @@
 </action>
 <action>
 	<icon></icon>
+	<name>Create timestamped archive</name>
+	<unique-id>1449203472228617-9</unique-id>
+	<command>~/Bin/timestamped-tarball %n</command>
+	<description>Create timestamped tar archive</description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon></icon>
 	<name>Clipboard-to-file</name>
 	<unique-id>1449232726944875-1</unique-id>
 	<command>~/Bin/clipboard-to-file %f</command>
