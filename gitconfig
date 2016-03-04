@@ -17,13 +17,14 @@
     tool = meld
 [diff]
 	tool = meld
-	#tool = vimdiff 
+	#tool = vimdiff
 [difftool "visdiff"]
 	cmd = /usr/local/bin/vis_diff.sh $LOCAL $REMOTE x:
 	prompt = false[gui]
 [diff "image"]
-	command = ~/bin/git-imgdiff 
+	command = ~/bin/git-imgdiff
 [alias]
-	lol = log --graph --oneline --decorate --all
+    lol = log --graph --oneline --decorate --all
+    klone = "!f() { git clone "$1" "${1##*/}.git"; }; f"
 [difftool "eaglediff"]
 	cmd = eaglediff $LOCAL $REMOTE
