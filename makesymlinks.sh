@@ -30,11 +30,11 @@ DOTFILES_ROOT=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 TEMP_DIR=$(mktemp -d /tmp/dotfiles.XXXXXX)
 BACKUP_ARCHIVE="${HOME}/dotfiles_$(date +%F_%H-%M-%S).tar.gz"
 
-# Print info to stdout
 # Use (overly) cautious options when running commands.
 MOVE='mv -vni --'
 LINK='ln -vsi --'
 
+# Print info to stdout if VERBOSE is set.
 print_info()
 {
     if [[ $VERBOSE ]]; then
