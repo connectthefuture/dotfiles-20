@@ -3,7 +3,7 @@
 
 #   DOTFILES SETUP SCRIPT
 #                              written by Jonas Sjöberg for *personal* use
-#                                                 Last updated: 2015-06-17
+#                                                 Last updated: 2016-03-17
 #   ______________________________________________________________________
 
 #   Should only ever need to be executed after a clean reinstall of the home
@@ -93,9 +93,10 @@ do
         fi
     fi
 
-    if [[ -e ${THIS_DST} ]];               # check that file is in repo directory
-    then                                     # if not, print error and die
-        print_info "creating symlink"        # else create symlink from SRC to DST
+    # Check that file is in repo directory.
+    if [[ -e ${THIS_DST} ]];
+    then
+        print_info "creating symlink"
         ln -vsi "${THIS_DST}" "${THIS_SRC}"
         echo ""
     else
