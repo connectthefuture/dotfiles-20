@@ -55,6 +55,6 @@ alias rsync-synchronize="rsync -avzu --delete --progress -h"
 # renameutils
 alias qmv="qmv --editor=vim --format=destination-only"
 
-# safer variants of standard commands
+# Safer variants of standard commands
 alias move="mv -nvi --"
 alias copy="cp -nv --"
