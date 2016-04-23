@@ -34,8 +34,8 @@ alias aptin='sudo apt-get install'
 # Miscellaneous
 alias open='xdg-open'
 alias hgrep='history | grep'
-alias grepin='grep -iRnHal --'
 alias ack=ack-grep
+alias grepin='grep -iRnHa --'
 
 # Find files and directories, anywhere. Not case sensitive.
 function fufind() {
