@@ -16,7 +16,6 @@
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -al'
-alias open='xdg-open'
 
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -40,6 +39,7 @@ alias aptin='sudo apt-get install'
 
 
 # miscellaneous
+alias open='xdg-open'
 alias hgrep='history | grep'
 alias grepin='grep -iRnHal --'
 alias ack=ack-grep
