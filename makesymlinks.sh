@@ -167,11 +167,11 @@ fi
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #  Create symlink to zsh theme
 print_info "symlinking zsh theme"
-OHMYZSH_THEMES="${DOTFILES_ROOT}/oh-my-zsh/themes"
+OMZ_THEMES="${DOTFILES_ROOT}/oh-my-zsh/themes"
 
-if [ -d "$OHMYZSH_THEMES" ]
+if [ -d "$OMZ_THEMES" ]
 then
     ln -vsi -- "${DOTFILES_ROOT}/jonas.zsh-theme" "${OMZ_THEMES}/jonas.zsh-theme"
 else
-    die "$OHMYZSH_THEMES doesn't exist! make sure oh-my-zsh is installed."
+    die "${OMZ_THEMES} doesn't exist. Make sure oh-my-zsh is installed."
 fi
