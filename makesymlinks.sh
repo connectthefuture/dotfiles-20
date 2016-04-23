@@ -83,7 +83,7 @@ do
         if [ -L "$THIS_SRC" ]
         then
             print_info "Removing existing symlink \"${dotfile}\""
-            rm -v "$THIS_SRC"
+            rm -v -- "$THIS_SRC"
         else
 
             print_info "Moving ".$file" out of the way"
@@ -119,7 +119,7 @@ then
 
     print_info "done"
     print_info "removing temporary files"
-    rm -vrf "${TEMP_DIR}"
+    rm -vrf -- "${TEMP_DIR}"
 
     print_info "done"
 fi
@@ -156,12 +156,12 @@ EOF
             then
                 # It's a symlink. Just remove it.
                 print_info "removing symlink ${THUNARCONF_SRC}"
-                rm -v "${THUNARCONF_SRC}"
             else
                 # Not a symlink. Probably default config file.
                 print_info "moving existing file out of the way"
-                mv -vni -- "${THUNARCONF_SRC}" "${THUNARCONF_BAK}"
             fi
+            rm -v -- "$THUNARCONF_SRC"
+            mv -vni -- "$THUNARCONF_SRC" "$THUNARCONF_BAK"
         fi
 
         # Create symlink from "$THUNARCONF_DST" to "$THUNARCONF_SRC".
@@ -174,6 +174,7 @@ EOF
     fi
 
     print_info "done"
+    ln -vsi -- "$THUNARCONF_DST" "$THUNARCONF_SRC"
 else
     print_info "Thunar doesn't seem to be installed. Skipping"
 fi
@@ -186,8 +187,7 @@ OHMYZSH_THEMES="${DOTFILES_ROOT}/oh-my-zsh/themes"
 
 if [ -d "$OHMYZSH_THEMES" ]
 then
-    ln -vsi "${DOTFILES_ROOT}/jonas.zsh-theme" \
-          "${OHMYZSH_THEMES}/jonas.zsh-theme"
+    ln -vsi -- "${DOTFILES_ROOT}/jonas.zsh-theme" "${OMZ_THEMES}/jonas.zsh-theme"
 else
     die "$OHMYZSH_THEMES doesn't exist! make sure oh-my-zsh is installed."
 fi
