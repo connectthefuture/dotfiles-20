@@ -184,7 +184,8 @@ fi
 print_info "symlinking zsh theme"
 OHMYZSH_THEMES="${DOTFILES_ROOT}/oh-my-zsh/themes"
 
-if [[ -d ${OHMYZSH_THEMES} ]]; then
+if [[ -d ${OHMYZSH_THEMES} ]]
+then
     ln -vsi "${DOTFILES_ROOT}/jonas.zsh-theme" \
           "${OHMYZSH_THEMES}/jonas.zsh-theme"
 else
