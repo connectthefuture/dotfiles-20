@@ -3,7 +3,7 @@
 
 #   DOTFILES SETUP SCRIPT
 #                              written by Jonas Sjöberg for *personal* use
-#                                                 Last updated: 2016-03-17
+#                                                 Last updated: 2016-04-23
 #   ______________________________________________________________________
 
 #   Should only ever need to be executed after a clean reinstall of the home
@@ -15,7 +15,7 @@
 
 # USER CONFIGURABLE VARIABLES
 # These are the dotfiles that will be installed.
-CONFIGFILES="bashrc bash_aliases vimrc vim zshrc oh-my-zsh gitconfig zshenv conkyrc gitignore-global"
+CONFIGFILES="bashrc bash_aliases vimrc vim zshrc oh-my-zsh gitconfig zshenv conkyrc gitignore-global inputrc"
 
 # Be verbose, print debug information.
 VERBOSE=true
