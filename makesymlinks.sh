@@ -66,7 +66,7 @@ die()
 
 EOF
 
-cd "${HOME}"
+cd "$HOME"
 
 # Run through the list of configfiles. Check if the source file (THIS_SRC)
 # exists and is an ordinary file. Then check if it is a symbolic link, which
@@ -94,7 +94,7 @@ do
     fi
 
     # Check that file is in repo directory.
-    if [[ -e ${THIS_DST} ]];
+    if [ -e "$THIS_DST" ]
     then
         print_info "creating symlink"
         ln -vsi "${THIS_DST}" "${THIS_SRC}"
