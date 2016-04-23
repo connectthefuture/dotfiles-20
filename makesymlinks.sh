@@ -18,7 +18,7 @@
 CONFIGFILES="bashrc bash_aliases vimrc vim zshrc oh-my-zsh gitconfig zshenv conkyrc gitignore-global inputrc"
 
 # Be verbose, print debug information.
-VERBOSE=true
+VERBOSE="true"
 
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -34,21 +34,18 @@ BACKUP_ARCHIVE="${HOME}/dotfiles_$(date +%F_%H-%M-%S).tar.gz"
 MOVE='mv -vni --'
 LINK='ln -vsi --'
 
+
 # Print info to stdout if VERBOSE is set.
 print_info()
 {
-    if [[ $VERBOSE ]]; then
-        printf "* %s ..\n" "$1"
-    fi
+    [ "$VERBOSE" ] && printf "* %s ..\n" "$1"
 }
+
 
 # Print error and exit.
 die()
 {
-    if [[ ! -z $1 ]];
-    then
-        printf "[!] ERROR: %s\n" "$1" 1>&2
-    fi
+    [ ! -z "$1" ] && printf "[!] ERROR: %s\n" "$1" 1>&2
     exit 1
 }
 
