@@ -52,6 +52,8 @@ alias rsync-move="rsync -avz --progress -h --remove-source-files"
 alias rsync-update="rsync -avzu --progress -h"
 alias rsync-synchronize="rsync -avzu --delete --progress -h"
 
+# renameutils
+alias qmv="qmv --editor=vim --format=destination-only"
 
 # safer variants of standard commands
 alias move="mv -nvi --"
