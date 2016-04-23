@@ -31,7 +31,7 @@ apts() { apt-cache search ${1} | egrep --color=always "^[^-]+"; }
 alias aptsh='apt-cache show'
 alias aptin='sudo apt-get install'
 
-# miscellaneous
+# Miscellaneous
 alias open='xdg-open'
 alias hgrep='history | grep'
 alias grepin='grep -iRnHal --'
