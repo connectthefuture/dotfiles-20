@@ -17,7 +17,6 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -al'
 alias open='xdg-open'
-alias t='~/bin/todo/todo.sh'
 
 alias ..='cd ..'
 alias ...='cd ../..'
