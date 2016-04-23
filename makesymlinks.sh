@@ -114,7 +114,7 @@ if [ -d ${TEMP_DIR} ]
 then
     print_info "archiving the old dotfiles"
 
-    # this assumes more than a minute passes between runs .. file exists error?
+    # This assumes more than a minute passes between runs .. file exists error?
     find "${TEMP_DIR}" -maxdepth 1 -type f -name ".*" -exec tar vczf "$BACKUP_ARCHIVE" "{}" +
 
     print_info "done"
