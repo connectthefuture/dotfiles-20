@@ -94,12 +94,12 @@ do
     # Check that file is in repo directory.
     if [ -e "$THIS_DST" ]
     then
-        print_info "creating symlink"
+        print_info "Creating symlink"
         ln -vsi -- "${THIS_DST}" "${THIS_SRC}"
 
         echo ""
     else
-        die "$THIS_DST doesn't exist!"
+        die "${THIS_DST} doesn't exist!"
         exit
     fi
 done
@@ -112,16 +112,16 @@ print_info "done"
 # Then go ahead aand remove the temporary directory and files.
 if [ -d "${TEMP_DIR}" ]
 then
-    print_info "archiving the old dotfiles"
+    print_info "Archiving the old dotfiles"
 
     # This assumes more than a minute passes between runs .. file exists error?
     find "${TEMP_DIR}" -maxdepth 1 -type f -name ".*" -exec tar vczf "$BACKUP_ARCHIVE" "{}" +
 
-    print_info "done"
-    print_info "removing temporary files"
+    print_info "Done"
+    print_info "Removing temporary files"
     rm -vrf -- "${TEMP_DIR}"
 
-    print_info "done"
+    print_info "Done"
 fi
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -148,9 +148,9 @@ then
 
 EOF
 
-    if [ -f "$THUNARCONF_DST" ]               # is the repo file in place?
+    if [ -f "$THUNARCONF_SRC" ]           # is the config file already in place?
     then
-        if [ -f "$THUNARCONF_SRC" ]           # is the config file already in place?
+        if [ -L "$THUNARCONF_SRC" ]       # is the config file a symlink?
         then
             if [ -L "$THUNARCONF_SRC" ]       # is the config file a symlink?
             then
@@ -181,7 +181,7 @@ fi
 
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-## create symlink to zsh theme
+#  Create symlink to zsh theme
 print_info "symlinking zsh theme"
 OHMYZSH_THEMES="${DOTFILES_ROOT}/oh-my-zsh/themes"
 
