@@ -74,7 +74,7 @@ cd "$HOME"
 # is created if need be.
 # Next, check if the destination file ($THIS_DST) exists. If it does, go ahead
 # and create a symlink from source to destination.
-for file in $CONFIGFILES;
+for file in $CONFIGFILES
 do
     THIS_SRC="${HOME}/.${file}"              # this file is a link ..
     THIS_DST="${DOTFILES_ROOT}/${file}"      # .. to this file
