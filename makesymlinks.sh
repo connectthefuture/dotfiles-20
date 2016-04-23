@@ -131,50 +131,34 @@ then
     # Symlink thunar custom actions configuration file
     THUNARCONF_SRC="${HOME}/.config/Thunar/uca.xml"       # this file is a link ..
     THUNARCONF_DST="${DOTFILES_ROOT}/thunar-custom.xml"   # .. to this file
-    THUNARCONF_BAK="${THUNARCONF_SRC}_$(date +%F_%H-%M-%S)"
+    THUNARCONF_BAK="${THUNARCONF_SRC}_$(date +%F_%H%M%S)"
 
-[ "$VERBOSE" ] && cat << EOF
-
-────────────────────────────────────────────────────────────────────────────────
-  Thunar custom actions setup
-  ===========================
-
-* creating symlink for thunar custom actions configuration XML file.
-     from source: $THUNARCONF_SRC
-  to destination: $THUNARCONF_DST
-
-* current file will be saved as "$THUNARCONF_BAK"
-────────────────────────────────────────────────────────────────────────────────
-
-EOF
+    if [ ! -f "$THUNARCONF_DST" ]         # is the repo file in place?
+    then
+        die "${THUNARCONF_DST} doesn't exist!"
+        exit 1
+    fi
 
     if [ -f "$THUNARCONF_SRC" ]           # is the config file already in place?
     then
         if [ -L "$THUNARCONF_SRC" ]       # is the config file a symlink?
         then
-            if [ -L "$THUNARCONF_SRC" ]       # is the config file a symlink?
-            then
-                # It's a symlink. Just remove it.
-                print_info "removing symlink ${THUNARCONF_SRC}"
-            else
-                # Not a symlink. Probably default config file.
-                print_info "moving existing file out of the way"
-            fi
+            # It's a symlink. Just remove it.
+            print_info "Removing symlink ${THUNARCONF_SRC}"
             rm -v -- "$THUNARCONF_SRC"
+        else
+            # Not a symlink. Probably default config file.
+            print_info "Moving existing file out of the way"
             mv -vni -- "$THUNARCONF_SRC" "$THUNARCONF_BAK"
         fi
-
-        # Create symlink from "$THUNARCONF_DST" to "$THUNARCONF_SRC".
-        print_info "creating symlink"
-        ln -vsi "${THUNARCONF_DST}" "${THUNARCONF_SRC}"
-        echo ""
-    else
-        die "$THUNARCONF_DST doesn't exist!"
-        exit
     fi
 
-    print_info "done"
+    # Create symlink from "$THUNARCONF_DST" to "$THUNARCONF_SRC".
+    print_info "Creating symlink"
     ln -vsi -- "$THUNARCONF_DST" "$THUNARCONF_SRC"
+    echo ""
+
+    print_info "Done"
 else
     print_info "Thunar doesn't seem to be installed. Skipping"
 fi
