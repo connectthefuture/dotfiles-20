@@ -34,8 +34,9 @@ alias aptin='sudo apt-get install'
 # Miscellaneous
 alias open='xdg-open'
 alias hgrep='history | grep'
-alias ack=ack-grep
 alias grepin='grep -iRnHa --'
+alias ack='ack-grep'
+
 # Copy current working directory to system clipboard.
 alias copypwd='pwd | head -c -1 | xclip -sel clip'
 
