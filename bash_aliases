@@ -36,6 +36,8 @@ alias open='xdg-open'
 alias hgrep='history | grep'
 alias ack=ack-grep
 alias grepin='grep -iRnHa --'
+# Copy current working directory to system clipboard.
+alias copypwd='pwd | head -c -1 | xclip -sel clip'
 
 # Find files and directories, anywhere. Not case sensitive.
 function fufind() {
