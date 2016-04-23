@@ -110,7 +110,8 @@ print_info "done"
 # exists. If it does, we can assume it contains our old dotfiles.
 # Create a zipped tar archive with a date and timestamp in the filename.
 # Then go ahead aand remove the temporary directory and files.
-if [[ -d ${TEMP_DIR} ]]; then
+if [ -d ${TEMP_DIR} ]
+then
     print_info "archiving the old dotfiles"
 
     # this assumes more than a minute passes between runs .. file exists error?
@@ -125,8 +126,9 @@ fi
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-if command -v thunar >/dev/null; then
-    # symlink thunar custom actions config file
+if command -v thunar >/dev/null
+then
+    # Symlink thunar custom actions configuration file
     THUNARCONF_SRC="${HOME}/.config/Thunar/uca.xml"       # this file is a link ..
     THUNARCONF_DST="${DOTFILES_ROOT}/thunar-custom.xml"   # .. to this file
     THUNARCONF_BAK="${THUNARCONF_SRC}_$(date +%F_%H-%M-%S)"
@@ -146,9 +148,12 @@ if command -v thunar >/dev/null; then
 
 EOF
 
-    if [[ -f ${THUNARCONF_DST} ]]; then         # is the repo file in place?
-        if [[ -f ${THUNARCONF_SRC} ]]; then     # is the config file already in place?
-            if [[ -L ${THUNARCONF_SRC} ]]; then # is the config file a symlink?
+    if [[ -f ${THUNARCONF_DST} ]]               # is the repo file in place?
+    then
+        if [[ -f ${THUNARCONF_SRC} ]]           # is the config file already in place?
+        then
+            if [[ -L ${THUNARCONF_SRC} ]]       # is the config file a symlink?
+            then
                 # It's a symlink. Just remove it.
                 print_info "removing symlink ${THUNARCONF_SRC}"
                 rm -v "${THUNARCONF_SRC}"
