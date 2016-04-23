@@ -46,7 +46,7 @@ die()
 }
 
 
-[[ $VERBOSE ]] && cat << EOF
+[ "$VERBOSE" ] && cat << EOF
 ────────────────────────────────────────────────────────────────────────────────
   Dotfiles setup script
   =====================
@@ -110,7 +110,7 @@ print_info "done"
 # exists. If it does, we can assume it contains our old dotfiles.
 # Create a zipped tar archive with a date and timestamp in the filename.
 # Then go ahead aand remove the temporary directory and files.
-if [ -d ${TEMP_DIR} ]
+if [ -d "${TEMP_DIR}" ]
 then
     print_info "archiving the old dotfiles"
 
@@ -133,7 +133,7 @@ then
     THUNARCONF_DST="${DOTFILES_ROOT}/thunar-custom.xml"   # .. to this file
     THUNARCONF_BAK="${THUNARCONF_SRC}_$(date +%F_%H-%M-%S)"
 
-[[ $VERBOSE ]] && cat << EOF
+[ "$VERBOSE" ] && cat << EOF
 
 ────────────────────────────────────────────────────────────────────────────────
   Thunar custom actions setup
@@ -148,11 +148,11 @@ then
 
 EOF
 
-    if [[ -f ${THUNARCONF_DST} ]]               # is the repo file in place?
+    if [ -f "$THUNARCONF_DST" ]               # is the repo file in place?
     then
-        if [[ -f ${THUNARCONF_SRC} ]]           # is the config file already in place?
+        if [ -f "$THUNARCONF_SRC" ]           # is the config file already in place?
         then
-            if [[ -L ${THUNARCONF_SRC} ]]       # is the config file a symlink?
+            if [ -L "$THUNARCONF_SRC" ]       # is the config file a symlink?
             then
                 # It's a symlink. Just remove it.
                 print_info "removing symlink ${THUNARCONF_SRC}"
@@ -184,7 +184,7 @@ fi
 print_info "symlinking zsh theme"
 OHMYZSH_THEMES="${DOTFILES_ROOT}/oh-my-zsh/themes"
 
-if [[ -d ${OHMYZSH_THEMES} ]]
+if [ -d "$OHMYZSH_THEMES" ]
 then
     ln -vsi "${DOTFILES_ROOT}/jonas.zsh-theme" \
           "${OHMYZSH_THEMES}/jonas.zsh-theme"
