@@ -76,19 +76,21 @@ cd "$HOME"
 # and create a symlink from source to destination.
 for file in $CONFIGFILES
 do
-    THIS_SRC="${HOME}/.${file}"              # this file is a link ..
+    dotfile=".${file}"
+    THIS_SRC="${HOME}/${dotfile}"            # this file is a link ..
     THIS_DST="${DOTFILES_ROOT}/${file}"      # .. to this file
 
-    if [[ -f ${THIS_SRC} ]]; then
-        if [[ -L "${THIS_SRC}" ]]; then
-            print_info "removing symlink .$file"
-            rm -v "${THIS_SRC}"
-        else
-            if [[ ! -d $TEMP_DIR ]]; then
-                die "unable to create temporary folder"
-            fi
+    if [ -e "$THIS_SRC" ]
+    then
+        [ ! -d $TEMP_DIR ] && die "Unable to create temporary folder"
 
-            print_info "moving ".$file" out of the way"
+        if [ -L "$THIS_SRC" ]
+        then
+            print_info "Removing existing symlink \"${dotfile}\""
+            rm -v "$THIS_SRC"
+        else
+
+            print_info "Moving ".$file" out of the way"
             $MOVE "${THIS_SRC}" "${TEMP_DIR}"
         fi
     fi
