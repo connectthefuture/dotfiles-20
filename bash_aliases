@@ -8,9 +8,8 @@
 
 
 # ls
-alias ll='ls -alF'
 alias la='ls -A'
-alias l='ls -al'
+alias l='ls -ahl'
 
 alias ..='cd ..'
 alias ...='cd ../..'
