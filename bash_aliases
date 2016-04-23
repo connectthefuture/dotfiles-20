@@ -16,7 +16,6 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
-
 # git
 alias gst='git status'
 alias ga='git add'
@@ -26,12 +25,10 @@ alias gcm='git checkout master'
 alias gd='git diff'
 alias gdca='git diff --cached'
 
-
 # apt
 apts() { apt-cache search ^$1 | egrep --color=always "^[^-]+"; }
 alias aptsh='apt-cache show'
 alias aptin='sudo apt-get install'
-
 
 # miscellaneous
 alias open='xdg-open'
@@ -43,7 +40,6 @@ alias ack=ack-grep
 function fufind() {
     find / -iname "*$1*" 2>/dev/null
 }
-
 
 # rsync
 alias rsync-copy="rsync -avz --progress -h"
