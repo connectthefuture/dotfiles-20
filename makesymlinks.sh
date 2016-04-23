@@ -179,7 +179,6 @@ else
 fi
 
 
-
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ## create symlink to zsh theme
 print_info "symlinking zsh theme"
@@ -190,5 +189,4 @@ if [[ -d ${OHMYZSH_THEMES} ]]; then
           "${OHMYZSH_THEMES}/jonas.zsh-theme"
 else
     die "$OHMYZSH_THEMES doesn't exist! make sure oh-my-zsh is installed."
-
 fi
