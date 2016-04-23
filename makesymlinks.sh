@@ -30,10 +30,6 @@ DOTFILES_ROOT=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 TEMP_DIR=$(mktemp -d /tmp/dotfiles.XXXXXX)
 BACKUP_ARCHIVE="${HOME}/dotfiles_$(date +%F_%H-%M-%S).tar.gz"
 
-# Use (overly) cautious options when running commands.
-MOVE='mv -vni --'
-LINK='ln -vsi --'
-
 
 # Print info to stdout if VERBOSE is set.
 print_info()
@@ -91,7 +87,7 @@ do
         else
 
             print_info "Moving ".$file" out of the way"
-            $MOVE "${THIS_SRC}" "${TEMP_DIR}"
+            mv -vni -- "${THIS_SRC}" "${TEMP_DIR}"
         fi
     fi
 
@@ -99,7 +95,8 @@ do
     if [ -e "$THIS_DST" ]
     then
         print_info "creating symlink"
-        ln -vsi "${THIS_DST}" "${THIS_SRC}"
+        ln -vsi -- "${THIS_DST}" "${THIS_SRC}"
+
         echo ""
     else
         die "$THIS_DST doesn't exist!"
@@ -158,7 +155,7 @@ EOF
             else
                 # Not a symlink. Probably default config file.
                 print_info "moving existing file out of the way"
-                $MOVE "${THUNARCONF_SRC}" "${THUNARCONF_BAK}"
+                mv -vni -- "${THUNARCONF_SRC}" "${THUNARCONF_BAK}"
             fi
         fi
 
