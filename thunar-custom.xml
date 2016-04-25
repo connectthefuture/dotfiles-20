@@ -159,7 +159,7 @@
 	<icon>edit-find-replace-symbolic</icon>
 	<name>Rename image to exif date</name>
 	<unique-id>1438411401000005-7</unique-id>
-	<command>for file in %N; do ~/Bin/exif-rename "${file}"; done</command>
+	<command>~/Bin/exif-rename "%N"</command>
 	<description>Rename images to exif date using the 'exif-rename' script.</description>
 	<patterns>*</patterns>
 	<image-files/>
