@@ -246,4 +246,18 @@
 	<text-files/>
 	<video-files/>
 </action>
+<action>
+	<icon>tag-symbolic</icon>
+	<name>Add tag to filename</name>
+	<unique-id>1461616403787787-1</unique-id>
+	<command>/home/spock/dev/projects/filetags/geeqie/vk-filetags-interactive-adding-wrapper.sh %F</command>
+	<description>Tags filenames using filetags.</description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
 </actions>
