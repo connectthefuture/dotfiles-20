@@ -232,4 +232,18 @@
 	<patterns>*.pdf</patterns>
 	<other-files/>
 </action>
+<action>
+	<icon>insert-text-symbolic</icon>
+	<name>Append to filename</name>
+	<unique-id>1461616252987595-1</unique-id>
+	<command>/home/spock/dev/sourcecode/pc/python/novoid/appendfilename/vk-appendfilename-interactive-wrapper-with-xfce-terminal.sh %F</command>
+	<description>Append text to filename using appendfilename.</description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
 </actions>
