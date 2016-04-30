@@ -239,7 +239,6 @@
 	<command>/home/spock/dev/sourcecode/pc/python/novoid/appendfilename/vk-appendfilename-interactive-wrapper-with-xfce-terminal.sh %F</command>
 	<description>Append text to filename using appendfilename.</description>
 	<patterns>*</patterns>
-	<directories/>
 	<audio-files/>
 	<image-files/>
 	<other-files/>
@@ -253,7 +252,6 @@
 	<command>/home/spock/dev/projects/filetags/geeqie/vk-filetags-interactive-adding-wrapper.sh %F</command>
 	<description>Tags filenames using filetags.</description>
 	<patterns>*</patterns>
-	<directories/>
 	<audio-files/>
 	<image-files/>
 	<other-files/>
