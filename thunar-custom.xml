@@ -258,4 +258,17 @@
 	<text-files/>
 	<video-files/>
 </action>
+<action>
+	<icon></icon>
+	<name>Remove tag from filename</name>
+	<unique-id>1462049135831850-1</unique-id>
+	<command>/home/spock/dev/projects/filetags/geeqie/vk-filetags-interactive-removing-wrapper.sh %F</command>
+	<description>Removes tags from filenames using filetags.</description>
+	<patterns>*</patterns>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
 </actions>
