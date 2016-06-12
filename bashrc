@@ -1,52 +1,50 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
+# See /usr/share/doc/bash/examples/startup-files for examples.
 
-# If not running interactively, don't do anything
+# If not running interactively, don't do anything.
 case $- in
     *i*) ;;
       *) return;;
 esac
 
-# set variables for platform dependent stuff
+# Set variables for platform dependent stuff
 host=$(echo $(hostname) | sed "s/$(echo "$(hostname -s)\.")//g")
 os=$(uname -s)
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
+# Don't put duplicate lines or lines starting with space in the history.
 HISTCONTROL=ignoreboth
 
-# append to the history file, don't overwrite it
+# Append to the history file, don't overwrite it.
 shopt -s histappend
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+# For setting history length see HISTSIZE and HISTFILESIZE in bash(1).
 HISTSIZE=10000
 HISTFILESIZE=20000
 # timestamp history 
 HISTTIMEFORMAT='%F %T '
 
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
+# Check the window size after each command and, if necessary, update the values
+# of LINES and COLUMNS.
 shopt -s checkwinsize
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
 #shopt -s globstar
 
-# make less more friendly for non-text input files, see lesspipe(1)
+# Make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# set variable identifying the chroot you work in (used in the prompt below)
+# Set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-# set a fancy prompt (non-color, unless we know we "want" color)
+# Set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
     xterm-color) color_prompt=yes;;
 esac
 
-# uncomment for a colored prompt, if the terminal has the capability; turned
+# Uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
 #force_color_prompt=yes
@@ -78,7 +76,7 @@ xterm*|rxvt*)
     ;;
 esac
 
-# enable color support of ls and also add handy aliases
+# Enable color support of ls and also add handy aliases.
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
@@ -103,7 +101,7 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# enable programmable completion features (you don't need to enable
+# Enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if ! shopt -oq posix; then
@@ -114,11 +112,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# set default editor to vim
+# Set default editor to vim
 export VISUAL=vim
 export EDITOR=vim
 
-# color code apt-cache search
+# Color code apt-cache search
 myaptsearch(){ apt-cache search ^$1 | egrep --color=always "^[^-]+"; }
 
 export PATH=$PATH:"/opt/microchip/xc8/v1.33/bin"
@@ -126,10 +124,13 @@ export PATH=$PATH:"/opt/microchip/xc8/v1.33/bin"
 # pk2cmd PICkit2 command line tool
 export PATH=$PATH:/usr/share/pk2
 
-# add user bin to path 
+# Add user bin to path.
 export PATH=$PATH:/home/spock/Bin
 
 # Android SDK
-export ANDROID_HOME=/home/spock/Android/Sdk
-export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
-export ANDROID_EMULATOR_FORCE_32BIT=true
+# export ANDROID_HOME=/home/spock/Android/Sdk
+# export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+# export ANDROID_EMULATOR_FORCE_32BIT=true
+
+# Enable vi-keybindings.
+set -o vi
