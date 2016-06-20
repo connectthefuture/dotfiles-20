@@ -34,7 +34,7 @@ alias aptin='sudo apt-get install'
 alias open='xdg-open'
 alias hgrep='history | grep'
 alias trash="gvfs-trash"
-alias grepin='grep -iRnHa --'
+alias grepin='grep --initial-tab -iRnHa --'
 alias ack='ack-grep'
 
 # Copy current working directory to system clipboard.
