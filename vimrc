@@ -149,6 +149,11 @@ set timeout timeoutlen=1500
 vnoremap < <gv
 vnoremap > >gv
 
+"** Unmap keys i repeatedly hit by accident
+"   Q -- ex mode and K -- keywordprg
+nnoremap Q <nop>
+nnoremap K <nop>
+
 "** Ctrl-j moves lines or selection down
 "   Ctrl-k moves lines or selection up
 "nnoremap <C-j> :m .+1<CR>==
