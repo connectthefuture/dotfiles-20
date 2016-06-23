@@ -36,6 +36,7 @@ alias hgrep='history | grep'
 alias trash="gvfs-trash"
 alias grepin='grep --initial-tab -iRnHa --'
 alias ack='ack-grep'
+alias vilog='vim ~/Dropbox/log.md'
 
 # Copy current working directory to system clipboard.
 alias copypwd='pwd | head -c -1 | xclip -sel clip'
