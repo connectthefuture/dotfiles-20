@@ -50,8 +50,6 @@ set autoread                " Automatically read file when changed outside vim
 set hidden                  " Hide buffers when they are abandoned
 set nowrap                  " No linewrapping
 set vb                      " Visual bell I.E. no beeping
-set keywordprg=trans\ :sv   " Translate with google translate via translateshell
-                            " (Shift-K to view translation of word under cursor)
 set ttyfast                 " Assume fast terminal connection
 syntax enable               " Enable syntax highlighting
 autocmd BufEnter * cd %:p:h " Automatically change current directory to file dir
