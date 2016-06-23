@@ -163,6 +163,10 @@ nnoremap K <nop>
 "vnoremap <C-j> :m '>+1<CR>gv=gv
 "vnoremap <C-k> :m '<-2<CR>gv=gv
 
+"** Search and replace word under cursor
+"   http://vim.wikia.com/wiki/Search_and_replace_the_word_under_the_cursor
+:nnoremap <Leader>r :%s/\<<C-r><C-w>\>//g<Left><Left>
+
 "** Ctrl-l and Ctrl-h for navigating open buffers
 noremap <C-l> :bnext<cr>
 noremap <C-h> :bprevious<cr>
