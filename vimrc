@@ -36,6 +36,10 @@ let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py" " Semantic stuffs
 " Fixes syntastics interaction with YouCompleteMe (syntastic help section 6.4)
 let g:ycm_show_diagnostics_ui = 0
 
+" Use reStructuredText-compatible tables in vim-table-mode.
+let g:table_mode_corner_corner="+"
+let g:table_mode_header_fillchar="="
+
 "  ____________________________________________________________________________
 " /______ MISC. BASICS ________________________________________________________/
 set mouse=v                 " Enable mouse in visual mode only
