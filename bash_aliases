@@ -38,6 +38,11 @@ alias grepin='grep --initial-tab -iRnHa --'
 alias ack='ack-grep'
 alias vilog='vim ~/Dropbox/log.md'
 
+# Simple preview of markdown files
+function mdless () {
+    pandoc "$1" | lynx -stdin -dump | less
+}
+
 # Copy current working directory to system clipboard.
 alias copypwd='pwd | head -c -1 | xclip -sel clip'
 
