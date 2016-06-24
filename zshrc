@@ -103,7 +103,7 @@ alias copypwd='pwd | head -c -1 | xclip -sel clip'
 
 # Find files and directories, anywhere. Not case sensitive.
 function fufind() {
-    find / -iname "*$1*" 2>/dev/null
+    find / -iname "*${1}*" 2>/dev/null
 }
 
 
