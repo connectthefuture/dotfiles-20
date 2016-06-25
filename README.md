@@ -1,37 +1,27 @@
-jonasjberg/dotfiles
-===================
+`jonasjberg/dotfiles`
+=====================
 
-Configuration files for common \*nix utilities; Bash, VIM, Zsh, Thunar,
-etc..
-
-
-introduction
-------------
-These are my personal configuration files.  I keep them here to make installing
-to different machines easier.  Version controlling configuration files is the
-way to go, changes are easy to keep track of and document and restoring to any
-previous state or combination of states is easy. Not to mention recovering from
-fatal edits ..
-
-I would recommend you write your own, don't just use someone elses as is, even
-if a setup would be written solely for the purpose of full portability, it
-probably won't work out, and won't be much fun.
+These are my personal configuration files. They probably won't be of much use
+as-is but might provide some ideas for making your own. Free hosting is free.
 
 
 installing
 ----------
-**PLEASE NOTE that any and all usage of these files are at your own peril.**
+**PLEASE NOTE:** Usage of these files are at your own peril!
 
-If hypothetically, one were to forego any and all warnings and decide to
-install, something like the following would probably work:
+
+If hypothetically, one were to forego these warnings and decide to install
+these, something like the following command would probably work:
 
 
 ```bash
 cd ~
 git clone git@github.com:jonasjberg/dotfiles.git
-chmod +x makesymlinks.sh && ./makesymlinks.sh
+cd dotfiles && chmod +x makesymlinks.sh && ./makesymlinks.sh
 ```
 
 
 This will archive any existing configuration files to a timestamped
-.tar.gz-file, and symlink from the repo folder to ```$HOME```.
+`tar.gz`-archive and create symlinks from the repo folder to ```$HOME```.  
+See the `makesymlinks.sh` script for details.
+
