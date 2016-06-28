@@ -25,5 +25,8 @@
 	command = ~/bin/git-imgdiff 
 [alias]
 	lol = log --graph --oneline --decorate --all
+    ldiff = difftool -t latex
 [difftool "eaglediff"]
 	cmd = eaglediff $LOCAL $REMOTE
+[difftool.latex]
+    cmd = $HOME/Scripts/git-latexdiff \"$LOCAL\" \"$REMOTE\"
