@@ -18,6 +18,7 @@ alias ....='cd ../../..'
 # git
 alias gst='git status'
 alias ga='git add'
+alias gap='git add --patch'
 alias gc='git commit --verbose'
 alias gco='git checkout'
 alias gcm='git checkout master'
