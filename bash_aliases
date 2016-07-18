@@ -38,6 +38,7 @@ alias trash="gvfs-trash"
 alias grepin='grep --initial-tab -iRnHa --'
 alias ack='ack-grep'
 alias vilog='vim ~/Dropbox/log.md'
+alias dfu='df -h -T -x devtmpfs -x tmpfs'
 
 # Simple preview of markdown files
 function mdless () {
