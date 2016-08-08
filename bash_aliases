@@ -11,11 +11,12 @@
 alias la='ls -A'
 alias l='ls -ahl'
 
+# Related to shell builtins
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
-# git
+# Git
 alias gst='git status'
 alias ga='git add'
 alias gap='git add --patch'
@@ -62,6 +63,6 @@ alias rsync-synchronize="rsync -avzu --delete --progress -h"
 # renameutils
 alias qmv="qmv --editor=vim --format=destination-only"
 
-# Safer variants of standard commands
+# "Safer" variants of standard commands
 alias move="mv -nvi --"
 alias copy="cp -nv --"
