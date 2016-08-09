@@ -6,6 +6,12 @@
 # This file is sourced by ~/.bashrc at shell spawn, effectively inserting it
 # inline.  See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
+# Wrapper 'trynotify' suppresses errors when notify-send is unavailable.
+function trynotify() {
+    if command -v "notify-send" >/dev/null 2>&1 ; then
+        notify-send "$@"
+    fi
+}
 
 # ls
 alias la='ls -A'
