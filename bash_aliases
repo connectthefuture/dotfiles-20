@@ -38,7 +38,7 @@ function gcl() {
     [ -z "$1" ] && return
     dest="$(basename "${1}")"
     git clone "$1" "$dest" && trynotify -i git "Git clone finished" \
-    "Source: \"${1}\"\nReceived: $(du -hs "$dest")"
+    "Source repo: \"${1}\"\nReceived (size, destination): $(du -hs "$dest")"
 }
 
 # apt
