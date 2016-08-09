@@ -49,7 +49,7 @@ alias aptin='sudo apt-get install'
 
 # Miscellaneous
 alias open='xdg-open'
-alias hgrep='history | grep'
+alias hgrep='history | grep -i --'
 alias trash="gvfs-trash"
 alias grepin='grep --initial-tab -iRnHa --'
 alias ack='ack-grep'
