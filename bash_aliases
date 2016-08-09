@@ -33,6 +33,14 @@ alias gcm='git checkout master'
 alias gd='git diff'
 alias gdca='git diff --cached'
 
+# Git clone wrapper keeps the trailing ".git" in the destination name.
+function gcl() {
+    [ -z "$1" ] && return
+    dest="$(basename "${1}")"
+    git clone "$1" "$dest" && trynotify -i git "Git clone finished" \
+    "Source: \"${1}\"\nReceived: $(du -hs "$dest")"
+}
+
 # apt
 apts() { apt-cache search ${1} | egrep --color=always "^[^-]+"; }
 #alias apts="apt-cache search"
