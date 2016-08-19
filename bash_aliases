@@ -32,6 +32,8 @@ alias gco='git checkout'
 alias gcm='git checkout master'
 alias gd='git diff'
 alias gdca='git diff --cached'
+# Copy last commit message to the clipboard.
+alias gcopylog='git log -1 --pretty=format:%s%n%b | xclip -sel clip'
 
 # Git clone wrapper keeps the trailing ".git" in the destination name.
 function gcl() {
