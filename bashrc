@@ -126,6 +126,6 @@ if [ -d "${HOME}/Bin" ] ; then
 fi
 
 # Android SDK
-# export ANDROID_HOME=/home/spock/Android/Sdk
+# export ANDROID_HOME="${HOME}/Android/Sdk"
 # export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 # export ANDROID_EMULATOR_FORCE_32BIT=true
