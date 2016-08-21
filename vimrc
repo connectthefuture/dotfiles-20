@@ -173,7 +173,7 @@ noremap <C-l> :bnext<cr>
 noremap <C-h> :bprevious<cr>
 
 "** F3 toggles paste mode
-nnoremap <F3> :set paste!<cr>
+set pastetoggle=<F3>
 
 "** F6 toggles option to display whitespace
 nnoremap <F6> :set list!<cr>
