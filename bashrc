@@ -113,6 +113,8 @@ export VISUAL=vim
 export EDITOR=vim
 
 export PATH=$PATH:"/opt/microchip/xc8/v1.33/bin"
+# Enable vi-keybindings.
+set -o vi
 
 # pk2cmd PICkit2 command line tool
 export PATH=$PATH:/usr/share/pk2
@@ -124,6 +126,3 @@ export PATH=$PATH:/home/spock/Bin
 # export ANDROID_HOME=/home/spock/Android/Sdk
 # export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 # export ANDROID_EMULATOR_FORCE_32BIT=true
-
-# Enable vi-keybindings.
-set -o vi
