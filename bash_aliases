@@ -44,7 +44,7 @@ function gcl() {
 }
 
 # apt
-apts() { apt-cache search ${1} | egrep --color=always "^[^-]+"; }
+apts() { apt-cache search ^${1} | egrep --color=always "^[^-]+"; }
 #alias apts="apt-cache search"
 alias aptsh='apt-cache show'
 alias aptin='sudo apt-get install'

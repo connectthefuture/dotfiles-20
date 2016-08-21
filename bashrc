@@ -112,9 +112,6 @@ fi
 export VISUAL=vim
 export EDITOR=vim
 
-# Color code apt-cache search
-myaptsearch(){ apt-cache search ^$1 | egrep --color=always "^[^-]+"; }
-
 export PATH=$PATH:"/opt/microchip/xc8/v1.33/bin"
 
 # pk2cmd PICkit2 command line tool
