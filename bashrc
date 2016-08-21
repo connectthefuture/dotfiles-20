@@ -112,12 +112,13 @@ fi
 export VISUAL=vim
 export EDITOR=vim
 
-export PATH=$PATH:"/opt/microchip/xc8/v1.33/bin"
 # Enable vi-keybindings.
 set -o vi
 
+# Microchip XC8 PIC compiler
+#export PATH=$PATH:"/opt/microchip/xc8/v1.33/bin"
 # pk2cmd PICkit2 command line tool
-export PATH=$PATH:/usr/share/pk2
+#export PATH=$PATH:/usr/share/pk2
 
 # Add user bin to path.
 export PATH=$PATH:/home/spock/Bin
