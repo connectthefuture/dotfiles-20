@@ -121,7 +121,9 @@ set -o vi
 #export PATH=$PATH:/usr/share/pk2
 
 # Add user bin to path.
-export PATH=$PATH:/home/spock/Bin
+if [ -d "${HOME}/Bin" ] ; then
+  export PATH=$PATH:${HOME}/Bin
+fi
 
 # Android SDK
 # export ANDROID_HOME=/home/spock/Android/Sdk
