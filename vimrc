@@ -112,7 +112,6 @@ set lazyredraw                  " Don't redraw during macros, etc
 "** Set colorscheme and hacky fix to bring back transparency
 set background=dark
 colorscheme 256-grayvim-transparent
-"colorscheme hybrid
 
 "hi clear CursorLine
 hi Normal ctermbg=NONE
