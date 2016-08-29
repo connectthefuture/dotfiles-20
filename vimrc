@@ -133,7 +133,7 @@ au BufRead,BufNewFile *.tab                   set filetype=tab      " guitartabs
 "** Tab behaviour specific to file type
 autocmd BufRead,BufNewFile *.tex setlocal tabstop=2 shiftwidth=2
 " Enable spellcheck and wrapping for Git commit messages.
-autocmd Filetype gitcommit setlocal spell spelllang=en textwidth=72
+autocmd Filetype gitcommit setlocal spell spelllang=en,sv textwidth=72
 
 
 "** Enable powerline fonts and enhanced tabline
