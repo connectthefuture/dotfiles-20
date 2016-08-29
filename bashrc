@@ -1,5 +1,4 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
-# See /usr/share/doc/bash/examples/startup-files for examples.
 
 # If not running interactively, don't do anything.
 case $- in
@@ -7,20 +6,21 @@ case $- in
       *) return;;
 esac
 
-# Set variables for platform dependent stuff
+# Set variables, simplified hostname and operating system.
 host=$(echo $(hostname) | sed "s/$(echo "$(hostname -s)\.")//g")
 os=$(uname -s)
 
-# Don't put duplicate lines or lines starting with space in the history.
+# Ignore duplicate lines and lines with leading space.
 HISTCONTROL=ignoreboth
 
-# Append to the history file, don't overwrite it.
+# Append, do not overwrite history.
 shopt -s histappend
 
 # For setting history length see HISTSIZE and HISTFILESIZE in bash(1).
 HISTSIZE=10000
 HISTFILESIZE=20000
-# timestamp history 
+
+# Timestamp history in ISO 8601 format.
 HISTTIMEFORMAT='%F %T '
 
 # Check the window size after each command and, if necessary, update the values
@@ -88,11 +88,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
+# Source aliases from separate file if present.
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
@@ -108,7 +104,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Set default editor to vim
+# Use Vim as the default editor.
 export VISUAL=vim
 export EDITOR=vim
 
@@ -120,7 +116,7 @@ set -o vi
 # pk2cmd PICkit2 command line tool
 #export PATH=$PATH:/usr/share/pk2
 
-# Add user bin to path.
+# Add user-local bin to path.
 if [ -d "${HOME}/Bin" ] ; then
   export PATH=$PATH:${HOME}/Bin
 fi
