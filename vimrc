@@ -129,8 +129,8 @@ au BufRead,BufNewFile *.{md,mkd,markdown,txt} set filetype=markdown " markdown
 au BufRead,BufNewFile *.{kicad_mod,kicad_pcb} set filetype=lisp     " kicad
 au BufRead,BufNewFile *.tab                   set filetype=tab      " guitartabs
 
-"** Tab behaviour specific to file type
-autocmd BufRead,BufNewFile *.tex setlocal tabstop=2 shiftwidth=2
+"** Behaviour specific to file type
+"   (also separate files in '${dotfilesroot}/vim/ftplugin')
 " Enable spellcheck and wrapping for Git commit messages.
 autocmd Filetype gitcommit setlocal spell spelllang=en,sv textwidth=72
 
