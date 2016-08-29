@@ -229,8 +229,8 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 
 
 "** Disable Syntastic by default and toggle error checking with <meta> S
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
-nnoremap <leader>S :SyntasticCheck<CR> :SyntasticToggleMode<CR>
+"let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+"nnoremap <leader>S :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 
 
 "** View text file in two columns
@@ -239,14 +239,14 @@ nnoremap <leader>S :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 
 
 "** Syntastic related. Basically the recommended defaults. Use ':help syntastic'
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1 " put detected errors in list
-let g:syntastic_auto_loc_list = 1            " auto close/open location list
-let g:syntastic_check_on_open = 0            " do not check when loading buffers
-let g:syntastic_check_on_wq = 0              " do not check when writing buffers
+"let g:syntastic_always_populate_loc_list = 1 " put detected errors in list
+"let g:syntastic_auto_loc_list = 1            " auto close/open location list
+"let g:syntastic_check_on_open = 0            " do not check when loading buffers
+"let g:syntastic_check_on_wq = 0              " do not check when writing buffers
 
 
 "** CtrlP related
