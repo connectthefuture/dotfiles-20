@@ -66,11 +66,6 @@ function mdless () {
 # Copy current working directory to system clipboard.
 alias copypwd='pwd | head -c -1 | xclip -sel clip'
 
-# Find files and directories, anywhere. Not case sensitive.
-function fufind() {
-    find / -iname "*${1}*" 2>/dev/null
-}
-
 # Find files and directories in current directory. Case insensitive.
 function findhere() {
     find . -iname "*${1}*" 2>/dev/null
