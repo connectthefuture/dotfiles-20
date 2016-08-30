@@ -71,6 +71,11 @@ function fufind() {
     find / -iname "*${1}*" 2>/dev/null
 }
 
+# Find files and directories in current directory. Case insensitive.
+function findhere() {
+    find . -iname "*${1}*" 2>/dev/null
+}
+
 # rsync
 alias rsync-copy="rsync -avz --progress -h"
 alias rsync-move="rsync -avz --progress -h --remove-source-files"
