@@ -49,7 +49,7 @@ apts() { apt-cache search ^${1} | egrep --color=always "^[^-]+"; }
 alias aptsh='apt-cache show'
 alias aptin='sudo apt-get install'
 
-# Miscellaneous
+# Miscellaneous ..
 alias open='xdg-open'
 alias hgrep='history | grep -i --'
 alias trash="gvfs-trash"
@@ -58,7 +58,7 @@ alias ack='ack-grep'
 alias vilog='vim ~/Dropbox/log.md'
 alias dfu='df -h -T -x devtmpfs -x tmpfs'
 
-# Simple preview of markdown files
+# Simple preview of markdown files.
 function mdless () {
     pandoc "$1" | lynx -stdin -dump | less
 }
