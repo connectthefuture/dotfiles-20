@@ -28,7 +28,8 @@ set -e                         # Exit immediately if a command returns non-zero.
 # Set useful variables.
 DOTFILES_ROOT=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 TEMP_DIR=$(mktemp -d /tmp/dotfiles.XXXXXX)
-BACKUP_ARCHIVE="${HOME}/dotfiles_$(date +%F_%H-%M-%S).tar.gz"
+ts="$(date +%F_%H-%M-%S)"
+BACKUP_ARCHIVE="${HOME}/dotfiles_${ts}.tar.gz"
 
 
 # Print info to stdout if VERBOSE is set.
