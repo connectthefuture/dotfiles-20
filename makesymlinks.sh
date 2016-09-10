@@ -3,7 +3,7 @@
 
 #   DOTFILES SETUP SCRIPT
 #                              written by Jonas Sjöberg for *personal* use
-#                                                 Last updated: 2016-04-23
+#                                                 Last updated: 2016-09-10
 #   ______________________________________________________________________
 
 #   Should only ever need to be executed after a clean reinstall of the home
