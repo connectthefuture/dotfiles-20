@@ -100,7 +100,7 @@ do
 
         echo ""
     else
-        die "${THIS_DST} doesn't exist!"
+        die "\"${THIS_DST}\" does not exist"
         exit
     fi
 done
