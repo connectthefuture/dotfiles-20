@@ -93,15 +93,12 @@ do
     fi
 
     # Check that file is in repo directory.
-    if [ -e "$THIS_DST" ]
+    if [ ! -e "$THIS_DST" ]
     then
+        die "\"${THIS_DST}\" does not exist"
+    else
         print_info "Creating symlink"
         ln -vsi -- "${THIS_DST}" "${THIS_SRC}"
-
-        echo ""
-    else
-        die "\"${THIS_DST}\" does not exist"
-        exit
     fi
 done
 
