@@ -134,7 +134,6 @@ then
     if [ ! -f "$THUNARCONF_DST" ]         # is the repo file in place?
     then
         die "${THUNARCONF_DST} doesn't exist!"
-        exit 1
     fi
 
     if [ -f "$THUNARCONF_SRC" ]           # is the config file already in place?
