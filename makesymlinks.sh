@@ -124,8 +124,10 @@ fi
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-if command -v thunar >/dev/null
+if ! command -v Thunar >/dev/null 2>&1
 then
+    print_info "Thunar does not seem to be installed -- skipping"
+else
     # Symlink thunar custom actions configuration file
     THUNARCONF_SRC="${HOME}/.config/Thunar/uca.xml"       # this file is a link ..
     THUNARCONF_DST="${DOTFILES_ROOT}/thunar-custom.xml"   # .. to this file
@@ -156,8 +158,6 @@ then
     echo ""
 
     print_info "Done"
-else
-    print_info "Thunar doesn't seem to be installed. Skipping"
 fi
 
 
