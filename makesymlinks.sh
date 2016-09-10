@@ -87,7 +87,7 @@ do
             rm -v -- "$THIS_SRC"
         else
 
-            print_info "Moving ".$file" out of the way"
+            print_info "Moving \".${file}\" out of the way"
             mv -vni -- "${THIS_SRC}" "${TEMP_DIR}"
         fi
     fi
