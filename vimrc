@@ -252,4 +252,5 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 "** CtrlP related
 let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 
