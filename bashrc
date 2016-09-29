@@ -10,18 +10,15 @@ esac
 host=$(echo $(hostname) | sed "s/$(echo "$(hostname -s)\.")//g")
 os=$(uname -s)
 
-# Ignore duplicate lines and lines with leading space.
+# Ignore duplicate lines and lines with leading space. Extend history size.
 HISTCONTROL=ignoreboth
+HISTSIZE=50000
+HISTFILESIZE=100000
+# Timestamp history entries in the ISO-8601 format.
+HISTTIMEFORMAT='%F %T '
 
 # Append, do not overwrite history.
 shopt -s histappend
-
-# For setting history length see HISTSIZE and HISTFILESIZE in bash(1).
-HISTSIZE=50000
-HISTFILESIZE=100000
-
-# Timestamp history entries in the ISO-8601 format.
-HISTTIMEFORMAT='%F %T '
 
 # Check the window size after each command and, if necessary, update the values
 # of LINES and COLUMNS.
