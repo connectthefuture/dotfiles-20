@@ -50,8 +50,7 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-"  ____________________________________________________________________________
-" /______ TEMPORARY FILES _____________________________________________________/
+" _______ TEMPORARY FILES _____________________________________________________
 " Keep temporary files in alternate locations to reduce clutter
 " (alternatively disable with: Set nobackup Set noswapfile)
 " Trailing // fixes name collisions. Source: http://stackoverflow.com/a/15317146
@@ -59,8 +58,7 @@ set undodir=~/.vim/.undo//
 set backupdir=~/.vim/.backup//
 set directory=~/.vim/.swp//
 
-"  ____________________________________________________________________________
-" /______ INDENTATION _________________________________________________________/
+" _______ INDENTATION _________________________________________________________
 set autoindent              " Keep indentation from previous line
 set smartindent             " Some automation, support for C-type files
 set expandtab               " Always insert softtabstop amount of chars
@@ -68,19 +66,16 @@ set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 
-"  ____________________________________________________________________________
-" /______ COMPLETION __________________________________________________________/
+" _______ COMPLETION __________________________________________________________
 set completeopt=longest,menuone
 
-"  ____________________________________________________________________________
-" /______ SEARCH ______________________________________________________________/
+" _______ SEARCH ______________________________________________________________
 set hlsearch                " Highlight search
 set ignorecase              " Searches are case insensitive..
 set smartcase               " .. unless they contain at least one capital letter
 set incsearch               " Incremental search, show results while typing
 
-"  ____________________________________________________________________________
-" /______ VISUAL ______________________________________________________________/
+" _______ VISUAL ______________________________________________________________
 set cursorline                  " Highlight current line
 set number                      " Show line number at cursor
 set relativenumber              " Show relative line numbers
