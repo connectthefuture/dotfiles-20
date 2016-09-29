@@ -125,12 +125,6 @@ au BufRead,BufNewFile *.tab                   set filetype=tab      " guitartabs
 " Enable spellcheck and wrapping for Git commit messages.
 autocmd Filetype gitcommit setlocal spell spelllang=en,sv textwidth=72
 
-
-"** Enable powerline fonts and enhanced tabline
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='raven'
-
 "  ____________________________________________________________________________
 " /______ KEYBINDINGS _________________________________________________________/
 "** Remap leader to § (key below ESC, above tab)
@@ -228,6 +222,12 @@ let g:UltiSnipsJumpForwardTrigger="<c-k>"
 let g:UltiSnipsJumpBackwardTrigger="<s-c-j>"
 
 let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+
+
+"** Enable powerline fonts and enhanced tabline
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='raven'
 
 
 "** Disable Syntastic by default and toggle error checking with <meta> S
