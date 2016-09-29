@@ -216,24 +216,27 @@ let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 " Fixes syntastics interaction with YouCompleteMe (syntastic help section 6.4)
 let g:ycm_show_diagnostics_ui = 0
 
+" _____________________________________________________________________________
+
 " Use reStructuredText-compatible tables in vim-table-mode.
 let g:table_mode_corner_corner="+"
 let g:table_mode_header_fillchar="="
 
+" _____________________________________________________________________________
 
 let g:UltiSnipsEditSplit="vertical"
-
 let g:UltiSnipsExpandTrigger="<c-k>"
 let g:UltiSnipsJumpForwardTrigger="<c-k>"
 let g:UltiSnipsJumpBackwardTrigger="<s-c-j>"
-
 let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 
+" _____________________________________________________________________________
 
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='raven'
 
+" _____________________________________________________________________________
 
 " Disable Syntastic by default and toggle error checking with <meta> S
 "let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
@@ -249,6 +252,7 @@ let g:airline_theme='raven'
 "let g:syntastic_check_on_open = 0            " do not check when loading buffers
 "let g:syntastic_check_on_wq = 0              " do not check when writing buffers
 
+"  ____________________________________________________________________________
 
 let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_cmd = 'CtrlP'
