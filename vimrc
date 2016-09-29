@@ -42,7 +42,7 @@ set nowrap                  " No linewrapping
 set visualbell              " Don't beep at me.
 set ttyfast                 " Assume fast terminal connection
 syntax enable               " Enable syntax highlighting
-autocmd BufEnter * cd %:p:h " Automatically change current directory to file dir
+"autocmd BufEnter * cd %:p:h " Automatically change current directory to file dir
 set virtualedit=block       " Allow moving to empty space in visual block mode
 
 "** Jump to the last position when reopening a file
