@@ -6,10 +6,6 @@ case $- in
       *) return;;
 esac
 
-# Set variables, simplified hostname and operating system.
-host=$(echo $(hostname) | sed "s/$(echo "$(hostname -s)\.")//g")
-os=$(uname -s)
-
 # Ignore duplicate lines and lines with leading space. Extend history size.
 HISTCONTROL=ignoreboth
 HISTSIZE=50000
