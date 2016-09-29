@@ -110,11 +110,11 @@ hi SignColumn ctermbg=NONE
 hi Normal guibg=NONE
 
 " _______ SYNTAX ______________________________________________________________
-" File type syntax highlighting aliases
-au BufRead,BufNewFile *.ino                   set filetype=c        " arduino
-au BufRead,BufNewFile *.{md,mkd,markdown,txt} set filetype=markdown " markdown
-au BufRead,BufNewFile *.{kicad_mod,kicad_pcb} set filetype=lisp     " kicad
-au BufRead,BufNewFile *.tab                   set filetype=tab      " guitartabs
+" File type syntax highlighting aliases.
+au BufRead,BufNewFile *.ino                   set filetype=c
+au BufRead,BufNewFile *.{md,mkd,markdown,txt} set filetype=markdown
+au BufRead,BufNewFile *.{kicad_mod,kicad_pcb} set filetype=lisp
+au BufRead,BufNewFile *.tab                   set filetype=tab
 
 " Behaviour specific to file type
 "   (also separate files in '${dotfilesroot}/vim/ftplugin')
