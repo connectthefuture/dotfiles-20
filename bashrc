@@ -1,4 +1,4 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
+# ~/.bashrc -- The individual per-interactive-shell startup file.
 
 # If not running interactively, don't do anything.
 case $- in
