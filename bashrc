@@ -105,11 +105,6 @@ export EDITOR=vim
 # Enable vi-keybindings.
 set -o vi
 
-# Microchip XC8 PIC compiler
-#export PATH=$PATH:"/opt/microchip/xc8/v1.33/bin"
-# pk2cmd PICkit2 command line tool
-#export PATH=$PATH:/usr/share/pk2
-
 # Add user-local bin to path.
 if [ -d "${HOME}/Bin" ] ; then
     export PATH=$PATH:${HOME}/Bin
