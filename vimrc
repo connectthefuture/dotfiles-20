@@ -95,7 +95,7 @@ set nostartofline               " Don't jump to the start of line when scrolling
   "au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 "endif
 
-" Set colorscheme and hacky fix to bring back transparency
+" Set colorscheme and hacky fix to bring back transparency.
 set background=dark
 colorscheme 256-grayvim-transparent
 
@@ -190,7 +190,7 @@ nnoremap <leader>l <C-w>l
 " Insert a timestamp. Useful when taking notes at lectures.
 ":inoremap <F5> <C-R>=strftime("%F %A")<CR>
 
-" Insert a timestamp as a markdown-styled level 2 heading.
+" Insert a timestamp as a markdown-style level 2 heading.
 :inoremap <F5> <C-R>=strftime("%F %A")<CR><ESC>yypVr-j
 
 " When in insert mode; hit leader before ( to insert text surrounded by ().
