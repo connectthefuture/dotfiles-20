@@ -189,6 +189,8 @@ nnoremap <leader>l <C-w>l
 
 " Insert a timestamp. Useful when taking notes at lectures.
 ":inoremap <F5> <C-R>=strftime("%F %A")<CR>
+
+" Insert a timestamp as a markdown-styled level 2 heading.
 :inoremap <F5> <C-R>=strftime("%F %A")<CR><ESC>yypVr-j
 
 " When in insert mode; hit leader before ( to insert text surrounded by ().
