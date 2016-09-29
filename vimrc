@@ -247,10 +247,10 @@ let g:airline_theme='raven'
 "set statusline+=%{SyntasticStatuslineFlag()}
 "set statusline+=%*
 
-"let g:syntastic_always_populate_loc_list = 1 " put detected errors in list
-"let g:syntastic_auto_loc_list = 1            " auto close/open location list
-"let g:syntastic_check_on_open = 0            " do not check when loading buffers
-"let g:syntastic_check_on_wq = 0              " do not check when writing buffers
+"let g:syntastic_always_populate_loc_list = 1 " Put detected errors in list
+"let g:syntastic_auto_loc_list = 1            " Auto close/open location list
+"let g:syntastic_check_on_open = 0            " Do not check when loading buffers
+"let g:syntastic_check_on_wq = 0              " Do not check when writing buffers
 
 "  ____________________________________________________________________________
 
