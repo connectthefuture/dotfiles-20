@@ -20,7 +20,7 @@ shopt -s histappend
 HISTSIZE=50000
 HISTFILESIZE=100000
 
-# Timestamp history in ISO 8601 format.
+# Timestamp history entries in the ISO-8601 format.
 HISTTIMEFORMAT='%F %T '
 
 # Check the window size after each command and, if necessary, update the values
