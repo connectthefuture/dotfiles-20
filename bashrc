@@ -87,9 +87,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # Source aliases from separate file if present.
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
+[ -f ~/.bash_aliases ] && source ~/.bash_aliases
 
 # Enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
