@@ -203,6 +203,11 @@ imap <leader>{ {}<ESC>i
 "** Strip all trailing whitespace in current file with leader-W
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
+"** View text file in two columns
+"   Activate with <leader>vs Deactivate with ctrl-W then o
+:noremap <silent> <Leader>vs :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
+
+
 "  ____________________________________________________________________________
 " /______ PLUGIN SPECIFIC _____________________________________________________/
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py" " Semantic stuffs
@@ -233,11 +238,6 @@ let g:airline_theme='raven'
 "** Disable Syntastic by default and toggle error checking with <meta> S
 "let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
 "nnoremap <leader>S :SyntasticCheck<CR> :SyntasticToggleMode<CR>
-
-
-"** View text file in two columns
-"   Activate with <leader>vs Deactivate with ctrl-W then o
-:noremap <silent> <Leader>vs :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
 
 
 "** Syntastic related. Basically the recommended defaults. Use ':help syntastic'
