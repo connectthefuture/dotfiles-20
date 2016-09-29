@@ -6,10 +6,12 @@ case $- in
       *) return;;
 esac
 
-# Ignore duplicate lines and lines with leading space. Extend history size.
+# Ignore duplicate lines and lines with leading space.
 HISTCONTROL=ignoreboth
-HISTSIZE=50000
-HISTFILESIZE=100000
+
+# Do not truncate the history file, I.E. unlimited size.
+HISTSIZE=-1
+HISTFILESIZE=-1
 
 # History entry timestamps in ISO-8601 format ('YYYY-MM-DD HH:MM:SS').
 HISTTIMEFORMAT='%F %T '
