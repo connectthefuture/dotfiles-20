@@ -14,14 +14,14 @@ os=$(uname -s)
 HISTCONTROL=ignoreboth
 HISTSIZE=50000
 HISTFILESIZE=100000
-# Timestamp history entries in the ISO-8601 format.
+
+# History entry timestamps in ISO-8601 format ('YYYY-MM-DD HH:MM:SS').
 HISTTIMEFORMAT='%F %T '
 
 # Append, do not overwrite history.
 shopt -s histappend
 
-# Check the window size after each command and, if necessary, update the values
-# of LINES and COLUMNS.
+# Dynamically redraw window contents when resizing.
 shopt -s checkwinsize
 
 # If set, the pattern "**" used in a pathname expansion context will
@@ -68,7 +68,8 @@ if [ -d "${HOME}/Bin" ] ; then
 fi
 
 
-# Only load Liquid Prompt in interactive shells, not from a script or from scp
+# All prompt customization - colors, format, etc; is handled by liquidprompt.
+# Only load Liquid Prompt in interactive shells, not from a script or from scp.
 [[ $- = *i* ]] && [[ -f "${HOME}/dotfiles/liquidprompt" ]] && source "${HOME}/dotfiles/liquidprompt"
 
 # Highlighting inside manpages and elsewhere.
