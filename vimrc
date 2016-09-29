@@ -26,19 +26,9 @@ Plugin 'tpope/vim-surround'             " Surround with chars or words
 Plugin 'dhruvasagar/vim-table-mode'     " VIM Table Mode
 call vundle#end()
 
-"  ____________________________________________________________________________
-" /______ PLUGIN SPECIFIC _____________________________________________________/
 filetype plugin indent on               " Use indentation scripts (required(?))
                                         " To ignore plugin indent changes,
                                         " instead use: filetype plugin on
-
-let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py" " Semantic stuffs
-" Fixes syntastics interaction with YouCompleteMe (syntastic help section 6.4)
-let g:ycm_show_diagnostics_ui = 0
-
-" Use reStructuredText-compatible tables in vim-table-mode.
-let g:table_mode_corner_corner="+"
-let g:table_mode_header_fillchar="="
 
 "  ____________________________________________________________________________
 " /______ MISC. BASICS ________________________________________________________/
@@ -218,6 +208,17 @@ imap <leader>{ {}<ESC>i
 
 "** Strip all trailing whitespace in current file with leader-W
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+
+"  ____________________________________________________________________________
+" /______ PLUGIN SPECIFIC _____________________________________________________/
+let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py" " Semantic stuffs
+" Fixes syntastics interaction with YouCompleteMe (syntastic help section 6.4)
+let g:ycm_show_diagnostics_ui = 0
+
+" Use reStructuredText-compatible tables in vim-table-mode.
+let g:table_mode_corner_corner="+"
+let g:table_mode_header_fillchar="="
+
 
 "** If you want :UltiSnipsEdit to split your window
 let g:UltiSnipsEditSplit="vertical"
