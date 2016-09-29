@@ -88,6 +88,7 @@ fi
 
 # Source aliases from separate file if present.
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
+[ -f ~/.bashrc_local ] && source ~/.bashrc_local
 
 # Enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
