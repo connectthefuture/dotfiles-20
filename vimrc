@@ -210,7 +210,9 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 "  ____________________________________________________________________________
 " /______ PLUGIN SPECIFIC _____________________________________________________/
-let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py" " Semantic stuffs
+
+" Semantic stuff (?)
+let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 " Fixes syntastics interaction with YouCompleteMe (syntastic help section 6.4)
 let g:ycm_show_diagnostics_ui = 0
 
