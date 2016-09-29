@@ -1,32 +1,32 @@
 [user]
-	name = Jonas Sjöberg
-	email = jomeganas@gmail.com
+    name = Jonas Sjöberg
+    email = jomeganas@gmail.com
 [color]
-	ui = true
+    ui = true
 [core]
-	editor = vim
-	attributesfile = ~/.gitattributes
+    editor = vim
+    attributesfile = ~/.gitattributes
     excludesfile = ~/.gitignore-global
 [push]
-	default = matching
+    default = matching
 [merge]
-	conflictstyle = diff3
-	tool = meld
-	#tool = vimdiff
+    conflictstyle = diff3
+    tool = meld
+    #tool = vimdiff
 [mergetool]
     tool = meld
 [diff]
-	tool = meld
-	#tool = vimdiff 
+    tool = meld
+    #tool = vimdiff
 [difftool "visdiff"]
-	cmd = /usr/local/bin/vis_diff.sh $LOCAL $REMOTE x:
-	prompt = false[gui]
+    cmd = /usr/local/bin/vis_diff.sh $LOCAL $REMOTE x:
+    prompt = false[gui]
 [diff "image"]
-	command = ~/bin/git-imgdiff 
+    command = ~/bin/git-imgdiff
 [alias]
-	lol = log --graph --oneline --decorate
+    lol = log --graph --oneline --decorate
     ldiff = difftool -t latex
 [difftool "eaglediff"]
-	cmd = eaglediff $LOCAL $REMOTE
+    cmd = eaglediff $LOCAL $REMOTE
 [difftool.latex]
     cmd = $HOME/Scripts/git-latexdiff \"$LOCAL\" \"$REMOTE\"
