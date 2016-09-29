@@ -110,10 +110,6 @@ if [ -d "${HOME}/Bin" ] ; then
     export PATH=$PATH:${HOME}/Bin
 fi
 
-# Android SDK
-# export ANDROID_HOME="${HOME}/Android/Sdk"
-# export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
-# export ANDROID_EMULATOR_FORCE_32BIT=true
 
 # Only load Liquid Prompt in interactive shells, not from a script or from scp
 [[ $- = *i* ]] && [[ -f "${HOME}/dotfiles/liquidprompt" ]] && source "${HOME}/dotfiles/liquidprompt"
