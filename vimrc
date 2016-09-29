@@ -134,8 +134,7 @@ set timeout timeoutlen=1500
 vnoremap < <gv
 vnoremap > >gv
 
-" Unmap keys I repeatedly hit by accident.
-"   Q -- ex mode and K -- keywordprg
+" Unmap keys I repeatedly hit by accident; Q (ex mode) and K (keywordprg).
 nnoremap Q <nop>
 nnoremap K <nop>
 
