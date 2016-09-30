@@ -34,10 +34,6 @@ if [ -x /usr/bin/dircolors ]; then
     [ -r ~/.dircolors ] && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 fi
 
-# Source aliases from separate file if present.
-[ -f ~/.bash_aliases ] && source ~/.bash_aliases
-[ -f ~/.bashrc_local ] && source ~/.bashrc_local
-
 # Enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -61,6 +57,10 @@ if [ -d "${HOME}/Bin" ] ; then
     export PATH=$PATH:${HOME}/Bin
 fi
 
+# Source aliases from separate file if present.
+[ -f ~/.bash_aliases ] && source ~/.bash_aliases
+[ -f ~/.bashrc_local ] && source ~/.bashrc_local
+[ -f ~/.env_vars     ] && source ~/.env_vars
 
 # All prompt customization - colors, format, etc; is handled by liquidprompt.
 # Only load Liquid Prompt in interactive shells, not from a script or from scp.
