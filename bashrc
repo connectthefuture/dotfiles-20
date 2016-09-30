@@ -46,17 +46,9 @@ if ! shopt -oq posix; then
     fi
 fi
 
-# Use Vim as the default editor.
-export VISUAL=vim
-export EDITOR=vim
-
 # Enable vi-keybindings.
 set -o vi
 
-# Add user-local bin to path.
-if [ -d "${HOME}/Bin" ] ; then
-    export PATH=$PATH:${HOME}/Bin
-fi
 
 # Source aliases from separate file if present.
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
@@ -66,13 +58,3 @@ fi
 # All prompt customization - colors, format, etc; is handled by liquidprompt.
 # Only load Liquid Prompt in interactive shells, not from a script or from scp.
 [[ $- = *i* ]] && [[ -f "${HOME}/dotfiles/liquidprompt" ]] && source "${HOME}/dotfiles/liquidprompt"
-
-# Highlighting inside manpages and elsewhere.
-# Nicked from: https://github.com/paulirish/dotfiles/blob/master/.bash_profile
-export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
-export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # begin bold
-export LESS_TERMCAP_me=$'\E[0m'           # end mode
-export LESS_TERMCAP_se=$'\E[0m'           # end standout-mode
-export LESS_TERMCAP_so=$'\E[38;5;226m'    # begin standout-mode - info box
-export LESS_TERMCAP_ue=$'\E[0m'           # end underline
-export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
