@@ -1,5 +1,6 @@
 # ~/.bashrc -- The individual per-interactive-shell startup file.
 
+
 # If not running interactively, don't do anything.
 case $- in
     *i*) ;;

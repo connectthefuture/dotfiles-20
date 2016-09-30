@@ -1,10 +1,5 @@
-# ~/.bash_aliases
-#
-# Alias definitions
-# =================
-# I keep my additions here, for easier access and modularity.
-# This file is sourced by ~/.bashrc at shell spawn, effectively inserting it
-# inline.  See /usr/share/doc/bash-doc/examples in the bash-doc package.
+# ~/.bash_aliases -- Aliases, sourced by ~/.bashrc.
+
 
 # Wrapper 'trynotify' suppresses errors when notify-send is unavailable.
 function trynotify() {
