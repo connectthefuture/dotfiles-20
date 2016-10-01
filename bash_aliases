@@ -51,8 +51,10 @@ alias gcopylog='git log -1 --pretty=format:%s%n%b | xclip -sel clip'
 # Git clone wrapper keeps the trailing ".git" in the destination name.
 function gcl() {
     [ -z "$1" ] && return
+    local iconpath="/usr/share/icons/hicolor/scalable/apps/gitg-symbolic.svg"
+    [ -r "$iconpath" ] || iconpath=''
     dest="$(basename "${1}")"
-    git clone "$1" "$dest" && trynotify -i git "Git clone finished" \
+    git clone "$1" "$dest" && trynotify -i "$iconpath" "Git clone finished" \
     "Source repo: \"${1}\"\nReceived (size, destination): $(du -hs "$dest")"
 }
 
