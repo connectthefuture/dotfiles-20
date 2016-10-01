@@ -1,11 +1,21 @@
 # ~/.bash_aliases -- Aliases, sourced by ~/.bashrc.
 
 
-# Wrapper 'trynotify' suppresses errors when notify-send is unavailable.
+# Wrapper 'trynotify' suppresses errors caused by the environment somehow being
+# unsuitable for running 'notify-send'. Not installed, in a SSH-session, etc ..
 function trynotify() {
-    if command -v "notify-send" >/dev/null 2>&1 ; then
-        notify-send "$@"
+    if ! command -v "notify-send" >/dev/null 2>&1 ; then
+        # Abort when the executable is unavailable.
+        return
+    elif [ -z $DISPLAY ]; then
+        # Must be set, determines where the notifications appear.
+        return
+    elif [ "$(logname)" != "$USER" ]; then
+        # Currently logged in user must be the desktop user.
+        return
     fi
+
+    notify-send "$@"
 }
 
 # ls
