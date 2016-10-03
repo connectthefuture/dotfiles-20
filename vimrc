@@ -170,7 +170,8 @@ map <C-p>     :CtrlPMixed<CR>
 "map <C-b>     :CtrlPBuffer<CR>
 map <leader>t :TagbarToggle<CR>
 
-" Unmap the arrow keys.
+" I rarely use the arrow keys at all, not just in Vim.  Unbinding to free them
+" up for potential use by things like tmux, the window manager, etc.
 no <down> <Nop>
 no <left> <Nop>
 no <right> <Nop>
