@@ -3,7 +3,7 @@
 
 #   DOTFILES SETUP SCRIPT
 #                              written by Jonas Sjöberg for *personal* use
-#                                                 Last updated: 2016-09-10
+#                                                 Last updated: 2016-10-03
 #   ______________________________________________________________________
 
 #   Should only ever need to be executed after a clean reinstall of the home
@@ -15,7 +15,7 @@
 
 # USER CONFIGURABLE VARIABLES
 # These are the dotfiles that will be installed.
-CONFIGFILES="bashrc bash_aliases bash_profile ideavimrc vimrc vim zshrc oh-my-zsh gitconfig zshenv conkyrc gitignore-global inputrc tmux.conf"
+CONFIGFILES="bashrc bash_aliases bash_profile env_vars vimrc vim zshrc oh-my-zsh gitconfig zshenv conkyrc gitignore-global inputrc tmux.conf"
 
 # Be verbose, print debug information.
 VERBOSE="true"

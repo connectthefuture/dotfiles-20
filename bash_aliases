@@ -1,19 +1,31 @@
-# ~/.bash_aliases
-#
-# Alias definitions
-# =================
-# I keep my additions here, for easier access and modularity.
-# This file is sourced by ~/.bashrc at shell spawn, effectively inserting it
-# inline.  See /usr/share/doc/bash-doc/examples in the bash-doc package.
+# ~/.bash_aliases -- Aliases, sourced by ~/.bashrc.
 
-# Wrapper 'trynotify' suppresses errors when notify-send is unavailable.
+
+# Wrapper 'trynotify' suppresses errors caused by the environment somehow being
+# unsuitable for running 'notify-send'. Not installed, in a SSH-session, etc ..
 function trynotify() {
-    if command -v "notify-send" >/dev/null 2>&1 ; then
-        notify-send "$@"
+    if ! command -v "notify-send" >/dev/null 2>&1 ; then
+        # Abort when the executable is unavailable.
+        return
+    elif [ -z $DISPLAY ]; then
+        # Must be set, determines where the notifications appear.
+        return
+    elif [ "$(logname)" != "$USER" ]; then
+        # Currently logged in user must be the desktop user.
+        return
     fi
+
+    notify-send "$@"
 }
 
 # ls
+if [ -x /usr/bin/dircolors ]; then
+    alias ls='ls --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
 alias la='ls -A'
 alias l='ls -ahl'
 
@@ -40,8 +52,10 @@ alias gcopylog='git log -1 --pretty=format:%s%n%b | xclip -sel clip'
 # Git clone wrapper keeps the trailing ".git" in the destination name.
 function gcl() {
     [ -z "$1" ] && return
+    local iconpath="/usr/share/icons/hicolor/scalable/apps/gitg-symbolic.svg"
+    [ -r "$iconpath" ] || iconpath=''
     dest="$(basename "${1}")"
-    git clone "$1" "$dest" && trynotify -i git "Git clone finished" \
+    git clone "$1" "$dest" && trynotify -i "$iconpath" "Git clone finished" \
     "Source repo: \"${1}\"\nReceived (size, destination): $(du -hs "$dest")"
 }
 

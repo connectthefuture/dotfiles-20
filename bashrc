@@ -1,27 +1,26 @@
 # ~/.bashrc -- The individual per-interactive-shell startup file.
 
+
 # If not running interactively, don't do anything.
 case $- in
     *i*) ;;
       *) return;;
 esac
 
-# Set variables, simplified hostname and operating system.
-host=$(echo $(hostname) | sed "s/$(echo "$(hostname -s)\.")//g")
-os=$(uname -s)
-
-# Ignore duplicate lines and lines with leading space. Extend history size.
+# Ignore duplicate lines and lines with leading space.
 HISTCONTROL=ignoreboth
-HISTSIZE=50000
-HISTFILESIZE=100000
-# Timestamp history entries in the ISO-8601 format.
+
+# Do not truncate the history file, I.E. unlimited size.
+HISTSIZE=-1
+HISTFILESIZE=-1
+
+# History entry timestamps in ISO-8601 format ('YYYY-MM-DD HH:MM:SS').
 HISTTIMEFORMAT='%F %T '
 
 # Append, do not overwrite history.
 shopt -s histappend
 
-# Check the window size after each command and, if necessary, update the values
-# of LINES and COLUMNS.
+# Dynamically redraw window contents when resizing.
 shopt -s checkwinsize
 
 # If set, the pattern "**" used in a pathname expansion context will
@@ -33,16 +32,8 @@ shopt -s checkwinsize
 
 # Enable color support of ls and also add handy aliases.
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+    [ -r ~/.dircolors ] && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 fi
-
-# Source aliases from separate file if present.
-[ -f ~/.bash_aliases ] && source ~/.bash_aliases
-[ -f ~/.bashrc_local ] && source ~/.bashrc_local
 
 # Enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -55,28 +46,15 @@ if ! shopt -oq posix; then
     fi
 fi
 
-# Use Vim as the default editor.
-export VISUAL=vim
-export EDITOR=vim
-
 # Enable vi-keybindings.
 set -o vi
 
-# Add user-local bin to path.
-if [ -d "${HOME}/Bin" ] ; then
-    export PATH=$PATH:${HOME}/Bin
-fi
 
+# Source aliases from separate file if present.
+[ -f ~/.bash_aliases ] && source ~/.bash_aliases
+[ -f ~/.bashrc_local ] && source ~/.bashrc_local
+[ -f ~/.env_vars     ] && source ~/.env_vars
 
-# Only load Liquid Prompt in interactive shells, not from a script or from scp
+# All prompt customization - colors, format, etc; is handled by liquidprompt.
+# Only load Liquid Prompt in interactive shells, not from a script or from scp.
 [[ $- = *i* ]] && [[ -f "${HOME}/dotfiles/liquidprompt" ]] && source "${HOME}/dotfiles/liquidprompt"
-
-# Highlighting inside manpages and elsewhere.
-# Nicked from: https://github.com/paulirish/dotfiles/blob/master/.bash_profile
-export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
-export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # begin bold
-export LESS_TERMCAP_me=$'\E[0m'           # end mode
-export LESS_TERMCAP_se=$'\E[0m'           # end standout-mode
-export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
-export LESS_TERMCAP_ue=$'\E[0m'           # end underline
-export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
