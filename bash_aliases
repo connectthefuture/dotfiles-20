@@ -31,7 +31,9 @@ alias gca='git commit --verbose --amend'
 alias gco='git checkout'
 alias gcm='git checkout master'
 alias gd='git diff'
+alias gdw='git diff --word-diff'
 alias gdca='git diff --cached'
+alias gdcaw='git diff --cached --word-diff'
 # Copy last commit message to the clipboard.
 alias gcopylog='git log -1 --pretty=format:%s%n%b | xclip -sel clip'
 
