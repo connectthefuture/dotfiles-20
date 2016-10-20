@@ -46,6 +46,11 @@ if ! shopt -oq posix; then
     fi
 fi
 
+# Enable completion for Pandoc.
+if command -v "pandoc" >/dev/null 2>&1; then
+    eval "$(pandoc --bash-completion)"
+fi
+
 # Enable vi-keybindings.
 set -o vi
 
