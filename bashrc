@@ -56,9 +56,9 @@ set -o vi
 
 
 # Source aliases from separate file if present.
-[ -f ~/.bash_aliases ] && source ~/.bash_aliases
-[ -f ~/.bashrc_local ] && source ~/.bashrc_local
-[ -f ~/.env_vars     ] && source ~/.env_vars
+[ -f "${HOME}/.bash_aliases" ] && source "${HOME}/.bash_aliases"
+[ -f "${HOME}/.bashrc_local" ] && source "${HOME}/.bashrc_local"
+[ -f "${HOME}/.env_vars"     ] && source "${HOME}/.env_vars"
 
 # All prompt customization - colors, format, etc; is handled by liquidprompt.
 # Only load Liquid Prompt in interactive shells, not from a script or from scp.
