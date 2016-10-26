@@ -1,4 +1,4 @@
 # ~/.bash_profile -- Personal initialization file, executed for login shells.
 
 
-[ -r ~/.bashrc ] && source ~/.bashrc
+[ -r "${HOME}/.bashrc" ] && source "${HOME}/.bashrc"
