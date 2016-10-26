@@ -18,6 +18,9 @@ HISTFILE="${HOME}/.bash_history"
 # History entry timestamps in ISO-8601 format ('YYYY-MM-DD HH:MM:SS').
 HISTTIMEFORMAT='%F %T '
 
+# Continuously write history to disk. Synchronizes history between shells.
+PROMPT_COMMAND='history -a'
+
 # Append, do not overwrite history.
 shopt -s histappend
 
