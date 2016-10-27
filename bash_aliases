@@ -85,6 +85,9 @@ alias dfu='df -h -T -x devtmpfs -x tmpfs'
 # Output ANSI "color" escape sequences in raw form. Suppress slow line numbers.
 alias less='less --RAW-CONTROL-CHARS --line-numbers'
 
+# Insert current date and time in my preferred format.
+alias isodatetight='date "+%FT%H%M%S"'
+
 # Simple preview of markdown files.
 function mdless() {
     if command_exists pandoc lynx ; then
