@@ -1,6 +1,17 @@
 # ~/.bash_aliases -- Aliases, sourced by ~/.bashrc.
 
 
+# Tests that a command or list of commands are available.
+# Returns true if ALL commands are available. Else false.
+function command_exists() {
+    for arg in "$@" ; do
+        if ! command -v "$arg" >/dev/null 2>&1 ; then
+            return 1
+        fi
+    done
+    return 0
+}
+
 # Wrapper 'trynotify' suppresses errors caused by the environment somehow being
 # unsuitable for running 'notify-send'. Not installed, in a SSH-session, etc ..
 function trynotify() {
