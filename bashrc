@@ -19,7 +19,7 @@ HISTFILE="${HOME}/.bash_history"
 HISTTIMEFORMAT='%F %T '
 
 # Continuously write history to disk. Synchronizes history between shells.
-PROMPT_COMMAND='history -a'
+PROMPT_COMMAND='history -a ; history -n'
 
 # Append, do not overwrite history.
 shopt -s histappend
