@@ -112,7 +112,9 @@ findhere() { find . -iname "*${1}*" 2>/dev/null; }
 # alias rsync-synchronize="rsync -avzu --delete --progress -h"
 
 # renameutils
-alias qmv="qmv --editor=vim --format=destination-only"
+if command_exists qmv ; then
+    alias qmv="qmv --editor=vim --format=destination-only"
+fi
 
 # "Safer" variants of standard commands
 alias move="mv -nvi --"
