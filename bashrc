@@ -27,6 +27,10 @@ shopt -s histappend
 # Dynamically redraw window contents when resizing.
 shopt -s checkwinsize
 
+# Do not execute history substitutions immediately.  Instead reload the
+# expanded line into the readline editing buffer for further modification.
+shopt -s histverify
+
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
 #shopt -s globstar
