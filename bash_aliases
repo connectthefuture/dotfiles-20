@@ -15,8 +15,7 @@ function command_exists() {
 # Wrapper 'trynotify' suppresses errors caused by the environment somehow being
 # unsuitable for running 'notify-send'. Not installed, in a SSH-session, etc ..
 function trynotify() {
-    if ! command -v "notify-send" >/dev/null 2>&1 ; then
-        # Abort when the executable is unavailable.
+    if ! command_exists "notify-send"; then
         return
     elif [ -z $DISPLAY ]; then
         # Must be set, determines where the notifications appear.
