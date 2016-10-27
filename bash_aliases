@@ -85,8 +85,10 @@ alias vilog='vim ~/Dropbox/log.md'
 alias dfu='df -h -T -x devtmpfs -x tmpfs'
 
 # Simple preview of markdown files.
-function mdless () {
-    pandoc "$1" | lynx -stdin -dump | less
+function mdless() {
+    if command_exists pandoc lynx ; then
+        pandoc "$1" | lynx -stdin -dump | less;
+    fi
 }
 
 # Copy current working directory to system clipboard.
