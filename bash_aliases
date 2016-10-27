@@ -99,9 +99,7 @@ function mdless() {
 alias copypwd='pwd | head -c -1 | xclip -sel clip'
 
 # Find files and directories in current directory. Case insensitive.
-function findhere() {
-    find . -iname "*${1}*" 2>/dev/null
-}
+findhere() { find . -iname "*${1}*" 2>/dev/null; }
 
 # rsync
 # alias rsync-copy="rsync -avz --progress -h"
