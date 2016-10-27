@@ -56,8 +56,6 @@ alias gd='git diff'
 alias gdw='git diff --word-diff'
 alias gdca='git diff --cached'
 alias gdcaw='git diff --cached --word-diff'
-# Copy last commit message to the clipboard.
-alias gcopylog='git log -1 --pretty=format:%s%n%b | xclip -sel clip'
 
 # Git clone wrapper keeps the trailing ".git" in the destination name.
 function gcl() {
@@ -95,8 +93,14 @@ function mdless() {
     fi
 }
 
-# Copy current working directory to system clipboard.
-alias copypwd='pwd | head -c -1 | xclip -sel clip'
+# Interfacing with the ("desktop") clipboard.
+if command_exists xclip ; then
+    # Copy current working directory to system clipboard.
+    alias copypwd='pwd | head -c -1 | xclip -sel clip'
+
+    # Copy last commit message to the clipboard.
+    alias gcopylog='git log -1 --pretty=format:%s%n%b | xclip -sel clip'
+fi
 
 # Find files and directories in current directory. Case insensitive.
 findhere() { find . -iname "*${1}*" 2>/dev/null; }
