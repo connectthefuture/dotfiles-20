@@ -24,9 +24,6 @@ PROMPT_COMMAND='history -a ; history -n'
 # Append, do not overwrite history.
 shopt -s histappend
 
-# Store multiline commands as-is.
-shopt -s cmdhist
-
 # Dynamically redraw window contents when resizing.
 shopt -s checkwinsize
 
