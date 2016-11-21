@@ -47,6 +47,7 @@ alias ....='cd ../../..'
 # Git
 alias gst='git status'
 alias ga='git add'
+alias gaa='git add --all'
 alias gap='git add --patch'
 alias gc='git commit --verbose'
 alias gca='git commit --verbose --amend'
