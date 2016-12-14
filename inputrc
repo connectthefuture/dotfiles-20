@@ -18,3 +18,6 @@ set bell-style visible
 
 # Use shift-tab to step through completions.
 "\e[Z": menu-complete
+
+# Do not page possible completions.
+set page-completions off
