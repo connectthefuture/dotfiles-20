@@ -1,14 +1,14 @@
-# Clear screen with ctrl + l with VI-mode enabled.
+# Clear screen with ctrl-l with VI-mode enabled.
 # http://unix.stackexchange.com/a/104101
 set editing-mode vi
-$if mode=vi
 
+$if mode=vi
 set keymap vi-command
 # these are for vi-command mode
 Control-l: clear-screen
 
 set keymap vi-insert
 # these are for vi-insert mode
-Control-l: clear-screen 
+Control-l: clear-screen
 $endif
 
