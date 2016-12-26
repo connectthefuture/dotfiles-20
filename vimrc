@@ -79,6 +79,7 @@ set incsearch               " Incremental search, show results while typing
 set cursorline                  " Highlight current line
 set number                      " Show line number at cursor
 set relativenumber              " Show relative line numbers
+set numberwidth=1               " Keep gutter as small as can be
 set showmatch                   " Show matching brackets
 set ruler                       " Show column and row in footer
 "set list                       " Show whitespace
