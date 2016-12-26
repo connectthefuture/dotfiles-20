@@ -88,6 +88,7 @@ set laststatus=2                " Add full file path to your existing statusline
 set t_Co=256                    " 256 color support
 set lazyredraw                  " Don't redraw during macros, etc
 set nostartofline               " Don't jump to the start of line when scrolling
+set scrolloff=5                 " Show some context when scrolling
 
 " Highlight column 80 using colorcolumn if available
 "if exists('+colorcolumn')
