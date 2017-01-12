@@ -79,8 +79,8 @@ alias aptin='sudo apt-get install'
 alias open='xdg-open'
 alias hgrep='history | grep -i --'
 alias trash="gvfs-trash"
-alias grepin='grep --initial-tab --color=always -iRnHa --'
 alias vilog='vim ~/Dropbox/log.md'
+alias grepin='grep --initial-tab --color=always --exclude-dir={.git,.idea,node_modules} -iRnHa --'
 alias dfu='df -h -T -x devtmpfs -x tmpfs'
 # Output ANSI "color" escape sequences in raw form. Suppress slow line numbers.
 alias less='less --RAW-CONTROL-CHARS --line-numbers'
