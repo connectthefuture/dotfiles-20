@@ -122,7 +122,7 @@ au BufRead,BufNewFile *.tab                   set filetype=tab
 " Behaviour specific to file type
 "   (also separate files in '${dotfilesroot}/vim/ftplugin')
 " Enable spellcheck and wrapping for Git commit messages.
-autocmd Filetype gitcommit setlocal spell spelllang=en,sv textwidth=72
+autocmd Filetype gitcommit setlocal spell spelllang=en,sv textwidth=72 complete+=k
 
 
 "  ____________________________________________________________________________
