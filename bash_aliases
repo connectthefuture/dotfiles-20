@@ -38,6 +38,7 @@ fi
 
 alias la='ls -A'
 alias l='ls -ahl'
+alias ll='ls -Ahl --time-style=long-iso'
 
 # Related to shell builtins
 alias ..='cd ..'
