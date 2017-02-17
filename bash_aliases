@@ -86,6 +86,12 @@ alias dfu='df -h -T -x devtmpfs -x tmpfs'
 # Output ANSI "color" escape sequences in raw form. Suppress slow line numbers.
 alias less='less --RAW-CONTROL-CHARS --line-numbers'
 
+function grepsrctype() {
+    grep --color=always --exclude-dir=".git" --include="*.${1}" -RnHa -- "$2" .
+}
+
+alias grepsrcjava="grepsrctype java "$*""
+
 # Insert current date and time in my preferred format.
 alias isodatetight='date "+%FT%H%M%S"'
 
