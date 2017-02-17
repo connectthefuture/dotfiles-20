@@ -93,9 +93,9 @@ function grepsrctype() {
     grep --color=always --exclude-dir=".git" --include="*.${1}" -RnHa -- "$2" . \
     | column -t -s:
 }
-
 alias grepsrcjava="grepsrctype java "$*""
 alias grepsrcpy="grepsrctype py "$*""
+alias grepsrcmd="grepsrctype md "$*""
 
 # Insert current date and time in my preferred format.
 alias isodatetight='date "+%FT%H%M%S"'
