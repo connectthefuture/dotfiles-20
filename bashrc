@@ -74,3 +74,9 @@ set -o vi
 # All prompt customization - colors, format, etc; is handled by liquidprompt.
 # Only load Liquid Prompt in interactive shells, not from a script or from scp.
 [[ $- = *i* ]] && [[ -f "${HOME}/dotfiles/liquidprompt" ]] && source "${HOME}/dotfiles/liquidprompt"
+
+# Temporary solution for platform-specific stuff ..
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    # Make the "Caps Lock" behave as another "Ctrl" key.
+    setxkbmap -option ctrl:nocaps
+fi
