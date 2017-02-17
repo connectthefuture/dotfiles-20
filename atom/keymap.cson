@@ -26,6 +26,11 @@
 # Atom Flight Manual:
 # https://atom.io/docs/latest/using-atom-basic-customization#cson
 
+
+# Note: This file should be located at ~/.atom/keymap.cson.
+#       Create a symlink to the dotfiles like so:
+#       $ ln -s ~/dotfiles/atom/keymap.cson ~/.atom/keymap.cson
+
 'body':
   'ctrl-shift-v': 'core:paste'
 
@@ -38,5 +43,5 @@
 '.platform-linux, .platform-linux .command-palette atom-text-editor':
   'ctrl-shift-A': 'command-palette:toggle'
 
-'.platform-win32, .platform-linux':
+'.platform-win32, .platform-linux, .platform-darwin':
   'ctrl-shift-T': 'tree-view:toggle'

@@ -81,10 +81,21 @@ alias hgrep='history | grep -i --'
 alias trash="gvfs-trash"
 alias vilog='vim ~/Dropbox/log/log.md'
 alias grepin='grep --initial-tab --color=always --exclude-dir={.git,.idea,node_modules} -iRnHa --'
-alias grepsrcpy='grep --initial-tab --color=always --exclude-dir=".git" --include="*.py" -RnHa --'
 alias dfu='df -h -T -x devtmpfs -x tmpfs'
 # Output ANSI "color" escape sequences in raw form. Suppress slow line numbers.
 alias less='less --RAW-CONTROL-CHARS --line-numbers'
+
+# Recursively grep the current working directory, including only files
+# with a specified extension, specified with the first argument.
+# The second argument is the pattern to match.
+# The output is columnated by file name, line number and matched text.
+function grepsrctype() {
+    grep --color=always --exclude-dir=".git" --include="*.${1}" -RnHa -- "$2" . \
+    | column -t -s:
+}
+alias grepsrcjava="grepsrctype java "$*""
+alias grepsrcpy="grepsrctype py "$*""
+alias grepsrcmd="grepsrctype md "$*""
 
 # Insert current date and time in my preferred format.
 alias isodatetight='date "+%FT%H%M%S"'
