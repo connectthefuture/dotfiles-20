@@ -80,6 +80,7 @@ do
     if [ -e "$THIS_SRC" ]
     then
         [ -d $TEMP_DIR ] || die "Unable to create temporary folder"
+        [ -r $TEMP_DIR ] || die "Need R/W-permissions for temporary folder"
 
         if [ -L "$THIS_SRC" ]
         then
