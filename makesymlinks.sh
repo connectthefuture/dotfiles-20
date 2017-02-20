@@ -42,23 +42,23 @@ print_info()
 # Print error and exit.
 die()
 {
-    [ ! -z "$1" ] && printf "[!] ERROR: %s\n" "$1" 1>&2
+    [ ! -z "${1:-}" ] && printf "[!] ERROR: %s\n" "$1" 1>&2
     exit 1
 }
 
 
 [ "$VERBOSE" ] && cat << EOF
 ────────────────────────────────────────────────────────────────────────────────
-  Dotfiles setup script
-  =====================
+  Dotfiles setup script                                     www.jonasjberg.com
+  =====================                                  github.com/jonasjberg
+                                                         PERSONAL USE INTENDED
+* Started with root: "$DOTFILES_ROOT"
 
-* started with root: $DOTFILES_ROOT
+* Will symlink from Source: "$HOME"
+         .. to Destination: "$DOTFILES_ROOT"
+  .. acting on these Files: "$CONFIGFILES"
 
-* will symlink from source: $HOME
-         .. to destination: $DOTFILES_ROOT
-  .. acting on these files: $CONFIGFILES
-
-* archiving any existing to: $BACKUP_ARCHIVE
+* Archiving existing to: "$BACKUP_ARCHIVE"
 ────────────────────────────────────────────────────────────────────────────────
 
 EOF
