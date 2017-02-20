@@ -3,7 +3,7 @@
 
 #   DOTFILES SETUP SCRIPT
 #                              written by Jonas Sjöberg for *personal* use
-#                                                 Last updated: 2016-10-03
+#                                                 Last updated: 2017-02-20
 #   ______________________________________________________________________
 
 #   Should only ever need to be executed after a clean reinstall of the home
@@ -26,8 +26,8 @@ VERBOSE="true"
 set -e                         # Exit immediately if a command returns non-zero.
 
 # Set useful variables.
-DOTFILES_ROOT=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-TEMP_DIR=$(mktemp -d /tmp/dotfiles.XXXXXX)
+DOTFILES_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+TEMP_DIR="$(mktemp -d /tmp/dotfiles.XXXXXX)"
 ts="$(date +%F_%H-%M-%S)"
 BACKUP_ARCHIVE="${HOME}/dotfiles_${ts}.tar.gz"
 
