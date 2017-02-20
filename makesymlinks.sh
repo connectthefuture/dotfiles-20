@@ -109,7 +109,7 @@ print_info "done"
 # exists. If it does, assume it contains our old dotfiles.
 # Create a zipped tar archive with a date and timestamp in the filename.
 # Then go ahead aand remove the temporary directory and files.
-if [ -d "${TEMP_DIR}" ]
+if [ -d "$TEMP_DIR" ]
 then
     print_info "Archiving the old dotfiles"
 
