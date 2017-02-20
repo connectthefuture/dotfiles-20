@@ -114,7 +114,7 @@ then
     print_info "Archiving the old dotfiles"
 
     # This assumes more than a minute passes between runs .. file exists error?
-    find "${TEMP_DIR}" -maxdepth 1 -type f -name ".*" -exec tar vczf "$BACKUP_ARCHIVE" "{}" +
+    find "$TEMP_DIR" -xdev -maxdepth 1 -type f -name ".*" -exec tar vczf "$BACKUP_ARCHIVE" '{}' +
 
     print_info "Done"
     print_info "Removing temporary files"
