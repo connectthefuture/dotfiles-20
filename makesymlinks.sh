@@ -79,7 +79,7 @@ do
 
     if [ -e "$THIS_SRC" ]
     then
-        [ ! -d $TEMP_DIR ] && die "Unable to create temporary folder"
+        [ -d $TEMP_DIR ] || die "Unable to create temporary folder"
 
         if [ -L "$THIS_SRC" ]
         then
