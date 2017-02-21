@@ -124,12 +124,23 @@ function mdless() {
 }
 
 # Interfacing with the ("desktop") clipboard.
-if command_exists xclip ; then
-    # Copy current working directory to system clipboard.
-    alias copypwd='pwd | head -c -1 | xclip -sel clip'
+#
+#   - copypwd    Copy current working directory to system clipboard.
+#   - gcopylog   Copy the most recent commit message to the clipboard.
 
-    # Copy last commit message to the clipboard.
-    alias gcopylog='git log -1 --pretty=format:%s%n%b | xclip -sel clip'
+# TODO: Temporary solution for platform-specific stuff ..
+if [[ "$OSTYPE" =~ "linux" ]]; then
+    if command_exists xclip ; then
+        alias copypwd='pwd | head -c -1 | xclip -sel clip'
+        alias gcopylog='git log -1 --pretty=format:%s%n%b | xclip -sel clip'
+    fi
+elif [[ "$OSTYPE" =~ "darwin" ]]; then
+    # MacOS head does not support leaving off the last byte as in 'head -c -1'.
+    # So use 'tr' instead to strip _all_ new lines (\n).  This is meant to
+    # prevent direct execution when pasting to a terminal. However ..
+    # TODO: Look up whether this is necessary.
+    alias copypwd='pwd | tr -d "\n" | pbcopy'
+    alias gcopylog='git log -1 --pretty=format:%s%n%b | pbcopy'
 fi
 
 # Find files and directories in current directory. Case insensitive.
