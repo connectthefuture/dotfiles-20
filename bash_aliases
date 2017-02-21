@@ -61,12 +61,18 @@ alias gdcaw='git diff --cached --word-diff'
 
 # Git clone wrapper keeps the trailing ".git" in the destination name.
 function gcl() {
-    [ -z "$1" ] && return
-    local iconpath="/usr/share/icons/hicolor/scalable/apps/gitg-symbolic.svg"
-    [ -r "$iconpath" ] || iconpath=''
+    [ -z "${1:-}" ] && return
+
     dest="$(basename "${1}")"
-    git clone "$1" "$dest" && trynotify -i "$iconpath" "Git clone finished" \
-    "Source repo: \"${1}\"\nReceived (size, destination): $(du -hs "$dest")"
+    if git clone "$1" "$dest" ; then
+        local iconpath="/usr/share/icons/hicolor/scalable/apps/gitg-symbolic.svg"
+        [ -r "$iconpath" ] || iconpath=''
+
+        dest_size="$(du -hs "$dest")"
+
+        trynotify -i "$iconpath" "Git clone finished" \
+        "Source repo: \"${1}\"\nReceived (size, destination): ${dest_size}"
+    fi
 }
 
 # apt
