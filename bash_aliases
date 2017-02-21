@@ -81,13 +81,21 @@ apts() { apt-cache search ^${1} | egrep --color=always "^[^-]+"; }
 alias aptsh='apt-cache show'
 alias aptin='sudo apt-get install'
 
-# Miscellaneous ..
-alias open='xdg-open'
+# Miscellaneous aliases.
 alias hgrep='history | grep -i --'
-alias trash="gvfs-trash"
+
+if command_exists xdg-open ; then
+    alias open='xdg-open'
+fi
+
+if command_exists gvfs-trash ; then
+    alias trash="gvfs-trash"
+fi
+
 alias vilog='vim ~/Dropbox/log/log.md'
 alias grepin='grep --initial-tab --color=always --exclude-dir={.git,.idea,node_modules} -iRnHa --'
 alias dfu='df -h -T -x devtmpfs -x tmpfs'
+
 # Output ANSI "color" escape sequences in raw form. Suppress slow line numbers.
 alias less='less --RAW-CONTROL-CHARS --line-numbers'
 
