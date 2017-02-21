@@ -160,6 +160,7 @@ fi
 # "Safer" variants of standard commands
 alias move="mv -nvi --"
 alias copy="cp -nv --"
+alias delete="rm -vi --"
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
