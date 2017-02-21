@@ -3,7 +3,7 @@
 
 #   DOTFILES SETUP SCRIPT
 #                              written by Jonas Sjöberg for *personal* use
-#                                                 Last updated: 2016-10-03
+#                                                 Last updated: 2017-02-20
 #   ______________________________________________________________________
 
 #   Should only ever need to be executed after a clean reinstall of the home
@@ -26,8 +26,8 @@ VERBOSE="true"
 set -e                         # Exit immediately if a command returns non-zero.
 
 # Set useful variables.
-DOTFILES_ROOT=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-TEMP_DIR=$(mktemp -d /tmp/dotfiles.XXXXXX)
+DOTFILES_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+TEMP_DIR="$(mktemp -d /tmp/dotfiles.XXXXXX)"
 ts="$(date +%F_%H-%M-%S)"
 BACKUP_ARCHIVE="${HOME}/dotfiles_${ts}.tar.gz"
 
@@ -42,23 +42,23 @@ print_info()
 # Print error and exit.
 die()
 {
-    [ ! -z "$1" ] && printf "[!] ERROR: %s\n" "$1" 1>&2
+    [ ! -z "${1:-}" ] && printf "[!] ERROR: %s\n" "$1" 1>&2
     exit 1
 }
 
 
 [ "$VERBOSE" ] && cat << EOF
 ────────────────────────────────────────────────────────────────────────────────
-  Dotfiles setup script
-  =====================
+  Dotfiles setup script                                     www.jonasjberg.com
+  =====================                                  github.com/jonasjberg
+                                                         PERSONAL USE INTENDED
+* Started with root: "$DOTFILES_ROOT"
 
-* started with root: $DOTFILES_ROOT
+* Will symlink from Source: "$HOME"
+         .. to Destination: "$DOTFILES_ROOT"
+  .. acting on these Files: "$CONFIGFILES"
 
-* will symlink from source: $HOME
-         .. to destination: $DOTFILES_ROOT
-  .. acting on these files: $CONFIGFILES
-
-* archiving any existing to: $BACKUP_ARCHIVE
+* Archiving existing to: "$BACKUP_ARCHIVE"
 ────────────────────────────────────────────────────────────────────────────────
 
 EOF
@@ -79,7 +79,8 @@ do
 
     if [ -e "$THIS_SRC" ]
     then
-        [ ! -d $TEMP_DIR ] && die "Unable to create temporary folder"
+        [ -d $TEMP_DIR ] || die "Unable to create temporary folder"
+        [ -r $TEMP_DIR ] || die "Need R/W-permissions for temporary folder"
 
         if [ -L "$THIS_SRC" ]
         then
@@ -108,12 +109,12 @@ print_info "done"
 # exists. If it does, assume it contains our old dotfiles.
 # Create a zipped tar archive with a date and timestamp in the filename.
 # Then go ahead aand remove the temporary directory and files.
-if [ -d "${TEMP_DIR}" ]
+if [ -d "$TEMP_DIR" ]
 then
     print_info "Archiving the old dotfiles"
 
     # This assumes more than a minute passes between runs .. file exists error?
-    find "${TEMP_DIR}" -maxdepth 1 -type f -name ".*" -exec tar vczf "$BACKUP_ARCHIVE" "{}" +
+    find "$TEMP_DIR" -xdev -maxdepth 1 -type f -name ".*" -exec tar vczf "$BACKUP_ARCHIVE" '{}' +
 
     print_info "Done"
     print_info "Removing temporary files"
