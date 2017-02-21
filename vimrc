@@ -67,6 +67,9 @@ set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 
+" Overrule the 'ft-tex-plugin' format detection heuristics.
+let g:tex_flavor='latex'
+
 " _______ COMPLETION __________________________________________________________
 set completeopt=longest,menuone
 
