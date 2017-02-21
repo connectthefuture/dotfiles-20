@@ -104,9 +104,11 @@ alias less='less --RAW-CONTROL-CHARS --line-numbers'
 # The second argument is the pattern to match.
 # The output is columnated by file name, line number and matched text.
 function grepsrctype() {
-    grep --color=always --exclude-dir=".git" --include="*.${1}" -RnHa -- "$2" . \
-    | column -t -s:
+    grep --color=always --exclude-dir={.git,.idea,node_modules} \
+         --include="*.${1}" -RnHa -- "$2" . | column -t -s':'
 }
+
+# Aliases for grepping files with specific file extensions.
 alias grepsrcjava="grepsrctype java "$*""
 alias grepsrcpy="grepsrctype py "$*""
 alias grepsrcmd="grepsrctype md "$*""
