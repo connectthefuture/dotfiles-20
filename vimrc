@@ -206,10 +206,6 @@ imap <leader>{ {}<ESC>i
 " Strip all trailing whitespace in current file with <leader> W.
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
-" View text file in two columns.
-" Activate with <leader>vs Deactivate with ctrl-W then o.
-:noremap <silent> <Leader>vs :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
-
 " Switch back and forth between last two open buffers.
 nnoremap <leader><leader> <c-^>
 
