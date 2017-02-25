@@ -87,7 +87,7 @@ set numberwidth=1               " Keep gutter as small as can be
 set showmatch                   " Show matching brackets
 set ruler                       " Show column and row in footer
 "set list                       " Show whitespace
-set listchars=tab:▸\ ,eol:¬     " Show tabs with ▸, eol with ¬
+"set listchars=tab:▸\ ,eol:¬     " Show tabs with ▸, eol with ¬
 set laststatus=2                " Add full file path to your existing statusline
 set t_Co=256                    " 256 color support
 set lazyredraw                  " Don't redraw during macros, etc
