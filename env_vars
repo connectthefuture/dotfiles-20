@@ -22,6 +22,12 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
 
 # TODO: Temporary solution for platform-specific stuff ..
+# FIXME: Below "regex"-comparsion does not work on MacOS due to very old
+#        version of bash shipped with MacOS.
+#
+#          $ bash --version
+#          GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin16)
+#
 if [[ "$OSTYPE" =~ "darwin" ]]; then
     # Setting PATH for Python 3.6
     PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
