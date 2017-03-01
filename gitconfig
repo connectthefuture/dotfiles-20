@@ -22,7 +22,7 @@
     cmd = /usr/local/bin/vis_diff.sh $LOCAL $REMOTE x:
     prompt = false[gui]
 [diff "image"]
-    command = ~/bin/git-imgdiff
+    command = ~/dotfiles/git/git-imgdiff.sh
 [alias]
     lol = log --graph --oneline --decorate
     ldiff = difftool -t latex
