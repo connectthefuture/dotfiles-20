@@ -32,4 +32,9 @@ if [[ "$OSTYPE" == "darwin16" ]]; then
     # Setting PATH for Python 3.6
     PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
     export PATH
+
+    if [ -d "/Applications/microchip/xc8/v1.41/bin" ]; then
+        export PATH="$PATH:/Applications/microchip/xc8/v1.41/bin"
+    fi
 fi
+
