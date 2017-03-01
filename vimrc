@@ -67,6 +67,9 @@ set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 
+" Overrule the 'ft-tex-plugin' format detection heuristics.
+let g:tex_flavor='latex'
+
 " _______ COMPLETION __________________________________________________________
 set completeopt=longest,menuone
 
@@ -84,7 +87,7 @@ set numberwidth=1               " Keep gutter as small as can be
 set showmatch                   " Show matching brackets
 set ruler                       " Show column and row in footer
 "set list                       " Show whitespace
-set listchars=tab:▸\ ,eol:¬     " Show tabs with ▸, eol with ¬
+"set listchars=tab:▸\ ,eol:¬     " Show tabs with ▸, eol with ¬
 set laststatus=2                " Add full file path to your existing statusline
 set t_Co=256                    " 256 color support
 set lazyredraw                  " Don't redraw during macros, etc
@@ -205,10 +208,6 @@ imap <leader>{ {}<ESC>i
 
 " Strip all trailing whitespace in current file with <leader> W.
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
-
-" View text file in two columns.
-" Activate with <leader>vs Deactivate with ctrl-W then o.
-:noremap <silent> <Leader>vs :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
 
 " Switch back and forth between last two open buffers.
 nnoremap <leader><leader> <c-^>
