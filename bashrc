@@ -11,15 +11,19 @@ esac
 HISTCONTROL=ignoreboth
 
 # Do not truncate the history file, I.E. unlimited size.
-HISTSIZE=-1
-HISTFILESIZE=-1
-HISTFILE="${HOME}/.bash_history"
+# HISTSIZE=-1
+# HISTFILESIZE=-1
+# HISTFILE="${HOME}/.bash_history"
 
 # History entry timestamps in ISO-8601 format ('YYYY-MM-DD HH:MM:SS').
 HISTTIMEFORMAT='%F %T '
 
 # Continuously write history to disk. Synchronizes history between shells.
-PROMPT_COMMAND='history -a ; history -n'
+# Doesn't seem to work very well with iterm2 in MacOS, with Bash version:
+# "GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin16)"
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    PROMPT_COMMAND='history -a ; history -n'
+fi
 
 # Append, do not overwrite history.
 shopt -s histappend
