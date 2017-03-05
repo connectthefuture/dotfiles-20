@@ -38,7 +38,10 @@ fi
 
 alias la='ls -A'
 alias l='ls -Ahl'
-alias ll='ls -Ahl --time-style=long-iso'
+# TODO: Temporary solution for platform-specific stuff ..
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    alias ll='ls -Ahl --time-style=long-iso'
+fi
 
 # Related to shell builtins
 alias ..='cd ..'
