@@ -11,9 +11,9 @@ esac
 HISTCONTROL=ignoreboth
 
 # Do not truncate the history file, I.E. unlimited size.
-# HISTFILE="${HOME}/.bash_history"
 HISTSIZE=
 HISTFILESIZE=
+HISTFILE="${HOME}/.bash_history"
 
 # History entry timestamps in ISO-8601 format ('YYYY-MM-DD HH:MM:SS').
 HISTTIMEFORMAT='%F %T '
