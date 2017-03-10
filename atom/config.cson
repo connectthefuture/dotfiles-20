@@ -1,0 +1,41 @@
+"*":
+  core:
+    audioBeep: false
+    disabledPackages: [
+      "markdown-preview"
+      "metrics"
+      "exception-reporting"
+      "background-tips"
+    ]
+    telemetryConsent: "no"
+    themes: [
+      "atom-dark-ui"
+      "atom-dark-syntax"
+    ]
+  editor:
+    fontSize: 11
+    showIndentGuide: true
+    tabLength: 4
+    tabType: "soft"
+  "markdown-preview-plus":
+    enablePandoc: true
+    pandocArguments: [
+      "--smart"
+      "--standalone"
+    ]
+  "spell-check":
+    addKnownWords: true
+    locales: [
+      "en-US"
+      "sv-SE"
+    ]
+  "vim-mode-plus":
+    highlightSearch: true
+    incrementalSearch: true
+    smoothScrollOnFullScrollMotion: true
+    smoothScrollOnFullScrollMotionDuration: 100
+    smoothScrollOnHalfScrollMotion: true
+    smoothScrollOnHalfScrollMotionDuration: 100
+    useSmartcaseForSearch: true
+  welcome:
+    showOnStartup: false
