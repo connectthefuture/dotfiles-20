@@ -49,18 +49,20 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 
 # Git
-alias gst='git status'
-alias ga='git add'
-alias gaa='git add --all'
-alias gap='git add --patch'
-alias gc='git commit --verbose'
-alias gca='git commit --verbose --amend'
-alias gco='git checkout'
-alias gcm='git checkout master'
-alias gd='git diff'
-alias gdw='git diff --word-diff'
-alias gdca='git diff --cached'
-alias gdcaw='git diff --cached --word-diff'
+if command_exists git ; then
+    alias gst='git status'
+    alias ga='git add'
+    alias gaa='git add --all'
+    alias gap='git add --patch'
+    alias gc='git commit --verbose'
+    alias gca='git commit --verbose --amend'
+    alias gco='git checkout'
+    alias gcm='git checkout master'
+    alias gd='git diff'
+    alias gdw='git diff --word-diff'
+    alias gdca='git diff --cached'
+    alias gdcaw='git diff --cached --word-diff'
+fi
 
 # Git clone wrapper keeps the trailing ".git" in the destination name.
 function gcl() {
