@@ -144,6 +144,10 @@ elif [[ "$OSTYPE" == "darwin16" ]]; then
     # TODO: Look up whether this is necessary.
     alias copypwd='pwd | tr -d "\n" | pbcopy'
     alias gcopylog='git log -1 --pretty=format:%s%n%b | pbcopy'
+
+    if [ -x '/Applications/VLC.app/Contents/MacOS/VLC' ]; then
+        alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
+    fi
 fi
 
 # Find files and directories in current directory. Case insensitive.
