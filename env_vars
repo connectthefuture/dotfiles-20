@@ -7,7 +7,7 @@ export EDITOR=vim
 
 
 # Add user-local bin to path.
-[ -d "${HOME}/Bin" ] && export PATH=$PATH:${HOME}/Bin
+[ -d "${HOME}/Bin" ] && PATH="${PATH}:${HOME}/Bin"
 
 
 # Highlighting inside manpages and elsewhere.
@@ -30,11 +30,11 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 #
 if [[ "$OSTYPE" == "darwin16" ]]; then
     # Setting PATH for Python 3.6
-    PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
-    export PATH
+    PATH="${PATH}:/Library/Frameworks/Python.framework/Versions/3.6/bin"
 
+    # Microchip XC8 compiler
     if [ -d "/Applications/microchip/xc8/v1.41/bin" ]; then
-        export PATH="$PATH:/Applications/microchip/xc8/v1.41/bin"
+        PATH="${PATH}:/Applications/microchip/xc8/v1.41/bin"
     fi
 fi
 
