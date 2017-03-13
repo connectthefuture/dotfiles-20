@@ -36,5 +36,10 @@ if [[ "$OSTYPE" == "darwin16" ]]; then
     if [ -d "/Applications/microchip/xc8/v1.41/bin" ]; then
         PATH="${PATH}:/Applications/microchip/xc8/v1.41/bin"
     fi
+
+    if [ -n "$(which port)" ]; then
+        # MacPorts Installer addition, PATH variable for use with MacPorts.
+        PATH="/opt/local/bin:/opt/local/sbin:${PATH}"
+    fi
 fi
 
