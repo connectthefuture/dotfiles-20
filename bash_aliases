@@ -107,10 +107,14 @@ alias less='less --RAW-CONTROL-CHARS --line-numbers'
 # Recursively grep the current working directory, including only files
 # with a specified extension, specified with the first argument.
 # The second argument is the pattern to match.
-# The output is columnated by file name, line number and matched text.
+# Whitespaces are collapsed with 'tr', output is then columnated by file name,
+# line number and matched text. Finally, less is used to page if the output
+# does not fit in one screen, '-R' enables picking up ANSI-escape characters.
 function grepsrctype() {
     grep --color=always --exclude-dir={.git,.idea,node_modules} \
-         --include="*.${1}" -RnHa -- "$2" . | column -t -s':'
+         --include="*.${1}" -RnHa -- "$2" . \
+    | tr -s ' ' | column -t -s':' \
+    | less --RAW-CONTROL-CHARS --quit-if-one-screen --chop-long-lines
 }
 
 # Aliases for grepping files with specific file extensions.
