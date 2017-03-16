@@ -24,6 +24,7 @@ Plugin 'scrooloose/nerdcommenter'       " Code commenting
 Plugin 'tpope/vim-surround'             " Surround with chars or words
 "Plugin 'vim-scripts/AutoComplPop.git'
 Plugin 'dhruvasagar/vim-table-mode'     " VIM Table Mode
+Plugin 'ctrlpvim/ctrlp.vim'
 call vundle#end()
 
 filetype plugin indent on               " Use indentation scripts (required(?))
