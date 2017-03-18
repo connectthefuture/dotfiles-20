@@ -20,8 +20,7 @@ ZSH
 2. Install oh-my-zsh. Assumes you really trust their code ..
 
     ```bash
-    export ZSH=/home/spock/dotfiles/oh-my-zsh
-    wget --no-check-certificate http://install.ohmyz.sh -O - | sh
+    export ZSH="$HOME/dotfiles/oh-my-zsh"; sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     ```
 
 3. Set zsh to default shell:
