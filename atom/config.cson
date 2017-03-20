@@ -16,6 +16,8 @@
   editor:
     fontSize: 11
     showIndentGuide: true
+    softWrap: false
+    softWrapAtPreferredLineLength: false
     tabLength: 4
     tabType: "soft"
   "markdown-preview-plus":
@@ -40,3 +42,9 @@
     useSmartcaseForSearch: true
   welcome:
     showOnStartup: false
+".gfm.source":
+  editor:
+    softWrap: false
+".plain.text":
+  editor:
+    softWrap: false
