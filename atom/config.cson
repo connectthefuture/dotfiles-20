@@ -20,6 +20,9 @@
     softWrapAtPreferredLineLength: false
     tabLength: 4
     tabType: "soft"
+  "git-plus":
+    commits:
+      verboseCommits: true
   "markdown-preview-plus":
     enablePandoc: true
     pandocArguments: [
