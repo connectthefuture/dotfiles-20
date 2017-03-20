@@ -24,6 +24,7 @@
     commits:
       verboseCommits: true
   "markdown-preview-plus":
+    enableLatexRenderingByDefault: true
     enablePandoc: true
     pandocArguments: [
       "--smart"
