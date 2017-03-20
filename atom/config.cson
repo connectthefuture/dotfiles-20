@@ -6,6 +6,7 @@
       "metrics"
       "exception-reporting"
       "background-tips"
+      "image-view"
     ]
     telemetryConsent: "no"
     themes: [
