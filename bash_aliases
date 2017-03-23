@@ -37,10 +37,12 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 alias la='ls -A'
+alias lld='ls -lUd */'
 alias l='ls -Ahl'
 # TODO: Temporary solution for platform-specific stuff ..
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     alias ll='ls -Ahl --time-style=long-iso'
+    alias lld='ls -lUd --time-style=long-iso */'
 fi
 
 # Related to shell builtins
