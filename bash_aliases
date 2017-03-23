@@ -99,9 +99,12 @@ if command_exists gvfs-trash ; then
     alias trash="gvfs-trash"
 fi
 
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    alias dfu='df -h -T -x devtmpfs -x tmpfs'
+fi
+
 alias vilog='vim ~/Dropbox/log/log.md'
 alias grepin='grep --initial-tab --color=always --exclude-dir={.git,.idea,node_modules} -iRnHa --'
-alias dfu='df -h -T -x devtmpfs -x tmpfs'
 
 # Output ANSI "color" escape sequences in raw form. Suppress slow line numbers.
 alias less='less --RAW-CONTROL-CHARS --line-numbers'
