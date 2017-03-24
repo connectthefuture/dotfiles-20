@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+export ZSH="${HOME}/dotfiles/oh-my-zsh"
 
 # Enable 256 color support
 export TERM="xterm-256color"
