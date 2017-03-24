@@ -187,19 +187,19 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 
 # Shortcuts for changing the shell working directory.
-# Function 'cd_existing_dir' checks that the given argument is an existing
-# directory before changing to it. Used by the below aliases.
-cd_existing_dir() {
-    [ -d "$1" ] && cd "$1"
+# Function 'alias_existing_dir' checks that the first argument is an existing
+# directory before creating an alias, given as the second argument, to it.
+alias_existing_dir() {
+    [ -d "$1" ] && alias "$2"="cd $1"
 }
 
 # Aliases for commonly used directories.
-alias cdv021='cd_existing_dir ~/LNU/1DV021_Grundprog/'
-alias cdv022='cd_existing_dir ~/LNU/1DV022_KlientbasWebbprog/'
-alias cdv321='cd_existing_dir ~/LNU/1ME321_Webbteknik/'
-alias cdv506='cd_existing_dir ~/LNU/1DV506_Problemlosning/'
-alias cdv507='cd_existing_dir ~/LNU/1DV507_Datastrukturer/'
-alias cdv600='cd_existing_dir ~/LNU/1DV600_Programvaruteknik/'
-alias cdv430='cd_existing_dir ~/LNU/1DV430_IndividuelltProjekt/'
-alias cdv031='cd_existing_dir ~/LNU/1DV031_Systemadministration/'
+alias_existing_dir ~/LNU/1DV021_Grundprog/            cdv021
+alias_existing_dir ~/LNU/1DV022_KlientbasWebbprog/    cdv022
+alias_existing_dir ~/LNU/1ME321_Webbteknik/           cdv321
+alias_existing_dir ~/LNU/1DV506_Problemlosning/       cdv506
+alias_existing_dir ~/LNU/1DV507_Datastrukturer/       cdv507
+alias_existing_dir ~/LNU/1DV600_Programvaruteknik/    cdv600
+alias_existing_dir ~/LNU/1DV430_IndividuelltProjekt/  cdv430
+alias_existing_dir ~/LNU/1DV031_Systemadministration/ cdv031
 
