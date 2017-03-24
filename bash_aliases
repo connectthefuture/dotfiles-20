@@ -200,3 +200,6 @@ alias cdv321='cd_existing_dir ~/LNU/1ME321_Webbteknik/'
 alias cdv506='cd_existing_dir ~/LNU/1DV506_Problemlosning/'
 alias cdv507='cd_existing_dir ~/LNU/1DV507_Datastrukturer/'
 alias cdv600='cd_existing_dir ~/LNU/1DV600_Programvaruteknik/'
+alias cdv430='cd_existing_dir ~/LNU/1DV430_IndividuelltProjekt/'
+alias cdv031='cd_existing_dir ~/LNU/1DV031_Systemadministration/'
+
