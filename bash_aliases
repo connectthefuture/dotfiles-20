@@ -1,6 +1,17 @@
 # ~/.bash_aliases -- Aliases, sourced by ~/.bashrc.
 
 
+# Source files with OS-specific bash aliases.
+unset _bash_aliases_os
+case "$OSTYPE" in
+    darwin*) _bash_aliases_os="${HOME}/dotfiles/bash_aliases_darwin" ;;
+    linux*)  _bash_aliases_os="${HOME}/dotfiles/bash_aliases_linux"  ;;
+    *)       ;; # Missing file for this OS.
+esac
+
+[ -f "$_bash_aliases_os" ] && source "$_bash_aliases_os"
+
+
 # Tests that a command or list of commands are available.
 # Returns true if ALL commands are available. Else false.
 function command_exists() {
@@ -39,11 +50,6 @@ fi
 alias la='ls -A'
 alias lld='ls -lUd */'
 alias l='ls -Ahl'
-# TODO: Temporary solution for platform-specific stuff ..
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    alias ll='ls -Ahl --time-style=long-iso'
-    alias lld='ls -lUd --time-style=long-iso */'
-fi
 
 # Related to shell builtins
 alias ..='cd ..'
@@ -90,19 +96,8 @@ alias aptin='sudo apt-get install'
 
 # Miscellaneous aliases.
 alias hgrep='history | grep -i --'
-
-# Linux system specific aliases.
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    if command_exists gvfs-trash ; then
-        alias trash="gvfs-trash"
-    fi
-
-    alias dfu='df -h -T -x devtmpfs -x tmpfs'
-    alias open='xdg-open'
-fi
-
 alias vilog='vim ~/Dropbox/log/log.md'
-alias grepin='grep --initial-tab --color=always --exclude-dir={.git,.idea,node_modules} -iRnHa --'
+alias grepin='grep --color=always --exclude-dir={.git,.idea,node_modules} -iRnHa --'
 
 # Output ANSI "color" escape sequences in raw form. Suppress slow line numbers.
 alias less='less --RAW-CONTROL-CHARS --line-numbers'
@@ -134,30 +129,6 @@ function mdless() {
         pandoc "$1" | lynx -stdin -dump | less;
     fi
 }
-
-# Interfacing with the ("desktop") clipboard.
-#
-#   - copypwd    Copy current working directory to system clipboard.
-#   - gcopylog   Copy the most recent commit message to the clipboard.
-
-# TODO: Temporary solution for platform-specific stuff ..
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    if command_exists xclip ; then
-        alias copypwd='pwd | head -c -1 | xclip -sel clip'
-        alias gcopylog='git log -1 --pretty=format:%s%n%b | xclip -sel clip'
-    fi
-elif [[ "$OSTYPE" == "darwin16" ]]; then
-    # MacOS head does not support leaving off the last byte as in 'head -c -1'.
-    # So use 'tr' instead to strip _all_ new lines (\n).  This is meant to
-    # prevent direct execution when pasting to a terminal. However ..
-    # TODO: Look up whether this is necessary.
-    alias copypwd='pwd | tr -d "\n" | pbcopy'
-    alias gcopylog='git log -1 --pretty=format:%s%n%b | pbcopy'
-
-    if [ -x '/Applications/VLC.app/Contents/MacOS/VLC' ]; then
-        alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
-    fi
-fi
 
 # Find files and directories in current directory. Case insensitive.
 findhere() { find . -iname "*${1}*" 2>/dev/null; }

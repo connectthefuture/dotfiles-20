@@ -1,0 +1,26 @@
+# ~/.bash_aliases_linux -- Linux-specific aliases, sourced by ~/.bash_aliases.
+
+
+# ls
+alias ll='ls -Ahl --time-style=long-iso'
+alias lld='ls -lUd --time-style=long-iso */'
+
+
+# Miscellaneous aliases.
+if command_exists gvfs-trash ; then
+    alias trash="gvfs-trash"
+fi
+
+alias dfu='df -h -T -x devtmpfs -x tmpfs'
+alias open='xdg-open'
+alias grepin='grep --initial-tab --color=always --exclude-dir={.git,.idea,node_modules} -iRnHa --'
+
+# Interfacing with the ("desktop") clipboard.
+#
+#   - copypwd    Copy current working directory to system clipboard.
+#   - gcopylog   Copy the most recent commit message to the clipboard.
+#
+if command_exists xclip ; then
+    alias copypwd='pwd | head -c -1 | xclip -sel clip'
+    alias gcopylog='git log -1 --pretty=format:%s%n%b | xclip -sel clip'
+fi
