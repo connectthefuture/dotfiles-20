@@ -91,16 +91,14 @@ alias aptin='sudo apt-get install'
 # Miscellaneous aliases.
 alias hgrep='history | grep -i --'
 
-if command_exists xdg-open ; then
-    alias open='xdg-open'
-fi
-
-if command_exists gvfs-trash ; then
-    alias trash="gvfs-trash"
-fi
-
+# Linux system specific aliases.
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    if command_exists gvfs-trash ; then
+        alias trash="gvfs-trash"
+    fi
+
     alias dfu='df -h -T -x devtmpfs -x tmpfs'
+    alias open='xdg-open'
 fi
 
 alias vilog='vim ~/Dropbox/log/log.md'
