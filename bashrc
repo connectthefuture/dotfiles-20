@@ -79,6 +79,9 @@ set -o vi
 # Only load Liquid Prompt in interactive shells, not from a script or from scp.
 [[ $- = *i* ]] && [[ -f "${HOME}/dotfiles/liquidprompt" ]] && source "${HOME}/dotfiles/liquidprompt"
 
+# Load "zfz -- Command-line Fuzzy Finder" config if available.
+[ -f "$HOME/.fzf.bash" ] && source "$HOME/.fzf.bash"
+
 # Temporary solution for platform-specific stuff ..
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     # Make the "Caps Lock" behave as another "Ctrl" key.
