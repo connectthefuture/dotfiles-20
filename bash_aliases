@@ -1,17 +1,6 @@
 # ~/.bash_aliases -- Aliases, sourced by ~/.bashrc.
 
 
-# Source files with OS-specific bash aliases.
-unset _bash_aliases_os
-case "$OSTYPE" in
-    darwin*) _bash_aliases_os="${HOME}/dotfiles/bash_aliases_darwin" ;;
-    linux*)  _bash_aliases_os="${HOME}/dotfiles/bash_aliases_linux"  ;;
-    *)       ;; # Missing file for this OS.
-esac
-
-[ -f "$_bash_aliases_os" ] && source "$_bash_aliases_os"
-
-
 # Tests that a command or list of commands are available.
 # Returns true if ALL commands are available. Else false.
 function command_exists() {
@@ -170,4 +159,15 @@ alias_existing_dir ~/LNU/1DV507_Datastrukturer/       cdv507
 alias_existing_dir ~/LNU/1DV600_Programvaruteknik/    cdv600
 alias_existing_dir ~/LNU/1DV430_IndividuelltProjekt/  cdv430
 alias_existing_dir ~/LNU/1DV031_Systemadministration/ cdv031
+
+
+# Source files with OS-specific bash aliases.
+unset _bash_aliases_os
+case "$OSTYPE" in
+    darwin*) _bash_aliases_os="${HOME}/dotfiles/bash_aliases_darwin" ;;
+    linux*)  _bash_aliases_os="${HOME}/dotfiles/bash_aliases_linux"  ;;
+    *)       ;; # Missing file for this OS.
+esac
+
+[ -f "$_bash_aliases_os" ] && . "$_bash_aliases_os"
 
