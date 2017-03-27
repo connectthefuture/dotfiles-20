@@ -97,7 +97,6 @@ alias aptin='sudo apt-get install'
 # Miscellaneous aliases.
 alias hgrep='history | grep -i --'
 alias vilog='vim ~/Dropbox/log/log.md'
-alias grepin='grep --color=always --exclude-dir={.git,.idea,node_modules} -iRnHa --'
 
 # Output ANSI "color" escape sequences in raw form. Suppress slow line numbers.
 alias less='less --RAW-CONTROL-CHARS --line-numbers'
