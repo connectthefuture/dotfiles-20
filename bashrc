@@ -88,3 +88,10 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
         [ -r ~/.dircolors ] && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     fi
 fi
+
+# Temporary solution for platform-specific stuff ..
+if [[ "$OSTYPE" =~ "darwin" ]]; then
+    # Enable ls colors. Setting 'CLICOLOR' is equivalent to running 'ls -G'.
+    export CLICOLOR=1
+fi
+
