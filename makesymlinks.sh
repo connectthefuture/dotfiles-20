@@ -173,3 +173,6 @@ then
 else
     die "${OMZ_THEMES} doesn't exist. Make sure oh-my-zsh is installed."
 fi
+
+# TODO: Liquid Prompt configuration file should be linked
+#       from ~/dotfiles/liquidpromptrc to ~/.liquidpromptrc
