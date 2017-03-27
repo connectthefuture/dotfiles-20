@@ -71,16 +71,16 @@ set -o vi
 
 
 # Source aliases from separate file if present.
-[ -f "${HOME}/.bash_aliases" ] && source "${HOME}/.bash_aliases"
-[ -f "${HOME}/.bashrc_local" ] && source "${HOME}/.bashrc_local"
-[ -f "${HOME}/.env_vars"     ] && source "${HOME}/.env_vars"
+[ -f "${HOME}/.bash_aliases" ] && . "${HOME}/.bash_aliases"
+[ -f "${HOME}/.bashrc_local" ] && . "${HOME}/.bashrc_local"
+[ -f "${HOME}/.env_vars"     ] && . "${HOME}/.env_vars"
 
 # All prompt customization - colors, format, etc; is handled by liquidprompt.
 # Only load Liquid Prompt in interactive shells, not from a script or from scp.
-[[ $- = *i* ]] && [[ -f "${HOME}/dotfiles/liquidprompt" ]] && source "${HOME}/dotfiles/liquidprompt"
+[[ $- = *i* ]] && [ -f "${HOME}/dotfiles/liquidprompt" ] && . "${HOME}/dotfiles/liquidprompt"
 
 # Load "zfz -- Command-line Fuzzy Finder" config if available.
-[ -f "$HOME/.fzf.bash" ] && source "$HOME/.fzf.bash"
+[ -f "$HOME/.fzf.bash" ] && . "$HOME/.fzf.bash"
 
 # Temporary solution for platform-specific stuff ..
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
