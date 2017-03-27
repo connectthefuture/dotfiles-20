@@ -45,10 +45,6 @@ shopt -s histverify
 # Make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# Enable color support of ls and also add handy aliases.
-if [ -x /usr/bin/dircolors ]; then
-    [ -r ~/.dircolors ] && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-fi
 
 # Enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -86,4 +82,9 @@ set -o vi
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     # Make the "Caps Lock" behave as another "Ctrl" key.
     setxkbmap -option ctrl:nocaps
+
+    # Enable ls color support.
+    if [ -x /usr/bin/dircolors ]; then
+        [ -r ~/.dircolors ] && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    fi
 fi
