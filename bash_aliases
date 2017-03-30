@@ -99,7 +99,7 @@ alias less='less --RAW-CONTROL-CHARS --line-numbers'
 function grepsrctype() {
     grep --color=always --exclude-dir={.git,.idea,node_modules} \
          --include="*.${1}" -RnHa -- "$2" . \
-    | tr -s ' ' | column -t -s':' \
+    | tr -s ' ' \
     | less --RAW-CONTROL-CHARS --quit-if-one-screen --chop-long-lines
 }
 
