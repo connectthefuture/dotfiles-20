@@ -27,3 +27,9 @@ set page-completions off
 
 # Down arrow
 "\e[B":history-search-forward
+
+# Map non-breaking spaces to normal spaces.  Solves a frustrating problem where
+# non-breaking spaces are inserted instead of spaces in bash under MacOS.
+# Probable explanation and solution from this post:
+# https://relativkreativ.at/articles/why-chaining-commands-with-pipes-in-mac-os-x-does-not-always-work
+"\xC2\xA0": " "
