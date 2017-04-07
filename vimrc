@@ -48,6 +48,7 @@ syntax enable               " Enable syntax highlighting
 "autocmd BufEnter * cd %:p:h " Automatically change current directory to file dir
 set virtualedit=block       " Allow moving to empty space in visual block mode
 set wildmenu                " Show possible autocompletions
+set iskeyword-=_            " Add underscore to keywords
 
 " Jump to the last position when reopening a file
 if has("autocmd")
