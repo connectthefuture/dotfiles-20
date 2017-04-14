@@ -46,6 +46,40 @@ die()
     exit 1
 }
 
+# Creates a symlink after having made sure that the link target exists.
+# Any existing file at the destination link path is moved to a temporary
+# directory to be backed up, links are simply deleted.
+#
+# Example usage:  symlink_dotfile ~/dotfiles/ideavimrc ~/.ideavimrc
+#                                 \___ argument #1 __/ \_ arg #2 _/
+#                                      (_target)          (_link)
+symlink_dotfile()
+{
+    _target="${1:-}"
+    _link="${2:-}"
+
+    if [ ! -e "$_target" ]
+    then
+        msg_error "Symlink target does not exist: \"${_target}\""
+        return 1
+    fi
+
+    if [ -e "$_link" ]
+    then
+        if [ -L "$_link" ]
+        then
+            # Remove existing symlink.
+            rm -v -- "$_link"
+        else
+            # Move existing file to temporary directory.
+            mv -vn -- "$_link" "$_TMPDIR"
+        fi
+    fi
+
+    msg_info "Creating symlink"
+    ln -vsi -- "$_target" "$_link"
+}
+
 
 [ "$VERBOSE" ] && cat << EOF
 ────────────────────────────────────────────────────────────────────────────────
