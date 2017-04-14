@@ -25,6 +25,8 @@ Plugin 'tpope/vim-surround'             " Surround with chars or words
 "Plugin 'vim-scripts/AutoComplPop.git'
 Plugin 'dhruvasagar/vim-table-mode'     " VIM Table Mode
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 call vundle#end()
 
 filetype plugin indent on               " Use indentation scripts (required(?))
